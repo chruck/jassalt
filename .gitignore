@@ -26,3 +26,13 @@
 *.exe
 *.out
 *.app
+
+# vi backup files
+*~
+.*~
+
+# backup files
+*.orig
+.*.orig
+*.bak
+.*.bak

@@ -1,3 +1,14 @@
+{% set opensshd = openssh-server %}
+{% set man = man-db %}
+{% set nslookup = dnsutils %}
+{% set script = bsdutils %}
+{% set tail = coreutils %}
+{% set traceroute = inetutils-traceroute %}
+{% set vim-doc = vim-doc %}
+{% set vim-scripts = vim-scripts %}
+{% set gvim = vim-gtk %}
+{% set watch = procps %}
+
 Must-Haves:
   pkg.installed:
     - install_recommends: False
@@ -7,6 +18,7 @@ Must-Haves:
       - di
       - git
       - git-completion
+      - git-doc
       - grep
       - indent
       - less
@@ -17,23 +29,25 @@ Must-Haves:
       - w3m
       - w3m-img
       - make
-      - man
+      - {{ man }}
       - info
-      - nslookup
-      - opensshd
+      - {{ nslookup }}
+      - {{ opensshd }}
       - pv
       - reptyr
       - rlwrap
       - rsync
       - screen
-      - script
+      - {{ script }}
       - sed
-      - tail
-      - traceroute
+      - {{ tail }}
+      - {{ traceroute }}
       - tcptraceroute
       - vim
-      - gvim
-      - procps
+      - {{ gvim }}
+      - {{ vim-doc }}
+      - {{ vim-scripts }}
+      - {{ watch }}
       - whois
 
 Must-Not-Haves:

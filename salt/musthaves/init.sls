@@ -4,8 +4,8 @@
 {% set script = bsdutils %}
 {% set tail = coreutils %}
 {% set traceroute = inetutils-traceroute %}
-{% set vim-doc = vim-doc %}
-{% set vim-scripts = vim-scripts %}
+{% set vimdoc = vim-doc %}
+{% set vimscripts = vim-scripts %}
 {% set gvim = vim-gtk %}
 {% set watch = procps %}
 
@@ -45,8 +45,8 @@ Must-Haves:
       - tcptraceroute
       - vim
       - {{ gvim }}
-      - {{ vim-doc }}
-      - {{ vim-scripts }}
+      - {{ vimdoc }}
+      - {{ vimscripts }}
       - {{ watch }}
       - whois
 

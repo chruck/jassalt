@@ -7,6 +7,7 @@
 {% set vimdoc = "vim-doc" %}
 {% set vimscripts = "vim-scripts" %}
 {% set gvim = "vim-gtk" %}
+{% set vimaddonmanager = "vim-addon-manager" %}
 {% set watch = "procps" %}
 
 Must-Haves:
@@ -44,6 +45,7 @@ Must-Haves:
       - {{ gvim }}
       - {{ vimdoc }}
       - {{ vimscripts }}
+      - {{ vimaddonmanager }}
       - {{ watch }}
       - whois
 
@@ -59,6 +61,13 @@ git-completion:
 git-doc:
   pkg.installed:
     - install_recommends: False
+
+Install Vim addons:
+  cmd.wait:
+    - name: vim-addons install -w info jinja matchit omnicppcomplete xmledit
+    - watch:
+      - pkg: {{ vimaddonmanager }}
+
 
 Must-Not-Haves:
   pkg.purged:

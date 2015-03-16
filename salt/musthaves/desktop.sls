@@ -1,5 +1,6 @@
-{% set ImageMagick = "imagemagick" %}
+{% set chromium = "chromium-browser" %}
 {% set ctags = "exuberant-ctags" %}
+{% set display = "imagemagick" %}
 {% set autoexpect = "expect-dev" %}
 {% set irssiscripts = "irssi-scripts" %}
 {% set xmllint = "libxml2-utils" %}
@@ -9,11 +10,11 @@ Must-Haves for Desktop:
     - install_recommends: False
     - pkgs:
       - antiword
-      - chromium
+      - {{ chromium }}
       - clusterssh
       - {{ ctags }}
-      - {{ ImageMagick }}
-      - electricsheep
+      - {{ display }}
+      #- electricsheep
       - expect
       - {{ autoexpect }}
       - firefox

@@ -16,9 +16,6 @@ Must-Haves:
       - bash
       - bash-completion
       - di
-      - git
-      - git-completion
-      - git-doc
       - grep
       - indent
       - less
@@ -49,6 +46,19 @@ Must-Haves:
       - {{ vimscripts }}
       - {{ watch }}
       - whois
+
+# Separated out to satisfy another state
+git:
+  pkg.installed:
+    - install_recommends: False
+
+git-completion:
+  pkg.installed:
+    - install_recommends: False
+
+git-doc:
+  pkg.installed:
+    - install_recommends: False
 
 Must-Not-Haves:
   pkg.purged:

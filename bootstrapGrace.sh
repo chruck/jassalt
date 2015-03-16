@@ -56,8 +56,8 @@ sudo salt-key -ya ${MASTER}
 echo "== Checking out salt states =="
 pushd /srv
 sudo git clone https://github.com/chruck/jassalt.git
-ln -s jassalt/salt .
-ln -s jassalt/pillar .
+sudo ln -s jassalt/salt .
+sudo ln -s jassalt/pillar .
 popd
 
 echo "== Now deploy to ${MASTER} =="

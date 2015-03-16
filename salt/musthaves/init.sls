@@ -1,13 +1,13 @@
 {% set opensshd = "openssh-server" %}
 {% set man = "man-db" %}
-{% set nslookup = dnsutils %}
-{% set script = bsdutils %}
-{% set tail = coreutils %}
+{% set nslookup = "dnsutils" %}
+{% set script = "bsdutils" %}
+{% set tail = "coreutils" %}
 {% set traceroute = "inetutils-traceroute" %}
 {% set vimdoc = "vim-doc" %}
 {% set vimscripts = "vim-scripts" %}
 {% set gvim = "vim-gtk" %}
-{% set watch = procps %}
+{% set watch = "procps" %}
 
 Must-Haves:
   pkg.installed:

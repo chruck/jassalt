@@ -1,8 +1,8 @@
-{% set ImageMagick = imagemagick %}
-{% set ctags = exuberant-ctags %}
-{% set autoexpect = expect-dev %}
-{% set irssi-scripts = irssi-scripts %}
-{% set xmllint = libxml2-utils %}
+{% set ImageMagick = "imagemagick" %}
+{% set ctags = "exuberant-ctags" %}
+{% set autoexpect = "expect-dev" %}
+{% set irssiscripts = "irssi-scripts" %}
+{% set xmllint = "libxml2-utils" %}
 
 Must-Haves for Desktop:
   pkg.installed:
@@ -22,7 +22,7 @@ Must-Haves for Desktop:
       - gdb
       - gpm
       - irssi
-      - {{ irssi-scripts }}
+      - {{ irssiscripts }}
       - ncftp
       - synergy
       - {{ xmllint }}

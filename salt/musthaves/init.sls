@@ -61,7 +61,7 @@ git-doc:
   pkg.installed:
     - install_recommends: False
 
-{{ vimaddonmanager }}
+{{ vimaddonmanager }}:
   pkg.installed:
     - install_recommends: False
 

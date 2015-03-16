@@ -45,7 +45,6 @@ Must-Haves:
       - {{ gvim }}
       - {{ vimdoc }}
       - {{ vimscripts }}
-      - {{ vimaddonmanager }}
       - {{ watch }}
       - whois
 
@@ -59,6 +58,10 @@ git-completion:
     - install_recommends: False
 
 git-doc:
+  pkg.installed:
+    - install_recommends: False
+
+{{ vimaddonmanager }}
   pkg.installed:
     - install_recommends: False
 

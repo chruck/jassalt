@@ -1,13 +1,9 @@
-{% set opensshd = "openssh-server" %}
 {% set man = "man-db" %}
 {% set nslookup = "dnsutils" %}
+{% set opensshd = "openssh-server" %}
 {% set script = "bsdutils" %}
 {% set tail = "coreutils" %}
 {% set traceroute = "inetutils-traceroute" %}
-{% set vimdoc = "vim-doc" %}
-{% set vimscripts = "vim-scripts" %}
-{% set gvim = "vim-gtk" %}
-{% set vimaddonmanager = "vim-addon-manager" %}
 {% set watch = "procps" %}
 
 Must-Haves:
@@ -17,18 +13,16 @@ Must-Haves:
       - bash
       - bash-completion
       - di
+      - elinks
       - grep
       - indent
+      - info
       - less
+      - links
       - locate
       - lynx
-      - links
-      - elinks
-      - w3m
-      - w3m-img
       - make
       - {{ man }}
-      - info
       - {{ nslookup }}
       - {{ opensshd }}
       - pv
@@ -39,12 +33,10 @@ Must-Haves:
       - {{ script }}
       - sed
       - {{ tail }}
-      - {{ traceroute }}
       - tcptraceroute
-      - vim
-      - {{ gvim }}
-      - {{ vimdoc }}
-      - {{ vimscripts }}
+      - {{ traceroute }}
+      - w3m
+      - w3m-img
       - {{ watch }}
       - whois
 
@@ -61,15 +53,8 @@ git-doc:
   pkg.installed:
     - install_recommends: False
 
-{{ vimaddonmanager }}:
-  pkg.installed:
-    - install_recommends: False
-
-Install Vim addons:
-  cmd.wait:
-    - name: vim-addons install -w info jinja matchit omnicppcomplete xmledit
-    - watch:
-      - pkg: {{ vimaddonmanager }}
+include:
+  - .vim
 
 
 Must-Not-Haves:

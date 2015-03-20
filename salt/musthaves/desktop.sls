@@ -1,7 +1,8 @@
+{% set autoexpect = "expect-dev" %}
 {% set chromium = "chromium-browser" %}
 {% set ctags = "exuberant-ctags" %}
 {% set display = "imagemagick" %}
-{% set autoexpect = "expect-dev" %}
+{% set gvim = "vim-gtk" %}
 {% set irssiscripts = "irssi-scripts" %}
 {% set xmllint = "libxml2-utils" %}
 
@@ -10,18 +11,19 @@ Must-Haves for Desktop:
     - install_recommends: False
     - pkgs:
       - antiword
+      - {{ autoexpect }}
       - {{ chromium }}
       - clusterssh
       - {{ ctags }}
       - {{ display }}
       #- electricsheep
       - expect
-      - {{ autoexpect }}
       - firefox
       - fossil
       - g++
       - gdb
       - gpm
+      - {{ gvim }}
       - irssi
       - {{ irssiscripts }}
       - ncftp

@@ -19,29 +19,29 @@ sudo iptables -A INPUT -m state --state new -m tcp -p tcp --dport 4506 -j ACCEPT
 echo "== First, make sure OS is up-to-date =="
 sudo apt update && sudo apt -y upgrade
 
-# As of Bodhi 3.0.0 (Ubuntu 14.04), salt version is 0.17 (much too
-# old, needs to be at least Helium (2014.07.01))
 echo "== Install salt-master package =="
 sudo apt install -y salt-master salt-minion salt-doc
 
-# So, run the "Salt Bootstrap" shell script and clobber those binaries:
-echo "== Install curl and git to bootstrap SaltStack =="
-sudo apt install -y git curl
+# If, instead, I want the latest salt (I don't, since Bodhi is now
+# installing 2014.7.2 of salt)
+#echo "== Install curl and git to bootstrap SaltStack =="
+#sudo apt install -y git curl
+#
+#echo "== Download and execute SaltStack Bootstrap =="
+#curl -L http://bootstrap.saltstack.org | sudo sh -s -- git develop
 
-echo "== Download and execute SaltStack Bootstrap =="
-curl -L http://bootstrap.saltstack.org | sudo sh -s -- git develop
-
-echo "== Create /etc/salt/master =="
-cat <<EOF >>"master"
-# The network interface to bind to
-interface: 0.0.0.0
-# The Request/Reply port
-ret_port: 4506
-# The port minions bind to for commands, aka the publish port
-publish_port: 4505
-EOF
-sudo mv /etc/salt/master /etc/salt/master.orig
-sudo mv master /etc/salt
+# These are all defaults, not needed:
+#echo "== Create /etc/salt/master =="
+#cat <<EOF >>"master"
+## The network interface to bind to
+#interface: 0.0.0.0
+## The Request/Reply port
+#ret_port: 4506
+## The port minions bind to for commands, aka the publish port
+#publish_port: 4505
+#EOF
+#sudo mv /etc/salt/master /etc/salt/master.orig
+#sudo mv master /etc/salt
 
 echo "== Create hostname 'salt' as alias to localhost =="
 sudo sed -i "s/127.0.0.1.*/& salt/" /etc/hosts 

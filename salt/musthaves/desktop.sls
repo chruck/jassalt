@@ -2,6 +2,7 @@
 {% set chromium = "chromium-browser" %}
 {% set ctags = "exuberant-ctags" %}
 {% set display = "imagemagick" %}
+{% set flash = "browser-plugin-gnash" %}
 {% set gvim = "vim-gtk" %}
 {% set irssiscripts = "irssi-scripts" %}
 {% set xmllint = "libxml2-utils" %}
@@ -19,6 +20,7 @@ Must-Haves for Desktop:
       #- electricsheep
       - expect
       - firefox
+      - {{ flash }}
       - fossil
       - g++
       - gdb

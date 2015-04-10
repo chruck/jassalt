@@ -1,4 +1,4 @@
-Must-Haves:
+Clemson Packages:
   pkg.installed:
     - install_recommends: False
     - pkgs:

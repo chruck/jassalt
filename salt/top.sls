@@ -4,3 +4,4 @@ base:
   grace:
     - saltedit
     - musthaves.desktop
+    - clemson

@@ -3,3 +3,4 @@ Clemson Packages:
     - install_recommends: False
     - pkgs:
       - openconnect
+      - subversion

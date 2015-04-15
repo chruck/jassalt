@@ -4,3 +4,4 @@ Clemson Packages:
     - pkgs:
       - openconnect
       - subversion
+      - rdesktop

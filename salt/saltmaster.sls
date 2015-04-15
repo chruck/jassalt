@@ -8,4 +8,4 @@ Pull down the latest jassalt salt states:
     - require:
       - pkg: git
     - require_in:
-      - sls: musthaves
+      - pkg: Must-Haves

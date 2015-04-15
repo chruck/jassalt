@@ -4,3 +4,5 @@ Pull down the latest jassalt salt states:
     - target: /srv/jassalt
     - require:
       - pkg: git
+    - require_in:
+      - sls: musthaves

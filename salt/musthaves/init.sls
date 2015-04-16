@@ -61,3 +61,19 @@ Must-Not-Haves:
   pkg.purged:
     - pkgs:
       - nano
+      # This list from Bodhi installation to "apt upgrade" listed as "no
+      # longer required":
+      - gir1.2-appindicator3-0.1
+      - gir1.2-javascriptcoregtk-3.0
+      - gir1.2-json-1.0
+      - gir1.2-soup-2.4
+      - gir1.2-timezonemap-1.0
+      - gir1.2-vte-2.90
+      - gir1.2-webkit-3.0
+      - gir1.2-xkl-1.0
+      - libtimezonemap1
+      - libvte-2.90-9
+      - libvte-2.90-common
+      - python3-cairo
+      - python3-gi-cairo
+

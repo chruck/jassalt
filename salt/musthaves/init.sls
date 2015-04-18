@@ -40,22 +40,9 @@ Must-Haves:
       - {{ watch }}
       - whois
 
-# Separated out to satisfy another state
-git:
-  pkg.installed:
-    - install_recommends: False
-
-git-completion:
-  pkg.installed:
-    - install_recommends: False
-
-git-doc:
-  pkg.installed:
-    - install_recommends: False
-
 include:
+  - .git
   - .vim
-
 
 Must-Not-Haves:
   pkg.purged:
@@ -76,4 +63,4 @@ Must-Not-Haves:
       - libvte-2.90-common
       - python3-cairo
       - python3-gi-cairo
-
+      # end "no longer required"

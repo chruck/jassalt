@@ -9,4 +9,5 @@ base:
     - match: list
     - saltedit
     - musthaves.desktop
+    - musthaves.synergy
     - clemson

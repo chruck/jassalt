@@ -7,10 +7,10 @@
 
 {% if grains["host"] == synergyServer %}
   {% set daemon = "Server" %}
-  {% set command = "synergys" %}
+  {% set command = "sudo -u jas DISPLAY=:0.0 synergys" %}
 {% elif grains["host"] == synergyClient %}
   {% set daemon = "Client" %}
-  {% set command = "synergyc " ~ synergyServer %}
+  {% set command = "sudo -u jas DISPLAY=:0.0 synergyc " ~ synergyServer %}
 {% endif %}
 
 {{baseURL}} - Install Synergy:

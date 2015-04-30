@@ -31,5 +31,4 @@
       - irssi
       - {{irssiscripts}}
       - ncftp
-      - synergy
       - {{xmllint}}

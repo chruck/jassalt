@@ -5,7 +5,7 @@ base:
     - musthaves
   grace:
     - saltmaster
-    - hosts
+    #- hosts
   grace,tiger:
     - match: list
     - saltedit

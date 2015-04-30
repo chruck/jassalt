@@ -10,4 +10,4 @@ include:
     - require:
       - pkg: git
     - require_in:
-      - pkg: Must-Haves
+      - pkg: salt://musthaves - Must-Haves

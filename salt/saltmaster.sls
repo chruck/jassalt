@@ -11,3 +11,13 @@ include:
       - pkg: git
     - require_in:
       - pkg: salt://musthaves - Must-Haves
+
+{{baseURL}} - Symlink for /srv/salt:
+  file.symlink:
+    - name: /srv/salt
+    - target: /srv/jassalt/salt
+
+{{baseURL}} - Symlink for /srv/pillar:
+  file.symlink:
+    - name: /srv/pillar
+    - target: /srv/jassalt/pillar

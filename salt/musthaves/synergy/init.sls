@@ -8,7 +8,7 @@
 {{baseURL}} - Add Synergy config file:
   file.managed:
     - name: /etc/synergy.conf
-    - source: {{baseURL}/synergy.conf.tmpl
+    - source: {{baseURL}}/synergy.conf.tmpl
     - template: jinja
     - defaults:
         synergyServer: "tiger"

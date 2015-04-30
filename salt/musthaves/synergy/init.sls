@@ -21,9 +21,9 @@
     - name: /etc/synergy.conf
     - source: {{baseURL}}/synergy.conf.tmpl
     - template: jinja
-#    - defaults:
-#        synergyServer: "tiger"
-#        synergyClient: "grace"
+    - defaults:
+        synergyServer: {{synergyServer}}
+        synergyClient: {{synergyClient}}
 
 {{baseURL}} - Start Synergy {{daemon}}:
   cmd.run:

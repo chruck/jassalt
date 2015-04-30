@@ -3,10 +3,10 @@
 {% set synergyServer = "tiger" %}
 {% set synergyClient = "grace" %}
 
-{% if grains["host"] = synergyServer %}
+{% if grains["host"] == synergyServer %}
   {% set daemon = "Server" %}
   {% set command = "synergys" %}
-{% elif grains["host"] = synergyClient %}
+{% elif grains["host"] == synergyClient %}
   {% set daemon = "Client" %}
   {% set command = "synergyc " ~ synergyServer %}
 {% endif %}

@@ -1,6 +1,6 @@
 {% set baseURL = "salt://hosts" %}
 
-{{baseURL}} - Add tiger to /etc/hosts
+{{baseURL}} - Add tiger to /etc/hosts:
   file.append:
     - name: /etc/hosts
     - text:

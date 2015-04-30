@@ -1,7 +1,9 @@
+{% set baseURL = "salt://saltmaster" %}
+
 include:
   - musthaves
 
-Pull down the latest jassalt salt states:
+{{baseURL}} - Pull down the latest jassalt salt states:
   git.latest:
     - name: https://github.com/chruck/jassalt.git
     - target: /srv/jassalt

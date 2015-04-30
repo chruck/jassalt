@@ -1,3 +1,5 @@
+{% set baseURL = "salt://musthaves" %}
+
 {% set man = "man-db" %}
 {% set nslookup = "dnsutils" %}
 {% set opensshd = "openssh-server" %}
@@ -6,7 +8,7 @@
 {% set traceroute = "inetutils-traceroute" %}
 {% set watch = "procps" %}
 
-Must-Haves:
+{{baseURL}} - Must-Haves:
   pkg.installed:
     - install_recommends: False
     - pkgs:
@@ -22,29 +24,29 @@ Must-Haves:
       - locate
       - lynx
       - make
-      - {{ man }}
-      - {{ nslookup }}
-      - {{ opensshd }}
+      - {{man}}
+      - {{nslookup}}
+      - {{opensshd}}
       - pv
       - reptyr
       - rlwrap
       - rsync
       - screen
-      - {{ script }}
+      - {{script}}
       - sed
-      - {{ tail }}
+      - {{tail}}
       - tcptraceroute
-      - {{ traceroute }}
+      - {{traceroute}}
       - w3m
       - w3m-img
-      - {{ watch }}
+      - {{watch}}
       - whois
 
 include:
   - .git
   - .vim
 
-Must-Not-Haves:
+{{baseURL}} - Must-Not-Haves:
   pkg.purged:
     - pkgs:
       - nano

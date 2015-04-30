@@ -1,3 +1,5 @@
+{% set baseURL = "salt://top" %}
+
 base:
   '*':
     - musthaves

@@ -1,12 +1,18 @@
+{% set baseURL = "salt://musthaves/git" %}
+
 # Separated out to satisfy another state
-git:
+
+{{baseURL}} - Install git package:
   pkg.installed:
+    - name: git
     - install_recommends: False
 
-git-completion:
+{{baseURL}} - Install git-completion package:
   pkg.installed:
+    - name: git-completion
     - install_recommends: False
 
-git-doc:
+{{baseURL}} - Install git-doc package:
   pkg.installed:
+    - name: git-doc
     - install_recommends: False

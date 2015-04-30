@@ -1,6 +1,11 @@
 # This file is maintained by SaltStack
 # created Wed Apr 29 20:40:40 EDT 2015
 
+section: screens
+        {{synergyServer}}:
+        {{synergyClient}}:
+end
+
 section: links
         {{synergyServer}}:
                 left = {{synergyClient}}

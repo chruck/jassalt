@@ -9,7 +9,7 @@
       - rdesktop
 
 {{baseURL}} - Download Clemson binaries:
-  git.latest
+  git.latest:
     - name: https://github.com/eckardclemson/bin.git
     - target: /home/jas/src/bin
     - require:

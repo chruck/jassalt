@@ -2,7 +2,7 @@
 {% set jasHome = "/home/jas/" %}
 {% set jasSrcBin = jasHome ~ "/src/bin/" %}
 {% set jasBin = jasHome ~ "/bin/" %}
-{% set programs = [  # dest, src
+{% set programs = [
                    (jasBin ~ "cuvpn",           jasSrcBin ~ "cuvpn"),
                    (jasBin ~ "spectrum",        jasSrcBin ~ "spectrum"),
                    (jasBin ~ "rdesktop.vdi",    jasSrcBin ~ "rdesktop.vdi"),

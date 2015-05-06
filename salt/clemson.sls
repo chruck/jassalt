@@ -36,5 +36,6 @@
     - target: {{src}}
     - user: jas
     - group: jas
+    - remote_name: jas
     - makedirs: True
 {% endfor %}

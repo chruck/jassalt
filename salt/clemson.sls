@@ -7,3 +7,10 @@
       - openconnect
       - subversion
       - rdesktop
+
+{{baseURL}} - Download Clemson binaries:
+  git.latest
+    - name: https://github.com/eckardclemson/bin.git
+    - target: /home/jas/src/bin
+    - require:
+      - pkg: git

@@ -65,4 +65,5 @@ include:
       - libvte-2.90-common
       - python3-cairo
       - python3-gi-cairo
+      - libcrypto++9
       # end "no longer required"

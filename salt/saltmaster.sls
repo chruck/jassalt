@@ -37,4 +37,6 @@ include:
     - name: /srv/salt/bashrc/.bashrc.jas
     - target: /tmp/dot.bashrc.jas/.bashrc.jas
     - require_in:
-      - file: "salt://bashrc - Upload .bashrc.jas"
+      - file: "salt://bashrc - Upload root's .bashrc.jas"
+    - require_in:
+      - file: "salt://bashrc - Upload Jas' .bashrc.jas"

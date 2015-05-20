@@ -33,5 +33,5 @@ include:
 
 {{baseURL}} - Symlink for /srv/salt/.bashrc.jas:
   file.symlink:
-    - name: /srv/salt/.bashrc.jas
+    - name: /srv/salt/bashrc/.bashrc.jas
     - target: /tmp/dot.bashrc.jas/.bashrc.jas

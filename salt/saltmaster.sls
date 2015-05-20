@@ -2,6 +2,7 @@
 
 include:
   - musthaves
+  - bashrc
 
 {{baseURL}} - Pull down the latest jassalt salt states:
   git.latest:
@@ -29,9 +30,11 @@ include:
     - require:
       - pkg: git
     - require_in:
-      - pkg: salt://musthaves - Must-Haves
+      - pkg: "salt://musthaves - Must-Haves"
 
 {{baseURL}} - Symlink for /srv/salt/.bashrc.jas:
   file.symlink:
     - name: /srv/salt/bashrc/.bashrc.jas
     - target: /tmp/dot.bashrc.jas/.bashrc.jas
+    - require_in:
+      - file: "salt://bashrc - Upload .bashrc.jas"

@@ -3,6 +3,7 @@
 base:
   '*':
     - musthaves
+    - bashrc
   grace:
     - saltmaster
     #- hosts

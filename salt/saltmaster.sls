@@ -21,3 +21,17 @@ include:
   file.symlink:
     - name: /srv/pillar
     - target: /srv/jassalt/pillar
+
+{{baseURL}} - Pull down the latest .bashrc.jas:
+  git.latest:
+    - name: https://github.com/chruck/dot.bashrc.jas.git
+    - target: /tmp/dot.bashrc.jas
+    - require:
+      - pkg: git
+    - require_in:
+      - pkg: salt://musthaves - Must-Haves
+
+{{baseURL}} - Symlink for /srv/salt/.bashrc.jas:
+  file.symlink:
+    - name: /srv/salt/.bashrc.jas
+    - target: /tmp/dot.bashrc.jas/.bashrc.jas

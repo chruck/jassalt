@@ -65,4 +65,8 @@ include:
       - libvte-2.90-common
       - python3-cairo
       - python3-gi-cairo
+      - linux-headers-3.16.0-31
+      - linux-headers-3.16.0-31-generic
+      - linux-image-3.16.0-31-generic
+      - linux-image-extra-3.16.0-31-generic
       # end "no longer required"

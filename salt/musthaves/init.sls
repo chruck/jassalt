@@ -59,6 +59,7 @@ include:
 {% endif %}
       # This list from Bodhi installation to "apt upgrade" listed as "no
       # longer required":
+      - dctrl-tools
       - gir1.2-appindicator3-0.1
       - gir1.2-javascriptcoregtk-3.0
       - gir1.2-json-1.0
@@ -67,14 +68,19 @@ include:
       - gir1.2-vte-2.90
       - gir1.2-webkit-3.0
       - gir1.2-xkl-1.0
+      - ieee-data
+      - libcrypto++9
+      - libjs-jquery-metadata
+      - libjs-jquery-tablesorter
+      - libjs-modernizr
+      - libjs-twitter-bootstrap
       - libtimezonemap1
       - libvte-2.90-9
       - libvte-2.90-common
-      - python3-cairo
-      - python3-gi-cairo
       - linux-headers-3.16.0-31
       - linux-headers-3.16.0-31-generic
       - linux-image-3.16.0-31-generic
       - linux-image-extra-3.16.0-31-generic
-      - libcrypto++9
+      - python3-cairo
+      - python3-gi-cairo
       # end "no longer required"

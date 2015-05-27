@@ -25,7 +25,6 @@
     - name: https://github.com/eckardclemson/bin.git
     - target: {{jasSrcBin}}
     - user: jas
-    - group: jas
     - require:
       - pkg: git
 

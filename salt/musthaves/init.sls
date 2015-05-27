@@ -50,6 +50,13 @@ include:
   pkg.purged:
     - pkgs:
       - nano
+      - ppp
+{% if salt["grains.get"]("virtual", "physical") %}
+      - virtualbox-guest-dkms
+      - virtualbox-guest-utils
+      - virtualbox-guest-x11
+      - libspice-server1
+{% endif %}
       # This list from Bodhi installation to "apt upgrade" listed as "no
       # longer required":
       - gir1.2-appindicator3-0.1

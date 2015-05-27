@@ -1,8 +1,8 @@
 {% set baseURL = "salt://saltmaster" %}
 {% set githubURL = "https://github.com/chruck/" %}
 {% set srcDir = "/usr/src/" %}
-{% set jassaltDir = srcDir ~ "/jassalt/" %}
-{% set bashrcDir = srcDir ~ "/dot.bashrc.jas/" %}
+{% set jassaltDir = srcDir ~ "/jassalt" %}
+{% set bashrcDir = srcDir ~ "/dot.bashrc.jas" %}
 
 include:
   - musthaves

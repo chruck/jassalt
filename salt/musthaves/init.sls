@@ -59,7 +59,6 @@ include:
 {% endif %}
       # This list from Bodhi installation to "apt upgrade" listed as "no
       # longer required":
-      - dctrl-tools
       - gir1.2-appindicator3-0.1
       - gir1.2-javascriptcoregtk-3.0
       - gir1.2-json-1.0

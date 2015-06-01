@@ -4,6 +4,7 @@ base:
   '*':
     - musthaves
     - bashrc
+    - saltminion
   grace:
     - saltmaster
     #- hosts

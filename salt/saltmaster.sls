@@ -40,3 +40,13 @@ include:
       - file: "salt://bashrc - Upload root's .bashrc.jas"
     - require_in:
       - file: "salt://bashrc - Upload Jas' .bashrc.jas"
+
+{{baseURL}} - Pull down the latest dnsmasq formula:
+  git.latest:
+    - name: https://github.com/saltstack-formulas/dnsmasq-formula.git
+    - target: /srv/salt/dnsmasq-formula
+    - require:
+      - pkg: git
+      - file: "{{baseURL}} - Symlink for /srv/salt"
+    - require_in:
+      - pkg: "salt://musthaves - Must-Haves"

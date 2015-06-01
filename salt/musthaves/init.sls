@@ -9,7 +9,7 @@
 {% set watch = "procps" %}
 
 {{baseURL}} - Must-Haves:
-  pkg.installed:
+  pkg.latest:
     - install_recommends: False
     - pkgs:
       - bash

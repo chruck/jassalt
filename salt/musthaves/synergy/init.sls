@@ -14,7 +14,7 @@
 {% endif %}
 
 {{baseURL}} - Install Synergy:
-  pkg.installed:
+  pkg.latest:
     - name: synergy
     - install_recommends: False
 

@@ -10,7 +10,7 @@
 {% set xmllint = "libxml2-utils" %}
 
 {{baseURL}} - Must-Haves for Desktop:
-  pkg.installed:
+  pkg.latest:
     - install_recommends: False
     - pkgs:
       - antiword

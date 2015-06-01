@@ -3,16 +3,16 @@
 # Separated out to satisfy another state
 
 {{baseURL}} - Install git package:
-  pkg.installed:
+  pkg.latest:
     - name: git
     - install_recommends: False
 
 {{baseURL}} - Install git-completion package:
-  pkg.installed:
+  pkg.latest:
     - name: git-completion
     - install_recommends: False
 
 {{baseURL}} - Install git-doc package:
-  pkg.installed:
+  pkg.latest:
     - name: git-doc
     - install_recommends: False

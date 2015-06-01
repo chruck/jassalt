@@ -13,7 +13,7 @@
                 
 
 {{baseURL}} - Install packages to use with Clemson systems:
-  pkg.installed:
+  pkg.latest:
     - install_recommends: False
     - pkgs:
       - openconnect

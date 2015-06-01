@@ -5,7 +5,7 @@
 {% set vimscripts = "vim-scripts" %}
 
 {{baseURL}} - Install Vim packages:
-  pkg.installed:
+  pkg.latest:
     - install_recommends: False
     - pkgs:
       - vim
@@ -13,7 +13,7 @@
       - {{vimscripts}}
 
 {{baseURL}} - Install {{vimaddonmanager}}:
-  pkg.installed:
+  pkg.latest:
     - name: {{vimaddonmanager}}
     - install_recommends: False
 

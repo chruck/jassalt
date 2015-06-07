@@ -13,4 +13,5 @@ base:
     - saltedit
     - musthaves.desktop
     - musthaves.synergy
+    - musthaves.vlc
     - clemson

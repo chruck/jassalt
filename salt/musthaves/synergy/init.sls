@@ -33,4 +33,4 @@
   cmd.wait:
     - name: {{command}}
     - watch:
-      - {{baseURL}} - Add Synergy config file
+      - file: {{baseURL}} - Add Synergy config file

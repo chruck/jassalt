@@ -1,9 +1,9 @@
 {% set baseURL = "salt://musthaves/synergy/" %}
 
 {% set synergyServer = "tiger" %}
-{% set synergyServerIP = "172.16.16.121" %}
+{% set synergyServerIP = "172.16.16.100" %}
 {% set synergyClient = "grace" %}
-{% set synergyClientIP = "172.16.16.117" %}
+{% set synergyClientIP = "172.16.16.107" %}
 
 {% if grains["host"] == synergyServer %}
   {% set daemon = "Server" %}
@@ -30,5 +30,6 @@
         synergyClientIP: {{synergyClientIP}}
 
 {{baseURL}} - Start Synergy {{daemon}}:
-  cmd.run:
+  cmd.wait:
     - name: {{command}}
+    - watch: {{baseURL}} - Add Synergy config file

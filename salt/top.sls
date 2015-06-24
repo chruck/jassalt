@@ -1,14 +1,14 @@
 {% set baseURL = "salt://top" %}
 
 base:
+  grace:
+    - saltmaster
+    #- hosts
   '*':
     - musthaves
     - bashrc
     - saltminion
     - grub
-  grace:
-    - saltmaster
-    #- hosts
   grace,tiger:
     - match: list
     - saltedit

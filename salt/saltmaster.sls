@@ -5,7 +5,7 @@
 {% set bashrcDir = srcDir ~ "/dot.bashrc.jas" %}
 
 include:
-  - musthaves
+  - musthaves.git
   - bashrc
   - saltminion
 
@@ -19,8 +19,8 @@ include:
     - target: {{jassaltDir}}
     - require:
       - pkg: git
-    - require_in:
-      - pkg: salt://musthaves - Must-Haves
+    #- require_in:
+      #- pkg: salt://musthaves - Must-Haves
 
 {{baseURL}} - Symlink for /srv/salt:
   file.symlink:
@@ -38,8 +38,8 @@ include:
     - target: {{bashrcDir}}
     - require:
       - pkg: git
-    - require_in:
-      - pkg: "salt://musthaves - Must-Haves"
+    #- require_in:
+      #- pkg: "salt://musthaves - Must-Haves"
 
 {{baseURL}} - Symlink for /srv/salt/.bashrc.jas:
   file.symlink:

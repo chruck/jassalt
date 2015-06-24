@@ -4,4 +4,4 @@
   file.append:
     - name: /etc/hosts
     - text:
-      - "172.16.16.121 tiger"
+      - "172.16.16.100 tiger"

@@ -11,5 +11,8 @@
     - regex: ^GRUB_CMDLINE_LINUX_DEFAULT=.*splash
 
 {{baseURL}} - Rerun grub:
-  cmd.run:
+  cmd.wait:
     - name: update-grub
+    - watch:
+      - file: {{baseURL}} - Remove 'quiet'
+      - file: {{baseURL}} - Remove 'splash'

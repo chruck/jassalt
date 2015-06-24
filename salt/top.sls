@@ -5,6 +5,7 @@ base:
     - musthaves
     - bashrc
     - saltminion
+    - grub
   grace:
     - saltmaster
     #- hosts

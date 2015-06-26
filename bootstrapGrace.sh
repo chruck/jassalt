@@ -190,11 +190,12 @@ installSalt()
                         sudo apt install -y git curl
  
                         echo "== Download and execute SaltStack Bootstrap =="
-                        curl -L http://bootstrap.saltstack.org | sudo sh -s --
+                        curl -L http://bootstrap.saltstack.org | sudo sh -xs --
                         ;;
                 *)
                         echo "== installSalt() needs an argument, exiting =="
                         exit 2
+                        ;;
         esac
 }  # installSalt()
 

@@ -1,52 +1,36 @@
-{% set baseURL = "salt://musthaves" %}
+{% from tpldir ~ "/map.jinja" import musthaves with context %}
 
-{% set man = "man-db" %}
-{% set nslookup = "dnsutils" %}
-{% set opensshd = "openssh-server" %}
-{% set script = "bsdutils" %}
-{% set tail = "coreutils" %}
-{% set traceroute = "inetutils-traceroute" %}
-{% set watch = "procps" %}
-
-{{baseURL}} - Must-Haves:
+{{tplfile}} - Must-Haves:
   pkg.latest:
     - install_recommends: False
     - pkgs:
       - bash
       - bash-completion
-      - di
-      - elinks
+      - coreutils
       - grep
       - indent
       - info
       - less
       - links
-      - locate
       - lynx
       - make
-      - {{man}}
-      - {{nslookup}}
-      - {{opensshd}}
+      - procps
       - pv
       - reptyr
       - rlwrap
       - rsync
       - screen
-      - {{script}}
       - sed
-      - {{tail}}
-      - tcptraceroute
-      - {{traceroute}}
       - w3m
-      - w3m-img
-      - {{watch}}
-      - whois
+      {% for pkg in musthaves.pkglist %}
+      - {{pkg}}
+      {% endfor %}
 
 include:
   - .git
   - .vim
 
-{{baseURL}} - Must-Not-Haves:
+{{tplfile}} - Must-Not-Haves:
   pkg.purged:
     - pkgs:
       - nano

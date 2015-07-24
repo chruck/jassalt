@@ -1,24 +1,26 @@
-{% set baseURL = "salt://musthaves/vim" %}
+{% from tpldir ~ "/map.jinja" import vim with context %}
 
-{% set vimaddonmanager = "vim-addon-manager" %}
-{% set vimdoc = "vim-doc" %}
-{% set vimscripts = "vim-scripts" %}
-
-{{baseURL}} - Install Vim packages:
+{{tplfile}} - Install Vim packages:
   pkg.latest:
     - install_recommends: False
     - pkgs:
-      - vim
-      - {{vimdoc}}
-      - {{vimscripts}}
+      {% for pkg in vim.pkglist %}
+      - {{pkg}}
+      {% endfor %}
 
-{{baseURL}} - Install {{vimaddonmanager}}:
+{% if 'RedHat' != grains['os_family'] %}
+
+{% set vimaddonmanager = "vim-addon-manager" %}
+
+{{tplfile}} - Install {{vimaddonmanager}}:
   pkg.latest:
     - name: {{vimaddonmanager}}
     - install_recommends: False
 
-{{baseURL}} - Enable Vim addons:
+{{tplfile}} - Enable Vim addons:
   cmd.wait:
     - name: vim-addons install -w info jinja matchit omnicppcomplete xmledit
     - watch:
       - pkg: {{vimaddonmanager}}
+
+{% endif %}

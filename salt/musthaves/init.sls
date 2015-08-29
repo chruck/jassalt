@@ -66,4 +66,29 @@ include:
       - linux-image-extra-3.16.0-31-generic
       - python3-cairo
       - python3-gi-cairo
+      - diffstat
+      - gettext
+      - hardening-includes
+      - intltool-debian
+      - libapt-pkg-perl
+      - libarchive-zip-perl
+      - libasprintf-dev
+      - libautodie-perl
+      - libclone-perl
+      - libemail-valid-perl
+      - libgettextpo-dev
+      - libgettextpo0
+      - libio-pty-perl
+      - libipc-run-perl
+      - libipc-system-simple-perl
+      - liblist-moreutils-perl
+      - libnet-dns-perl
+      - libnet-domain-tld-perl
+      - libnet-ip-perl
+      - libperlio-gzip-perl
+      - libsub-identify-perl
+      - libtext-levenshtein-perl
+      - libunistring0
+      - lintian
+      - patchutils
       # end "no longer required"

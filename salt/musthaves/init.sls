@@ -43,6 +43,8 @@ include:
 {% endif %}
       # This list from Bodhi installation to "apt upgrade" listed as "no
       # longer required":
+      - diffstat
+      - gettext
       - gir1.2-appindicator3-0.1
       - gir1.2-javascriptcoregtk-3.0
       - gir1.2-json-1.0
@@ -51,36 +53,27 @@ include:
       - gir1.2-vte-2.90
       - gir1.2-webkit-3.0
       - gir1.2-xkl-1.0
-      - ieee-data
-      - libcrypto++9
-      - libjs-jquery-metadata
-      - libjs-jquery-tablesorter
-      - libjs-modernizr
-      - libjs-twitter-bootstrap
-      - libtimezonemap1
-      - libvte-2.90-9
-      - libvte-2.90-common
-      - linux-headers-3.16.0-31
-      - linux-headers-3.16.0-31-generic
-      - linux-image-3.16.0-31-generic
-      - linux-image-extra-3.16.0-31-generic
-      - python3-cairo
-      - python3-gi-cairo
-      - diffstat
-      - gettext
       - hardening-includes
+      - ieee-data
       - intltool-debian
       - libapt-pkg-perl
       - libarchive-zip-perl
       - libasprintf-dev
       - libautodie-perl
       - libclone-perl
+      - libcrypto++9
       - libemail-valid-perl
       - libgettextpo-dev
       - libgettextpo0
       - libio-pty-perl
       - libipc-run-perl
       - libipc-system-simple-perl
+      - libjs-jquery-metadata
+      - libjs-jquery-tablesorter
+      - libjs-modernizr
+      - libjs-sphinxdoc
+      - libjs-twitter-bootstrap
+      - libjs-underscore
       - liblist-moreutils-perl
       - libnet-dns-perl
       - libnet-domain-tld-perl
@@ -88,7 +81,16 @@ include:
       - libperlio-gzip-perl
       - libsub-identify-perl
       - libtext-levenshtein-perl
+      - libtimezonemap1
       - libunistring0
+      - libvte-2.90-9
+      - libvte-2.90-common
       - lintian
+      - linux-headers-3.16.0-31
+      - linux-headers-3.16.0-31-generic
+      - linux-image-3.16.0-31-generic
+      - linux-image-extra-3.16.0-31-generic
       - patchutils
+      - python3-cairo
+      - python3-gi-cairo
       # end "no longer required"

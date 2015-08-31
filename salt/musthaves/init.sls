@@ -1,4 +1,14 @@
+{% if 2015 > grains['saltversioninfo'][0] %}
+{%   set tpldir = 'musthaves' %}
+{%   set tplfile = tpldir ~ '/init.sls' %}
+{% endif %}
+
 {% from tpldir ~ "/map.jinja" import musthaves with context %}
+
+include:
+  - .git
+  - .vim
+  - .salt-minion
 
 {{tplfile}} - Must-Haves:
   pkg.latest:
@@ -26,10 +36,6 @@
       - {{pkg}}
       {% endfor %}
 
-include:
-  - .git
-  - .vim
-
 {{tplfile}} - Must-Not-Haves:
   pkg.purged:
     - pkgs:
@@ -44,6 +50,7 @@ include:
       # This list from Bodhi installation to "apt upgrade" listed as "no
       # longer required":
       - diffstat
+      - dkms
       - gettext
       - gir1.2-appindicator3-0.1
       - gir1.2-javascriptcoregtk-3.0

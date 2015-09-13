@@ -1,4 +1,8 @@
-{% set baseURL = "salt://clemson" %}
+{% if 2015 > grains['saltversioninfo'][0] %}
+{%   set tpldir = '' %}
+{%   set tplfile = tpldir ~ 'clemson.sls' %}
+{% endif %}
+
 {% set jasHome = "/home/jas/" %}
 {% set jasSrcBin = jasHome ~ "/src/bin/" %}
 {% set jasBin = jasHome ~ "/bin/" %}
@@ -12,15 +16,16 @@
                   ] %}
                 
 
-{{baseURL}} - Install packages to use with Clemson systems:
+{{tplfile}} - Install packages to use with Clemson systems:
   pkg.latest:
+    - refresh: True
     - install_recommends: False
     - pkgs:
       - openconnect
       - subversion
       - rdesktop
 
-{{baseURL}} - Download Clemson binaries:
+{{tplfile}} - Download Clemson binaries:
   git.latest:
     - name: https://github.com/eckardclemson/bin.git
     - target: {{jasSrcBin}}
@@ -29,7 +34,7 @@
       - pkg: git
 
 {% for dest, src in programs %}
-{{baseURL}} - Symlink {{src}} to {{dest}}:
+{{tplfile}} - Symlink {{src}} to {{dest}}:
   file.symlink:
     - name: {{dest}}
     - target: {{src}}

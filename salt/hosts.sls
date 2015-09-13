@@ -1,19 +1,22 @@
-{% set baseURL = "salt://hosts" %}
+{% if 2015 > grains['saltversioninfo'][0] %}
+{%   set tpldir = '' %}
+{%   set tplfile = tpldir ~ '/hosts.sls' %}
+{% endif %}
 
-{{baseURL}} - Add tiger to /etc/hosts:
+{{tplfile}} - Add tiger to /etc/hosts:
   file.append:
     - name: /etc/hosts
     - text:
       - "172.16.16.100 tiger"
 
-{{baseURL}} - Add grace to /etc/hosts:
+{{tplfile}} - Add grace to /etc/hosts:
   file.append:
     - name: /etc/hosts
     - text:
       - "172.16.16.107 grace salt"
 
-{{baseURL}} - Add alarm to /etc/hosts:
+{{tplfile}} - Add alarm to /etc/hosts:
   file.append:
     - name: /etc/hosts
     - text:
-      - "172.16.16.131 alarm "
+      - "172.16.16.131 alarm"

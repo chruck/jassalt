@@ -1,5 +1,3 @@
-{% set baseURL = "salt://top" %}
-
 base:
   grace:
     - saltmaster

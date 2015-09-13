@@ -25,7 +25,7 @@
 {{sls}} - Add Synergy config file:
   file.managed:
     - name: /etc/synergy.conf
-    - source: {{sls}}/synergy.conf.tmpl
+    - source: salt://{{ sls|replace(".", "/") }}/synergy.conf.tmpl
     - template: jinja
     - defaults:
         synergyServer: {{synergyServer}}

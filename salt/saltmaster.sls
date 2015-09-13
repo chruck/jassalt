@@ -51,9 +51,9 @@ include:
     - name: /srv/salt/bashrc/.bashrc.jas
     - target: {{bashrcDir}}/.bashrc.jas
     - require_in:
-      - file: "salt://bashrc - Upload root's .bashrc.jas"
+      - file: "bashrc - Upload root's .bashrc.jas"
     - require_in:
-      - file: "salt://bashrc - Upload Jas' .bashrc.jas"
+      - file: "bashrc - Upload Jas' .bashrc.jas"
 
 {{sls}} - Pull down the latest dnsmasq formula:
   git.latest:

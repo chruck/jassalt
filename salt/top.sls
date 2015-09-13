@@ -1,14 +1,17 @@
 base:
+  # Only needs saltminion (alarm doesn't need 'musthaves', eg)
+  '*':
+    - saltminion
+    - grub
   grace:
     - saltmaster
     #- hosts
-  '*':
+  grace,tiger:
+    - match: list
     - musthaves
     - bashrc
     - saltminion
     - grub
-  grace,tiger:
-    - match: list
     - saltedit
     - musthaves.desktop
     - musthaves.synergy

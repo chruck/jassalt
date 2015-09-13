@@ -1,8 +1,3 @@
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = 'musthaves' %}
-{%   set tplfile = tpldir ~ '/init.sls' %}
-{% endif %}
-
 {% from tpldir ~ "/map.jinja" import musthaves with context %}
 
 include:

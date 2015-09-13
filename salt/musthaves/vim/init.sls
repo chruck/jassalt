@@ -7,6 +7,7 @@
 
 {{tplfile}} - Install Vim packages:
   pkg.latest:
+    - refresh: True
     - install_recommends: False
     - pkgs:
       {% for pkg in vim.pkglist %}
@@ -20,6 +21,7 @@
 {{tplfile}} - Install {{vimaddonmanager}}:
   pkg.latest:
     - name: {{vimaddonmanager}}
+    - refresh: True
     - install_recommends: False
 
 {{tplfile}} - Enable Vim addons:

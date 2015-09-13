@@ -1,4 +1,7 @@
-{% set baseURL = "salt://musthaves/synergy/" %}
+{% if 2015 > grains['saltversioninfo'][0] %}
+{%   set tpldir = 'musthaves/synergy' %}
+{%   set tplfile = tpldir ~ '/init.sls' %}
+{% endif %}
 
 {% set synergyServer = "tiger" %}
 {% set synergyServerIP = "172.16.16.100" %}
@@ -13,15 +16,16 @@
   {% set command = "sudo -u jas sh -c 'pkill synergyc; DISPLAY=:0.0 synergyc " ~ synergyServer ~ "'"%}
 {% endif %}
 
-{{baseURL}} - Install Synergy:
+{{tplfile}} - Install Synergy:
   pkg.latest:
     - name: synergy
+    - refresh: True
     - install_recommends: False
 
-{{baseURL}} - Add Synergy config file:
+{{tplfile}} - Add Synergy config file:
   file.managed:
     - name: /etc/synergy.conf
-    - source: {{baseURL}}/synergy.conf.tmpl
+    - source: {{tplfile}}/synergy.conf.tmpl
     - template: jinja
     - defaults:
         synergyServer: {{synergyServer}}
@@ -29,8 +33,8 @@
         synergyClient: {{synergyClient}}
         synergyClientIP: {{synergyClientIP}}
 
-{{baseURL}} - Start Synergy {{daemon}}:
+{{tplfile}} - Start Synergy {{daemon}}:
   cmd.wait:
     - name: {{command}}
     - watch:
-      - file: {{baseURL}} - Add Synergy config file
+      - file: {{tplfile}} - Add Synergy config file

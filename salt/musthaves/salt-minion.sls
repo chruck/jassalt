@@ -8,6 +8,7 @@
 {{tplfile}} - Install package salt-minion:
   pkg.latest:
     - name: salt-minion
+    - refresh: True
     - order: last
 
 {{tplfile}} - Ensure salt-minion service is running:
@@ -26,6 +27,7 @@
 {{tplfile}} - Install 'at' package:
   pkg.latest:
     - name: at
+    - refresh: True
 
 {{tplfile}} - Enable 'at' daemon:
   service.running:

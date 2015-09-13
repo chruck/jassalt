@@ -1,4 +1,7 @@
-{% set baseURL = "salt://musthaves/desktop" %}
+{% if 2015 > grains['saltversioninfo'][0] %}
+{%   set tpldir = 'musthaves' %}
+{%   set tplfile = tpldir ~ '/desktop.sls' %}
+{% endif %}
 
 {% set autoexpect = "expect-dev" %}
 {% set chromium = "chromium-browser" %}
@@ -9,8 +12,9 @@
 {% set irssiscripts = "irssi-scripts" %}
 {% set xmllint = "libxml2-utils" %}
 
-{{baseURL}} - Must-Haves for Desktop:
+{{tplfile}} - Must-Haves for Desktop:
   pkg.latest:
+    - refresh: True
     - install_recommends: False
     - pkgs:
       - antiword

@@ -12,6 +12,7 @@ include:
 
 {{tplfile}} - Must-Haves:
   pkg.latest:
+    - refresh: True
     - install_recommends: False
     - pkgs:
       - bash

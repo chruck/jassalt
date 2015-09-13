@@ -3,19 +3,19 @@
 {%   set tplfile = tpldir ~ '/hosts.sls' %}
 {% endif %}
 
-{{tplfile}} - Add tiger to /etc/hosts:
+{{sls}} - Add tiger to /etc/hosts:
   file.append:
     - name: /etc/hosts
     - text:
       - "172.16.16.100 tiger"
 
-{{tplfile}} - Add grace to /etc/hosts:
+{{sls}} - Add grace to /etc/hosts:
   file.append:
     - name: /etc/hosts
     - text:
       - "172.16.16.107 grace salt"
 
-{{tplfile}} - Add alarm to /etc/hosts:
+{{sls}} - Add alarm to /etc/hosts:
   file.append:
     - name: /etc/hosts
     - text:

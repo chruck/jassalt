@@ -3,7 +3,7 @@
 {%   set tplfile = tpldir ~ '/saltminion.sls' %}
 {% endif %}
 
-{{tplfile}} - Install salt-minion pkg:
+{{sls}} - Install salt-minion pkg:
   pkg.latest:
     - name: salt-minion
     - refresh: True

@@ -5,31 +5,31 @@
 {%   set tplfile = tpldir ~ '/salt-minion.sls' %}
 {% endif %}
 
-{{tplfile}} - Install package salt-minion:
+{{sls}} - Install package salt-minion:
   pkg.latest:
     - name: salt-minion
     - refresh: True
     - order: last
 
-{{tplfile}} - Ensure salt-minion service is running:
+{{sls}} - Ensure salt-minion service is running:
   service.running:
     - name: salt-minion
     - enable: True
     - require:
       - pkg: salt-minion
 
-{{tplfile}} - Restart salt-minion in 1 minute from now:
+{{sls}} - Restart salt-minion in 1 minute from now:
   cmd.wait:
     - name: echo service salt-minion restart | at now + 1 minute
     - watch:
       - pkg: salt-minion
 
-{{tplfile}} - Install 'at' package:
+{{sls}} - Install 'at' package:
   pkg.latest:
     - name: at
     - refresh: True
 
-{{tplfile}} - Enable 'at' daemon:
+{{sls}} - Enable 'at' daemon:
   service.running:
     - name: atd
     - enable: True

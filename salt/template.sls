@@ -7,7 +7,7 @@ include:
   - otherState
   - .otherSubstate
 
-{{tplfile}} - State description:
+{{sls}} - State description:
   state.function:
     - name: template
     - other: option

@@ -16,7 +16,7 @@
                   ] %}
                 
 
-{{tplfile}} - Install packages to use with Clemson systems:
+{{sls}} - Install packages to use with Clemson systems:
   pkg.latest:
     - refresh: True
     - install_recommends: False
@@ -25,7 +25,7 @@
       - subversion
       - rdesktop
 
-{{tplfile}} - Download Clemson binaries:
+{{sls}} - Download Clemson binaries:
   git.latest:
     - name: https://github.com/eckardclemson/bin.git
     - target: {{jasSrcBin}}
@@ -34,7 +34,7 @@
       - pkg: git
 
 {% for dest, src in programs %}
-{{tplfile}} - Symlink {{src}} to {{dest}}:
+{{sls}} - Symlink {{src}} to {{dest}}:
   file.symlink:
     - name: {{dest}}
     - target: {{src}}

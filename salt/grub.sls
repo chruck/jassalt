@@ -3,19 +3,19 @@
 {%   set tplfile = tpldir ~ '/grub.sls' %}
 {% endif %}
 
-{{tplfile}} - Remove 'quiet':
+{{sls}} - Remove 'quiet':
   file.comment:
     - name: /etc/default/grub
     - regex: ^GRUB_CMDLINE_LINUX_DEFAULT=.*quiet
 
-{{tplfile}} - Remove 'splash':
+{{sls}} - Remove 'splash':
   file.comment:
     - name: /etc/default/grub
     - regex: ^GRUB_CMDLINE_LINUX_DEFAULT=.*splash
 
-{{tplfile}} - Rerun grub:
+{{sls}} - Rerun grub:
   cmd.wait:
     - name: update-grub
     - watch:
-      - file: {{tplfile}} - Remove 'quiet'
-      - file: {{tplfile}} - Remove 'splash'
+      - file: {{sls}} - Remove 'quiet'
+      - file: {{sls}} - Remove 'splash'

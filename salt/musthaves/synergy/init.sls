@@ -16,16 +16,16 @@
   {% set command = "sudo -u jas sh -c 'pkill synergyc; DISPLAY=:0.0 synergyc " ~ synergyServer ~ "'"%}
 {% endif %}
 
-{{tplfile}} - Install Synergy:
+{{sls}} - Install Synergy:
   pkg.latest:
     - name: synergy
     - refresh: True
     - install_recommends: False
 
-{{tplfile}} - Add Synergy config file:
+{{sls}} - Add Synergy config file:
   file.managed:
     - name: /etc/synergy.conf
-    - source: {{tplfile}}/synergy.conf.tmpl
+    - source: {{sls}}/synergy.conf.tmpl
     - template: jinja
     - defaults:
         synergyServer: {{synergyServer}}
@@ -33,8 +33,8 @@
         synergyClient: {{synergyClient}}
         synergyClientIP: {{synergyClientIP}}
 
-{{tplfile}} - Start Synergy {{daemon}}:
+{{sls}} - Start Synergy {{daemon}}:
   cmd.wait:
     - name: {{command}}
     - watch:
-      - file: {{tplfile}} - Add Synergy config file
+      - file: {{sls}} - Add Synergy config file

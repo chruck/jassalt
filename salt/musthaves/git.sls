@@ -5,20 +5,20 @@
 
 # Separated out to satisfy another state
 
-{{tplfile}} - Install git package:
+{{sls}} - Install git package:
   pkg.latest:
     - name: git
     - refresh: True
     - install_recommends: False
 
 {% if 'RedHat' != grains['os_family'] %}
-{{tplfile}} - Install git-completion package:
+{{sls}} - Install git-completion package:
   pkg.latest:
     - name: git-completion
     - refresh: True
     - install_recommends: False
 
-{{tplfile}} - Install git-doc package:
+{{sls}} - Install git-doc package:
   pkg.latest:
     - name: git-doc
     - refresh: True

@@ -3,7 +3,7 @@
 {%   set tplfile = tpldir ~ '/vlc.sls' %}
 {% endif %}
 
-{{tplfile}} - Must-Haves for Desktop:
+{{sls}} - Must-Haves for Desktop:
   pkg.latest:
     - name: vlc
     - refresh: True

@@ -12,7 +12,7 @@
 {% set irssiscripts = "irssi-scripts" %}
 {% set xmllint = "libxml2-utils" %}
 
-{{tplfile}} - Must-Haves for Desktop:
+{{sls}} - Must-Haves for Desktop:
   pkg.latest:
     - refresh: True
     - install_recommends: False

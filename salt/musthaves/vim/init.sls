@@ -1,11 +1,11 @@
 {% if 2015 > grains['saltversioninfo'][0] %}
 {%   set tpldir = 'musthaves/vim' %}
-{%   set tplfile = tplfile ~ '/init.sls' %}
+{%   set tplfile = tpldir ~ '/init.sls' %}
 {% endif %}
 
 {% from tpldir ~ "/map.jinja" import vim with context %}
 
-{{tplfile}} - Install Vim packages:
+{{sls}} - Install Vim packages:
   pkg.latest:
     - refresh: True
     - install_recommends: False
@@ -18,13 +18,13 @@
 
 {% set vimaddonmanager = "vim-addon-manager" %}
 
-{{tplfile}} - Install {{vimaddonmanager}}:
+{{sls}} - Install {{vimaddonmanager}}:
   pkg.latest:
     - name: {{vimaddonmanager}}
     - refresh: True
     - install_recommends: False
 
-{{tplfile}} - Enable Vim addons:
+{{sls}} - Enable Vim addons:
   cmd.wait:
     - name: vim-addons install -w info jinja matchit omnicppcomplete xmledit
     - watch:

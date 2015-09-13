@@ -10,7 +10,7 @@ include:
   - .vim
   - .salt-minion
 
-{{tplfile}} - Must-Haves:
+{{sls}} - Must-Haves:
   pkg.latest:
     - refresh: True
     - install_recommends: False
@@ -37,7 +37,7 @@ include:
       - {{pkg}}
       {% endfor %}
 
-{{tplfile}} - Must-Not-Haves:
+{{sls}} - Must-Not-Haves:
   pkg.purged:
     - pkgs:
       - nano

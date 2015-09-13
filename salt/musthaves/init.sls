@@ -67,7 +67,6 @@ include:
       - libapt-pkg-perl
       - libarchive-zip-perl
       - libasprintf-dev
-      - libautodie-perl
       - libclone-perl
       - libcrypto++9
       - libemail-valid-perl

@@ -1,8 +1,3 @@
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = 'musthaves' %}
-{%   set tplfile = tpldir ~ '/desktop.sls' %}
-{% endif %}
-
 {% set autoexpect = "expect-dev" %}
 {% set chromium = "chromium-browser" %}
 {% set ctags = "exuberant-ctags" %}

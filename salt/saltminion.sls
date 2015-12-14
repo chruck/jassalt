@@ -5,7 +5,7 @@
 
 {% from "map.jinja" import saltminion with context %}
 
-{{sls}} - Value of saltminion.pkg:
+{{sls}} - Value of saltminion.pkg ({{saltminion.pkg}}):
   cmd.run:
     - name: echo {{saltminion.pkg}}
 

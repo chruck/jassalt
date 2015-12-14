@@ -5,6 +5,10 @@
 
 {% from "map.jinja" import saltminion with context %}
 
+{{sls}} - Value of saltminion.pkg:
+  cmd.run:
+    - name: echo {{saltminion.pkg}}
+
 {{sls}} - Install salt-minion pkg:
   pkg.latest:
     - name: {{saltminion.pkg}}

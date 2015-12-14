@@ -1,0 +1,8 @@
+{% set saltminion = salt['grains.filter_by']({
+    'default': {
+        'pkg': 'salt-minion',
+    },
+    'Arch': {
+        'pkg': 'salt-minion',
+    },
+}) %}

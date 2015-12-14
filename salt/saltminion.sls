@@ -3,7 +3,7 @@
 {%   set tplfile = tpldir ~ '/saltminion.sls' %}
 {% endif %}
 
-{% from tpldir ~ "/map.jinja" import saltminion with context %}
+{% from "map.jinja" import saltminion with context %}
 
 {{sls}} - Install salt-minion pkg:
   pkg.latest:

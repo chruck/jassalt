@@ -5,7 +5,7 @@
 
 {% set githubURL = "https://github.com/chruck" %}
 {% set srcDir = "/usr/src/" %}
-{% set srvDir = "/srv/salt/" %}
+{% set srvDir = "/srv/" %}
 {% set saltDir = "/srv/salt/" %}
 {% set pillarDir = "/srv/pillar/" %}
 {% set jassaltDir = srcDir ~ "/jassalt/" %}
@@ -38,11 +38,15 @@ include:
   file.symlink:
     - name: {{saltDir}}
     - target: {{jassaltDir}}/salt
+    - require:
+      - file: {{sls}} - Create {{srvDir}}
 
 {{sls}} - Symlink for {{pillarDir}}:
   file.symlink:
     - name: {{pillarDir}}
     - target: {{jassaltDir}}/pillar
+    - require:
+      - file: {{sls}} - Create {{srvDir}}
 
 {{sls}} - Pull down the latest .bashrc.jas:
   git.latest:
@@ -57,6 +61,8 @@ include:
   file.symlink:
     - name: {{saltDir}}/bashrc/.bashrc.jas
     - target: {{bashrcDir}}/.bashrc.jas
+    - require:
+      - file: {{sls}} - Create {{srvDir}}
     - require_in:
       - file: "bashrc - Upload root's .bashrc.jas"
     - require_in:
@@ -69,3 +75,4 @@ include:
     - require:
       - pkg: git
       - file: "{{sls}} - Symlink for {{saltDir}}"
+      - file: {{sls}} - Create {{srvDir}}

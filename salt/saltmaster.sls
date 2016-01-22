@@ -5,8 +5,11 @@
 
 {% set githubURL = "https://github.com/chruck" %}
 {% set srcDir = "/usr/src/" %}
-{% set jassaltDir = srcDir ~ "/jassalt" %}
-{% set bashrcDir = srcDir ~ "/dot.bashrc.jas" %}
+{% set srvDir = "/srv/salt/" %}
+{% set saltDir = "/srv/salt/" %}
+{% set pillarDir = "/srv/pillar/" %}
+{% set jassaltDir = srcDir ~ "/jassalt/" %}
+{% set bashrcDir = srcDir ~ "/dot.bashrc.jas/" %}
 
 include:
   - musthaves.git
@@ -27,14 +30,18 @@ include:
     #- require_in:
       #- pkg: salt://musthaves - Must-Haves
 
-{{sls}} - Symlink for /srv/salt:
+{{sls}} - Create {{srvDir}}:
+  file.directory:
+    - name: {{srvDir}}
+
+{{sls}} - Symlink for {{saltDir}}:
   file.symlink:
-    - name: /srv/salt
+    - name: {{saltDir}}
     - target: {{jassaltDir}}/salt
 
-{{sls}} - Symlink for /srv/pillar:
+{{sls}} - Symlink for {{pillarDir}}:
   file.symlink:
-    - name: /srv/pillar
+    - name: {{pillarDir}}
     - target: {{jassaltDir}}/pillar
 
 {{sls}} - Pull down the latest .bashrc.jas:
@@ -46,9 +53,9 @@ include:
     #- require_in:
       #- pkg: "salt://musthaves - Must-Haves"
 
-{{sls}} - Symlink for /srv/salt/.bashrc.jas:
+{{sls}} - Symlink for {{saltDir}}/.bashrc.jas:
   file.symlink:
-    - name: /srv/salt/bashrc/.bashrc.jas
+    - name: {{saltDir}}/bashrc/.bashrc.jas
     - target: {{bashrcDir}}/.bashrc.jas
     - require_in:
       - file: "bashrc - Upload root's .bashrc.jas"
@@ -58,7 +65,7 @@ include:
 {{sls}} - Pull down the latest dnsmasq formula:
   git.latest:
     - name: https://github.com/saltstack-formulas/dnsmasq-formula.git
-    - target: /srv/salt/dnsmasq-formula
+    - target: {{saltDir}}/dnsmasq-formula
     - require:
       - pkg: git
-      - file: "{{sls}} - Symlink for /srv/salt"
+      - file: "{{sls}} - Symlink for {{saltDir}}"

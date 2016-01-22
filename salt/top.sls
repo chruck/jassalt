@@ -3,7 +3,7 @@ base:
   '*':
     - saltminion
     - grub
-  grace:
+  tiger:
     - saltmaster
     #- hosts
   grace,tiger:

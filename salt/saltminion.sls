@@ -3,7 +3,13 @@
 {%   set tplfile = tpldir ~ '/saltminion.sls' %}
 {% endif %}
 
+{% from "map.jinja" import saltminion with context %}
+
+{{sls}} - Value of saltminion.pkg ({{saltminion.pkg}}):
+  cmd.run:
+    - name: echo {{saltminion.pkg}}
+
 {{sls}} - Install salt-minion pkg:
   pkg.latest:
-    - name: salt-minion
+    - name: {{saltminion.pkg}}
     - refresh: True

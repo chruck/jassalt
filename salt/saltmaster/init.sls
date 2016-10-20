@@ -1,6 +1,6 @@
 {% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = '' %}
-{%   set tplfile = tpldir ~ '/saltmaster.sls' %}
+{%   set tpldir = '/saltmaster' %}
+{%   set tplfile = tpldir ~ '/init.sls' %}
 {% endif %}
 
 {% set githubURL = "https://github.com/chruck" %}
@@ -20,6 +20,20 @@ include:
   pkg.latest:
     - name: salt-master
     - refresh: True
+
+{{sls}} - Set hash to SHA512:
+  file.managed:
+    - name: /etc/salt/master.d/hash.conf
+    - contents: hash_type: sha512
+    - require:
+      - pkg: {{sls}} - Install salt-master pkg
+
+{{sls}} - Set file_ignore:
+  file.managed:
+    - name: /etc/salt/master.d/file_ignore.conf
+    - source: salt://{{tpldir}}/file_ignore.conf
+    - require:
+      - pkg: {{sls}} - Install salt-master pkg
 
 {{sls}} - Pull down the latest jassalt salt states:
   git.latest:

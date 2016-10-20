@@ -3,6 +3,7 @@ base:
   '*':
     - saltminion
     - grub
+    - sudoInsult
   tiger:
     - saltmaster
     #- hosts

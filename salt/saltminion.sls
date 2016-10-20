@@ -20,4 +20,3 @@
     - contents: "hash_type: sha512"
     - require:
       - pkg: {{sls}} - Install salt-minion pkg
-

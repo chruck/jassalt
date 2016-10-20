@@ -24,7 +24,7 @@ include:
 {{sls}} - Set hash to SHA512:
   file.managed:
     - name: /etc/salt/master.d/hash.conf
-    - contents: hash_type: sha512
+    - contents: "hash_type: sha512"
     - require:
       - pkg: {{sls}} - Install salt-master pkg
 

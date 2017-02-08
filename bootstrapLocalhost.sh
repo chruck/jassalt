@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##
-# @file bootstrapGrace.sh
+# @file bootstrapLocalhost.sh
 # @author Jas Eckard <jas@eckard.com>
 #
 # @section LICENSE
@@ -10,13 +10,13 @@
 #
 # @section DESCRIPTION
 #
-# Script to use system `grace' as a bootstrapped system to get
+# Script to use system `localhost' as a bootstrapped system to get
 # everything going.
 #
 # Assumptions:
-# * grace is a bare Bodhi Linux system
+# * localhost is a bare Bodhi Linux system
 #   * therefore, package manager is apt
-# * grace will be a minion to itself first, until another master is
+# * localhost will be a minion to itself first, until another master is
 #   built
 #
 # Return codes:  1 = bad parameter(s)
@@ -25,7 +25,7 @@
 readonly localDir="$(cd ${BASH_SOURCE[0]%/*} && pwd -P && cd - >/dev/null)"
 
 # To get some debug output call this file like:
-# DEBUG=true ./bootstrapGrace.sh ...
+# DEBUG=true ./bootstrapLocalhost.sh ...
 
 echoStderr() { echo "$@" 1>&2; }
 
@@ -49,7 +49,7 @@ declare rc=0
 #declare optionB=bogus
 #declare REQUIRED
 #declare OPTIONAL=bogus
-declare MASTER="grace"
+declare MASTER="$(hostname)"
 #readonly pi="3.1415"
 
 Usage()
@@ -238,10 +238,10 @@ parseOptions "$@"
 verifyParams
 setupIptables
 updateOS
-#installSalt apt
-installSalt bootstrap
-echo masterIsLocal
-echo startDaemons
-echo acceptSaltkey
-echo checkoutStates
-echo deploy
+installSalt apt
+#installSalt bootstrap
+masterIsLocal
+startDaemons
+acceptSaltkey
+checkoutStates
+deploy

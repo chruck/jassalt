@@ -9,7 +9,7 @@
 include:
   - musthaves.git
   - bashrc
-  - saltminion
+  - salt
 
 {{sls}} - Install salt-master pkg:
   pkg.latest:

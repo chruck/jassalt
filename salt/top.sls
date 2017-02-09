@@ -3,15 +3,17 @@ base:
   '*':
     - saltminion
     - grub
-  grace:
+  grace,stack:
+    - match: list
     - saltmaster
+    - saltvirt
     #- hosts
-  grace,tiger:
+  grace,tiger,stack:
     - match: list
     - musthaves
     - bashrc
-    - saltminion
-    - grub
+#- saltminion
+#- grub
     - saltedit
     - musthaves.desktop
     - musthaves.synergy

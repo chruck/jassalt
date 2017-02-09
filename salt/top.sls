@@ -14,7 +14,7 @@ base:
     - bashrc
 #- saltminion
 #- grub
-    - saltedit
+    - salt.edit
     - musthaves.desktop
     - musthaves.synergy
     - musthaves.vlc

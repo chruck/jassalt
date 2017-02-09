@@ -5,7 +5,7 @@ base:
     - grub
   tiger,stack:
     - match: list
-    - saltmaster
+    - salt.master
     - salt.virt
     #- hosts
   grace,tiger,stack:

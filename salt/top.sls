@@ -1,7 +1,7 @@
 base:
   # Only needs saltminion (alarm doesn't need 'musthaves', eg)
   '*':
-    - saltminion
+    - salt
     - grub
   tiger,stack:
     - match: list
@@ -12,7 +12,7 @@ base:
     - match: list
     - musthaves
     - bashrc
-#- saltminion
+#- salt
 #- grub
     - salt.edit
     - musthaves.desktop

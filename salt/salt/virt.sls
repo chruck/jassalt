@@ -11,6 +11,7 @@
 
 {{sls}} - Manage libvirt keys:
   virt.keys:
+    - name:  libvirt_keys
     - require:
       - pkg: {{sls}} - Install libvirt
 

@@ -1,7 +1,3 @@
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = '/saltmaster' %}
-{% endif %}
-
 {% set githubURL = "https://github.com/chruck" %}
 {% set srcDir = "/usr/src" %}
 {% set srvDir = "/srv" %}
@@ -30,7 +26,7 @@ include:
 {{sls}} - Set file_ignore:
   file.managed:
     - name: /etc/salt/master.d/file_ignore.conf
-    - source: salt://{{tpldir}}/file_ignore.conf
+    - source: salt://salt/file_ignore.conf
     - require:
       - pkg: {{sls}} - Install salt-master pkg
 

@@ -1,10 +1,5 @@
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = '' %}
-{%   set tplfile = tpldir ~ '/saltmaster.sls' %}
-{% endif %}
-
 {% set githubURL = "https://github.com/chruck" %}
-{% set srcDir = "/usr/src/" %}
+{% set srcDir = "/usr/src" %}
 {% set jassaltDir = srcDir ~ "/jassalt" %}
 {% set bashrcDir = srcDir ~ "/dot.bashrc.jas" %}
 
@@ -43,8 +38,9 @@ include:
     - target: {{bashrcDir}}
     - require:
       - pkg: git
-    #- require_in:
+    - require_in:
       #- pkg: "salt://musthaves - Must-Haves"
+      - file: bashrc - Upload root's .bashrc.jas
 
 {{sls}} - Symlink for /srv/salt/.bashrc.jas:
   file.symlink:

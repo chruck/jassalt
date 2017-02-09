@@ -3,7 +3,7 @@ base:
   '*':
     - saltminion
     - grub
-  grace,stack:
+  tiger,stack:
     - match: list
     - saltmaster
     - saltvirt
@@ -19,3 +19,4 @@ base:
     - musthaves.synergy
     - musthaves.vlc
     - clemson
+    - sudoInsult

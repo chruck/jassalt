@@ -1,2 +1,3 @@
 include:
+  - .repo
   - .minion

@@ -1,10 +1,5 @@
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = '' %}
-{%   set tplfile = tpldir ~ '/saltedit.sls' %}
-{% endif %}
-
-{% set srcDir = "/usr/src/salt-vim/" %}
-{% set etcVim = "/etc/vim/" %}
+{% set srcDir = "/usr/src/salt-vim" %}
+{% set etcVim = "/etc/vim" %}
 
 {{sls}} - Vim files for editing Saltstack files:
   git.latest:

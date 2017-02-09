@@ -6,7 +6,7 @@ base:
   tiger,stack:
     - match: list
     - saltmaster
-    - saltvirt
+    - salt.virt
     #- hosts
   grace,tiger,stack:
     - match: list

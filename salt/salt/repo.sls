@@ -1,5 +1,7 @@
-{% set latestUrl = "http://repo.saltstack.com/apt/ubuntu/16.04/" ~
-        grains['osarch'] ~ "/latest" %}
+{% if "Ubuntu" == grains['os'] %}
+
+{%     set latestUrl = "http://repo.saltstack.com/apt/ubuntu/16.04/" ~
+                       grains['osarch'] ~ "/latest" %}
 
 {{sls}} - Install SaltStack repository:
   pkgrepo.managed:
@@ -8,3 +10,5 @@
     - file: /etc/apt/sources.list.d/saltstack.list
     - key_url: {{latestUrl}}/SALTSTACK-GPG-KEY.pub 
     - gpgcheck: 1
+
+{% endif %}

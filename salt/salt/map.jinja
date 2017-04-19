@@ -1,0 +1,10 @@
+{% set libVirt = salt['grains.filter_by']({
+    'Debian': {
+        'bin': 'libvirt-bin',
+        'python': 'python-libvirt',
+    },
+    'RedHat': {
+        'bin': 'libvirt-bin',
+        'python': 'libvirt-python',
+    },
+}, merge=salt['pillar.get']('libVirt:lookup')} %}

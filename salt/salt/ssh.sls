@@ -1,5 +1,6 @@
 {% set saltDir = "/srv/salt" %}
 {% set saltRoster = saltDir ~ "/roster" %}
+{% set srcDir = "/usr/src" %}
 {% set jassaltDir = srcDir ~ "/jassalt" %}
 
 include:

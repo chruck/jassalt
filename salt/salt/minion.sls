@@ -1,8 +1,8 @@
-{% from "map.jinja" import saltminion with context %}
+{% from "salt/map.jinja" import saltminion with context %}
 
 {{sls}} - Install salt-minion pkg:
   pkg.latest:
-    - name: {{saltminion.bin}}
+    - name: {{saltminion.pkg}}
     - refresh: True
 
 {{sls}} - Set hash to SHA512:

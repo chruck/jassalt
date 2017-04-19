@@ -1,7 +1,5 @@
-{% set saltDir = "/srv/salt" %}
-{% set saltRoster = saltDir ~ "/roster" %}
-{% set srcDir = "/usr/src" %}
-{% set jassaltDir = srcDir ~ "/jassalt" %}
+{% set saltRoster = "/etc/salt/roster" %}
+{% set jassaltDir = "/usr/src/jassalt" %}
 
 include:
   - salt.master

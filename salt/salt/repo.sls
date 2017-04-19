@@ -1,4 +1,5 @@
-{% set latestUrl = "http://repo.saltstack.com/apt/ubuntu/16.04/" ~ grains['osarch'] ~ "latest" %}
+{% set latestUrl = "http://repo.saltstack.com/apt/ubuntu/16.04/" ~
+        grains['osarch'] ~ "/latest" %}
 
 {{sls}} - Install SaltStack repository:
   pkgrepo.managed:

@@ -13,5 +13,6 @@ include:
   file.symlink:
     - name: {{saltRoster}}
     - target: {{jassaltDir}}/salt/roster
+    - force: True
     - require:
       - file: salt.master - Create /srv

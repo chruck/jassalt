@@ -1,6 +1,8 @@
+{% from "salt/map.jinja" import libVirt with context %}
+
 {{sls}} - Install libvirt:
   pkg.installed:
-    - name: libvirt-bin
+    - name: {{libVirt.bin}}
 
 {{sls}} - Config libvirt:
   file.append:
@@ -27,7 +29,7 @@
 
 {{sls}} - Install libvirt-python:
   pkg.installed:
-    - name: libvirt-python
+    - name: {{libVirt.python}}
 
 {{sls}} - Install libguestfs:
   pkg.installed:

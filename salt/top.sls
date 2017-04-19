@@ -7,6 +7,7 @@ base:
     - match: list
     - salt.master
     - salt.virt
+    - salt.ssh
     #- hosts
   grace,tiger,stack:
     - match: list

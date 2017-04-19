@@ -2,7 +2,7 @@
 
 {{sls}} - Install salt-minion pkg:
   pkg.latest:
-    - name: {{saltminion.pkg}}
+    - name: {{saltminion.bin}}
     - refresh: True
 
 {{sls}} - Set hash to SHA512:

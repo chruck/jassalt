@@ -16,4 +16,4 @@ include:
     - name: {{saltRoster}}
     - target: {{jassaltDir}}/salt/roster
     - require:
-      - file: salt.master - Create {{srvDir}}
+      - file: salt.master - Create /srv

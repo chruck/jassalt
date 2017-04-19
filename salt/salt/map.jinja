@@ -1,9 +1,12 @@
 {% set saltminion = salt['grains.filter_by']({
+    'Arch': {
+        'pkg': 'salt-zmq',
+    },
     'Debian': {
         'pkg': 'salt-minion',
     },
-    'Arch': {
-        'pkg': 'salt-zmq',
+    'Gentoo': {
+        'pkg': 'salt-minion',
     },
 }) %}
 

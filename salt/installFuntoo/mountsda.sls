@@ -7,6 +7,7 @@ include:
   mount.mounted:
     - name: /mnt/funtoo
     - device: /dev/sda
+    - fstype: btrfs
     #- pass_num: 1
     - mkmnt: True
     - require:

@@ -1,8 +1,3 @@
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = '' %}
-{%   set tplfile = tpldir ~ 'clemson.sls' %}
-{% endif %}
-
 {% set jasHome = "/home/jas/" %}
 {% set jasSrcBin = jasHome ~ "/src/bin/" %}
 {% set jasBin = jasHome ~ "/bin/" %}

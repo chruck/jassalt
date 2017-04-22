@@ -1,8 +1,3 @@
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = '' %}
-{%   set tplfile = tpldir ~ '/hosts.sls' %}
-{% endif %}
-
 {{sls}} - Add tiger to /etc/hosts:
   file.append:
     - name: /etc/hosts

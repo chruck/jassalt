@@ -1,8 +1,3 @@
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = '' %}
-{%   set tplfile = tpldir ~ '/grub.sls' %}
-{% endif %}
-
 {{sls}} - Remove 'quiet':
   file.comment:
     - name: /etc/default/grub

@@ -1,8 +1,3 @@
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = 'musthaves/vim' %}
-{%   set tplfile = tpldir ~ '/init.sls' %}
-{% endif %}
-
 {% from tpldir ~ "/map.jinja" import vim with context %}
 
 {{sls}} - Install Vim packages:

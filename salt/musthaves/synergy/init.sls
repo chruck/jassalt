@@ -1,8 +1,3 @@
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = 'musthaves/synergy' %}
-{%   set tplfile = tpldir ~ '/init.sls' %}
-{% endif %}
-
 {% set synergyServer = "tiger" %}
 {% set synergyServerIP = "172.16.16.100" %}
 {% set synergyClient = "grace" %}

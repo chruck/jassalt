@@ -1,10 +1,5 @@
 # From http://docs.saltstack.com/en/latest/faq.html#what-is-the-best-way-to-restart-a-salt-daemon-using-salt :
 
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = 'musthaves' %}
-{%   set tplfile = tpldir ~ '/salt-minion.sls' %}
-{% endif %}
-
 {{sls}} - Install package salt-minion:
   pkg.latest:
     - name: salt-minion

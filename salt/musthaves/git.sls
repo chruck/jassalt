@@ -1,8 +1,3 @@
-{% if 2015 > grains['saltversioninfo'][0] %}
-{%   set tpldir = 'musthaves' %}
-{%   set tplfile = tpldir ~ '/git.sls' %}
-{% endif %}
-
 # Separated out to satisfy another state
 
 {{sls}} - Install git package:

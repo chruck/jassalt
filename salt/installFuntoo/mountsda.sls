@@ -1,3 +1,5 @@
+{% if "sysresccd" == grains["nodename"] %}
+
 include:
   - .sda
 
@@ -8,4 +10,6 @@ include:
     #- pass_num: 1
     - mkmnt: True
     - require:
-      - blockdev: sda - Format /dev/sda
+      - blockdev: installFuntoo.sda - Format /dev/sda
+
+{% endif %}

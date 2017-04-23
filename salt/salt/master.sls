@@ -34,10 +34,9 @@ include:
   git.latest:
     - name: {{githubURL}}/jassalt.git
     - target: {{jassaltDir}}
+    - force_reset: True
     - require:
       - pkg: git
-    #- require_in:
-      #- pkg: salt://musthaves - Must-Haves
 
 {{sls}} - Create {{srvDir}}:
   file.directory:
@@ -61,10 +60,10 @@ include:
   git.latest:
     - name: {{githubURL}}/dot.bashrc.jas.git
     - target: {{bashrcDir}}
+    - force_reset: True
     - require:
       - pkg: git
     - require_in:
-      #- pkg: "salt://musthaves - Must-Haves"
       - file: bashrc - Upload root's .bashrc.jas
 
 {{sls}} - Symlink for {{saltDir}}/.bashrc.jas:
@@ -82,6 +81,7 @@ include:
   git.latest:
     - name: https://github.com/saltstack-formulas/dnsmasq-formula.git
     - target: {{saltDir}}/dnsmasq-formula
+    - force_reset: True
     - require:
       - pkg: git
       - file: "{{sls}} - Symlink for {{saltDir}}"

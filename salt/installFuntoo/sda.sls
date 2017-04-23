@@ -5,4 +5,7 @@
     - name: /dev/sda
     - fs_type: btrfs
 
+{% else %}
+echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'.":
+  cmd.run
 {% endif %}

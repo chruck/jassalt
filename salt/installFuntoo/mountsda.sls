@@ -13,4 +13,7 @@ include:
     - require:
       - blockdev: installFuntoo.sda - Format /dev/sda
 
+{% else %}
+echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'.":
+  cmd.run
 {% endif %}

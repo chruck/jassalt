@@ -9,7 +9,7 @@ States to install Funtoo distribution on a target node.
 * Salt master has `salt-ssh` installed.
 * Salt master has target in `/etc/salt/roster` (`salt.master` state):
 ```sh
-echo sysresccd: $IP >/etc/salt/roster
+echo sysresccd: $IP |sudo tee /etc/salt/roster
 ```
 
 ## Commands to run

@@ -1,0 +1,11 @@
+label: gpt
+label-id: CD50E510-B4E7-4FFE-8696-0C9D1E30B237
+device: /dev/sda
+unit: sectors
+first-lba: 34
+last-lba: 1000215182
+
+/dev/sda1 : start=        2048, size=      532480, type=C12A7328-F81F-11D2-BA4B-00A0C93EC93B, uuid=884DED34-5634-4CFF-B271-7869D0F033C2, name="EFI system partition", attrs="RequiredPartiton GUID:63"
+/dev/sda2 : start=      534528, size=       32768, type=E3C9E316-0B5C-4DB8-817D-F92DF00215AE, uuid=8DDF9D6E-B49F-4336-AA08-1338A4952F83, name="Microsoft reserved partition", attrs="GUID:63"
+/dev/sda3 : start=      567296, size=   997599232, type=EBD0A0A2-B9E5-4433-87C0-68B6B72699C7, uuid=1E242C22-6D1E-452F-8D98-2363B2904A87, name="Basic data partition"
+/dev/sda4 : start=   998166528, size=     2048000, type=DE94BBA4-06D1-4D40-A16A-BFD50179D6AC, uuid=3681A18C-02D8-4805-9456-804DAF99685F, name="Basic data partition", attrs="RequiredPartiton GUID:63"

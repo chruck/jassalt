@@ -22,7 +22,7 @@
     - part_type: primary
 #    - fs_type: btrfs
     - start: 534528s
-#    - end: 
+    - end: -1s
 
 {{sls}} - Format /dev/sda2:
   blockdev.formatted:

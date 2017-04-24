@@ -13,7 +13,7 @@
     - part_type: primary
     - fs_type: fat32
     - start: 2048s
-    - end: 532480ss
+    - end: 534527s
 
 {{sls}} - Create partition /dev/sda2 as btrfs:
   module.run:
@@ -22,7 +22,7 @@
     - part_type: primary
 #    - fs_type: btrfs
     - start: 534528s
-    - end: -1
+    - end: -1s
 
 {{sls}} - Format /dev/sda2:
   blockdev.formatted:

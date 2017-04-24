@@ -11,14 +11,14 @@
     - name: partition.mkpart
     - device: /dev/sda
     - part_type: primary
-    - fs_type: btrfs
-    - start: 534528
-    #- end: 
-
-#{{sls}} - Format /dev/sda2:
-#  blockdev.formatted:
-#    - name: /dev/sda2
 #    - fs_type: btrfs
+    - start: 534528
+#    - end: 
+
+{{sls}} - Format /dev/sda2:
+  blockdev.formatted:
+    - name: /dev/sda2
+    - fs_type: btrfs
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

@@ -1,8 +1,8 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{{sls}} - Format /dev/sda:
+{{sls}} - Format /dev/sda2:
   blockdev.formatted:
-    - name: /dev/sda
+    - name: /dev/sda2
     - fs_type: btrfs
 
 {% else %}

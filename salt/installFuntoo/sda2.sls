@@ -35,6 +35,7 @@
 #    - name: /dev/sda2
     - name: /dev/sda
     - fs_type: btrfs
+    - force: True
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

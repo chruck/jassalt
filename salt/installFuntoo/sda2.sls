@@ -1,10 +1,10 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{{sls}} - Label /dev/sda as GPT:
-  module.run:
-    - name: partition.mklabel
-    - device: /dev/sda
-    - label_type: gpt
+#{{sls}} - Label /dev/sda as GPT:
+#  module.run:
+#    - name: partition.mklabel
+#    - device: /dev/sda
+#    - label_type: gpt
 
 {{sls}} - Create partition /dev/sda1 as fat32:
   module.run:

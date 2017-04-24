@@ -12,8 +12,8 @@
     - device: /dev/sda
     - part_type: primary
     - fs_type: fat32
-    - start: 0
-    - end: 534528s
+    - start: 2048s
+    - end: 532480ss
 
 {{sls}} - Create partition /dev/sda2 as btrfs:
   module.run:

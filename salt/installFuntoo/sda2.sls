@@ -6,13 +6,22 @@
     - device: /dev/sda
     - label_type: gpt
 
+{{sls}} - Create partition /dev/sda1 as fat32:
+  module.run:
+    - name: partition.mkpart
+    - device: /dev/sda
+    - part_type: primary
+    - fs_type: fat32
+    - start: 0
+    - end: 534528s
+
 {{sls}} - Create partition /dev/sda2 as btrfs:
   module.run:
     - name: partition.mkpart
     - device: /dev/sda
     - part_type: primary
 #    - fs_type: btrfs
-    - start: 534528
+    - start: 534528s
 #    - end: 
 
 {{sls}} - Format /dev/sda2:

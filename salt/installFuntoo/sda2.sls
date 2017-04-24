@@ -1,37 +1,39 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{{sls}} - Label /dev/sda as GPT:
-  module.run:
-    - name: partition.mklabel
-    - device: /dev/sda
+#{{sls}} - Label /dev/sda as GPT:
+#  module.run:
+#    - name: partition.mklabel
+#    - device: /dev/sda
 #    - label_type: gpt
-    - label_type: msdos
+#    - label_type: msdos
 
-{{sls}} - Create partition /dev/sda1 as fat32:
-  module.run:
-    - name: partition.mkpart
-    - device: /dev/sda
-    - part_type: primary
-    - fs_type: fat32
+#{{sls}} - Create partition /dev/sda1 as fat32:
+#  module.run:
+#    - name: partition.mkpart
+#    - device: /dev/sda
+#    - part_type: primary
+#    - fs_type: fat32
 #    - start: 2048s
 #    - end: 534527s
-    - start: 0
-    - end: 260
+#    - start: 0
+#    - end: 260
 
-{{sls}} - Create partition /dev/sda2 as btrfs:
-  module.run:
-    - name: partition.mkpart
-    - device: /dev/sda
-    - part_type: primary
+#{{sls}} - Create partition /dev/sda2 as btrfs:
+#  module.run:
+#    - name: partition.mkpart
+#    - device: /dev/sda
+#    - part_type: primary
 #    - fs_type: btrfs
 #    - start: 534528s
 #    - end: -1s
 #    - end: 1000215182s
-    - start: 260
+#    - start: 260
 
+#{{sls}} - Format /dev/sda2:
 {{sls}} - Format /dev/sda2:
   blockdev.formatted:
-    - name: /dev/sda2
+#    - name: /dev/sda2
+    - name: /dev/sda
     - fs_type: btrfs
 
 {% else %}

@@ -29,9 +29,13 @@
 #    - end: 1000215182s
 #    - start: 260
 
-{{sls}} - Format /dev/sda (cmd.run):
-  cmd.run:
-    - name: "mkfs.btrfs /dev/sda -f"
+#{{sls}} - Format /dev/sda (cmd.run):
+#  cmd.run:
+#    - name: "mkfs.btrfs /dev/sda -f"
+
+{{sls}} - Format /dev/sda (module.run):
+  module.run:
+    - name: btrfs.mkfs
 
 {{sls}} - Format /dev/sda:
   blockdev.formatted:
@@ -39,7 +43,8 @@
     - fs_type: btrfs
     - force: True
     - require:
-      - cmd: {{sls}} - Format /dev/sda (cmd.run)
+#      - cmd: {{sls}} - Format /dev/sda (cmd.run)
+      - module: {{sls}} - Format /dev/sda (module.run)
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

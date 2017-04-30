@@ -29,10 +29,12 @@
 #    - end: 1000215182s
 #    - start: 260
 
-#{{sls}} - Format /dev/sda2:
-{{sls}} - Format /dev/sda2:
+{{sls}} - Format /dev/sda:
+  cmd.run:
+    - name: "mkfs.btrfs /dev/sda -f"
+
+{{sls}} - Format /dev/sda:
   blockdev.formatted:
-#    - name: /dev/sda2
     - name: /dev/sda
     - fs_type: btrfs
     - force: True

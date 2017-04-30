@@ -1,17 +1,17 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 include:
-  - .sda2
+  - .sda
 
-{{sls}} - Mount btrfs /dev/sda2 as /mnt/funtoo:
+{{sls}} - Mount btrfs /dev/sda as /mnt/funtoo:
   mount.mounted:
     - name: /mnt/funtoo
-    - device: /dev/sda2
+    - device: /dev/sda
     - fstype: btrfs
     #- pass_num: 1
     - mkmnt: True
     - require:
-      - blockdev: installFuntoo.sda2 - Format /dev/sda2
+      - blockdev: installFuntoo.sda - Format /dev/sda
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

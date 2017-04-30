@@ -39,7 +39,7 @@
     - fs_type: btrfs
     - force: True
     - require:
-      - blockdev: {{sls}} - Format /dev/sda (cmd.run)
+      - cmd: {{sls}} - Format /dev/sda (cmd.run)
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

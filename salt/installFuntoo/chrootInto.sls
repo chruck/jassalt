@@ -2,6 +2,9 @@
 
 {% set mntPt = "/mnt/funtoo" %}
 
+include:
+  - .mountsda
+
 {{sls}} - Mount {{mntPt}}/proc:
   mount.mounted:
     - name: {{mntPt}}/proc

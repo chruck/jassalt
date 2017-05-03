@@ -15,6 +15,7 @@
   mount.mounted:
     - name: {{mntPt}}/sys
     - device: /sys
+    - fstype: sysfs
     - mkmnt: True
     - opts: rbind
     - require:
@@ -24,6 +25,7 @@
   mount.mounted:
     - name: {{mntPt}}/dev
     - device: /dev
+    - fstype: devtmpfs
     - mkmnt: True
     - opts: rbind
     - require:
@@ -31,13 +33,13 @@
 
 {{sls}} - Copy /etc/resolv.conf to {{mntPt}}/etc:
   file.copy:
-    - name: {{mntPt}}/etc
+    - name: {{mntPt}}/etc/resolv.conf
     - source: /etc/resolv.conf
     - require:
       - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Ping in chroot of {{mntPt}}:
-  cmd.shell:
+  cmd.run:
     - name: /bin/chroot {{mntPt}} ping -c5 google.com
     - require:
       - file: {{sls}} - Copy /etc/resolv.conf to {{mntPt}}/etc

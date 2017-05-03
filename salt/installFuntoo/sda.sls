@@ -36,7 +36,8 @@
 {{sls}} - Format /dev/sda (module.run):
   module.run:
     - name: btrfs.mkfs
-    - m_name: /dev/sda
+    - devices:
+      - /dev/sda
 
 {{sls}} - Format /dev/sda:
   blockdev.formatted:

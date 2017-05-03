@@ -4,6 +4,7 @@ include:
   - .sda
   - .mountsda
   - .getStage3
+  - .chrootInto
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

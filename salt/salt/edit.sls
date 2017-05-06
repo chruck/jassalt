@@ -9,7 +9,7 @@ include:
     - name: https://github.com/saltstack/salt-vim.git
     - target: {{srcDir}}
     - require:
-      - musthaves.git - Install git package:
+      - musthaves.git - Install git package
 
 {{sls}} - Symlink sls filetype detection for Vim:
   file.symlink:

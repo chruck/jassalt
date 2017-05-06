@@ -2,12 +2,12 @@
 
 include:
   - .sda
-  - .mountsda
+  - .mountSda
   - .getStage3
-  - .mountvirtfs
+  - .mountVirtFs
   - .chrootInto
-  - .dlportagetree
-  - .umountsda
+  - .dlPortageTree
+  - .umountSda
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

@@ -1,12 +1,15 @@
 {% set srcDir = "/usr/src/salt-vim" %}
 {% set etcVim = "/etc/vim" %}
 
+include:
+  - musthaves.git
+
 {{sls}} - Vim files for editing Saltstack files:
   git.latest:
     - name: https://github.com/saltstack/salt-vim.git
     - target: {{srcDir}}
     - require:
-      - pkg: git
+      - musthaves.git - Install git package:
 
 {{sls}} - Symlink sls filetype detection for Vim:
   file.symlink:

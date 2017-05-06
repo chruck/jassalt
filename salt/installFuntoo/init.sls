@@ -4,6 +4,7 @@ include:
   - .sda
   - .mountsda
   - .getStage3
+  - .mountvirtfs
   - .chrootInto
   - .umountsda
 

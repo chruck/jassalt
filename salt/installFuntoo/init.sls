@@ -6,6 +6,7 @@ include:
   - .getStage3
   - .mountvirtfs
   - .chrootInto
+  - .dlportagetree
   - .umountsda
 
 {% else %}

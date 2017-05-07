@@ -4,7 +4,7 @@
 {% set mntFstab = mntPt ~ "/etc/fstab" %}
 
 include:
-  - .mountsda
+  - .mountSda
 
 {{sls}} - Remove / from {{mntFstab}}:
   #file.comment:

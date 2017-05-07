@@ -3,7 +3,7 @@
 {% set mntPt = "/mnt/funtoo" %}
 
 include:
-  - .mountsda
+  - .mountSda
 
 {{sls}} - Copy /etc/resolv.conf to {{mntPt}}/etc:
   file.copy:

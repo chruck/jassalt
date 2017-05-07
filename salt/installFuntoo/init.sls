@@ -7,6 +7,7 @@ include:
   - .mountVirtFs
   - .chrootInto
   - .dlPortageTree
+  - .fstab
   - .umountSda
 
 {% else %}

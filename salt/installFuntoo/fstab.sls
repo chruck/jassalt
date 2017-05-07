@@ -8,7 +8,7 @@ include:
 
 {{sls}} - Remove / from {{mntFstab}}:
   #file.comment:
-  mount.umounted:
+  mount.unmounted:
     - name: /
     - device: /dev/sda
     - config: {{mntFstab}}
@@ -25,7 +25,7 @@ include:
 
 {{sls}} - Remove /boot from {{mntFstab}}:
   #file.comment:
-  mount.umounted:
+  mount.unmounted:
     - name: /boot
     - config: {{mntFstab}}
     - persist: True

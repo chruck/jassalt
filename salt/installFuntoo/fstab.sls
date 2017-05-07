@@ -62,7 +62,7 @@ include:
     - device: /sys
     - fstype: sysfs
     - require:
-      - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
+      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Add /dev to {{mntFstab}}:
   mount.mounted:
@@ -71,7 +71,7 @@ include:
     - device: /dev
     - fstype: devtmpfs
     - require:
-      - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
+      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

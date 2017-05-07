@@ -6,20 +6,19 @@
 include:
   - .mountSda
 
-{{sls}} - Remove / from {{mntFstab}}:
-  #file.comment:
-  mount.unmounted:
-    - name: /
-    - device: /dev/sda
-    - config: {{mntFstab}}
-    - persist: True
+{{sls}} - Remove all /dev/sda*'s from {{mntFstab}}:
+  file.line:
+    - name: {{mntFstab}}
+    - match: /dev/sda
+    - mode: delete
     - require:
       - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Remove swap from {{mntFstab}}:
-  file.comment:
+  file.line:
     - name: {{mntFstab}}
-    - regex: swap
+    - match: swap
+    - mode: delete
     - require:
       - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
 

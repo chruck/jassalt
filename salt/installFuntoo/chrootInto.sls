@@ -10,7 +10,7 @@ include:
     - name: {{mntPt}}/etc/resolv.conf
     - source: /etc/resolv.conf
     - require:
-      - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
+      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Ping in chroot of {{mntPt}}:
   cmd.run:

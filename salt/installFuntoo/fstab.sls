@@ -14,14 +14,14 @@ include:
     - config: {{mntFstab}}
     - persist: True
     - require:
-      - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
+      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Remove swap from {{mntFstab}}:
   file.comment:
     - name: {{mntFstab}}
     - regex: swap
     - require:
-      - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
+      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Remove /boot from {{mntFstab}}:
   #file.comment:
@@ -30,7 +30,7 @@ include:
     - config: {{mntFstab}}
     - persist: True
     - require:
-      - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
+      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Add / to {{mntFstab}}:
   mount.mounted:
@@ -43,7 +43,7 @@ include:
     - opts: rw,relatime,ssd,space_cache,subvolid=5,subvol=/
     - pass_num: 1
     - require:
-      - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
+      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Add /proc to {{mntFstab}}:
   mount.mounted:
@@ -53,7 +53,7 @@ include:
     - device: proc
     - fstype: proc
     - require:
-      - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
+      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Add /sys to {{mntFstab}}:
   mount.mounted:

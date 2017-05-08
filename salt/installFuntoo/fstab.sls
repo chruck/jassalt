@@ -46,6 +46,7 @@ include:
     - require:
       - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
 
+{#
 {{sls}} - Add /proc to {{mntFstab}}:
   mount.mounted:
     - name: /proc
@@ -60,6 +61,7 @@ include:
   mount.mounted:
     - name: /sys
     - mount: False
+    - config: {{mntFstab}}
     - device: /sys
     - fstype: sysfs
     - require:
@@ -69,10 +71,12 @@ include:
   mount.mounted:
     - name: /dev
     - mount: False
+    - config: {{mntFstab}}
     - device: /dev
     - fstype: devtmpfs
     - require:
       - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
+#}
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

@@ -10,7 +10,7 @@ include:
   file.line:
     - name: {{mntFstab}}
     - match: /dev/sda
-    - content
+    - content:
     - mode: delete
     - require:
       - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
@@ -19,7 +19,7 @@ include:
   file.line:
     - name: {{mntFstab}}
     - match: swap
-    - content
+    - content:
     - mode: delete
     - require:
       - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo

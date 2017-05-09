@@ -9,6 +9,7 @@ include:
   - .dlPortageTree
   - .fstab
   - .localtime
+  - .makeConf
   - .umountSda
 
 {% else %}

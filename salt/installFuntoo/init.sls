@@ -8,6 +8,7 @@ include:
   - .chrootInto
   - .dlPortageTree
   - .fstab
+  - .localtime
   - .umountSda
 
 {% else %}

@@ -1,7 +1,7 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 include:
-  - .sda
+  - .prepareHardDisk
   - .mountSda
   - .getStage3
   - .mountVirtFs

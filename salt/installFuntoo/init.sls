@@ -10,6 +10,8 @@ include:
   - .configurationFiles-fstab
   - .configurationFiles-localtime
   - .configurationFiles-makeConf
+  - .updatingWorld
+  - .installingABootloader
   - .umountSda
 
 {% else %}

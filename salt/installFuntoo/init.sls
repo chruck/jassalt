@@ -5,7 +5,7 @@ include:
   - .mountingFilesystems
   - .downloadTheStage3
   - .mountVirtFs
-  - .chrootInto
+  - .chrootIntoFuntoo
   - .dlPortageTree
   - .fstab
   - .localtime

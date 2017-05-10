@@ -9,7 +9,7 @@ include:
   - .downloadingThePortageTree
   - .configurationFiles-fstab
   - .configurationFiles-localtime
-  - .makeConf
+  - .configurationFiles-makeConf
   - .umountSda
 
 {% else %}

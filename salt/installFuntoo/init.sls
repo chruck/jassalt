@@ -7,7 +7,7 @@ include:
   - .mountVirtFs
   - .chrootIntoFuntoo
   - .downloadingThePortageTree
-  - .fstab
+  - .configurationFiles-fstab
   - .localtime
   - .makeConf
   - .umountSda

@@ -6,7 +6,7 @@ include:
   - .downloadTheStage3
   - .mountVirtFs
   - .chrootIntoFuntoo
-  - .dlPortageTree
+  - .downloadingThePortageTree
   - .fstab
   - .localtime
   - .makeConf

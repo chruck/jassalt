@@ -8,7 +8,7 @@ include:
   - .chrootIntoFuntoo
   - .downloadingThePortageTree
   - .configurationFiles-fstab
-  - .localtime
+  - .configurationFiles-localtime
   - .makeConf
   - .umountSda
 

@@ -3,7 +3,7 @@
 include:
   - .prepareHardDisk
   - .mountingFilesystems
-  - .getStage3
+  - .downloadTheStage3
   - .mountVirtFs
   - .chrootInto
   - .dlPortageTree

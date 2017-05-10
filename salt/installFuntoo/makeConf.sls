@@ -5,14 +5,14 @@
 {% set numThreads = grains["num_cpus"] + 1 %}
 
 include:
-  - .mountSda
+  - .mountingFilesystems
 
 {{sls}} - Set number of threads to {{numThreads}} in {{makeConfFile}}:
   file.append:
     - name: {{makeConfFile}}
     - text: MAKEOPTS="-j{{numThreads}}"
     - require:
-      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

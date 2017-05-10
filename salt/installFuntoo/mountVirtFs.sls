@@ -3,7 +3,7 @@
 {% set mntPt = "/mnt/funtoo" %}
 
 include:
-  - .mountSda
+  - .mountingFilesystems
 
 {{sls}} - Mount {{mntPt}}/proc:
   mount.mounted:
@@ -12,7 +12,7 @@ include:
     - fstype: proc
     - mkmnt: True
     - require:
-      - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Bind mount {{mntPt}}/sys:
   mount.mounted:
@@ -22,7 +22,7 @@ include:
     - mkmnt: True
     - opts: rbind
     - require:
-      - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Bind mount {{mntPt}}/dev:
   mount.mounted:
@@ -32,7 +32,7 @@ include:
     - mkmnt: True
     - opts: rbind
     - require:
-      - mount: installFuntoo.mountsda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

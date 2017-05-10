@@ -3,14 +3,14 @@
 {% set mntPt = "/mnt/funtoo" %}
 
 include:
-  - .mountSda
+  - .mountingFilesystems
 
 {{sls}} - Copy /etc/resolv.conf to {{mntPt}}/etc:
   file.copy:
     - name: {{mntPt}}/etc/resolv.conf
     - source: /etc/resolv.conf
     - require:
-      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Ping in chroot of {{mntPt}}:
   cmd.run:

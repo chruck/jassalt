@@ -2,7 +2,7 @@
 
 include:
   - .prepareHardDisk
-  - .mountSda
+  - .mountingFilesystems
   - .getStage3
   - .mountVirtFs
   - .chrootInto

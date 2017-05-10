@@ -4,7 +4,7 @@
 {% set mntFstab = mntPt ~ "/etc/fstab" %}
 
 include:
-  - .mountSda
+  - .mountingFilesystems
 
 {{sls}} - Remove all /dev/sda*'s from {{mntFstab}}:
   file.line:
@@ -13,7 +13,7 @@ include:
     - content:
     - mode: delete
     - require:
-      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Remove swap from {{mntFstab}}:
   file.line:
@@ -22,7 +22,7 @@ include:
     - content:
     - mode: delete
     - require:
-      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Remove /boot from {{mntFstab}}:
   #file.comment:
@@ -31,7 +31,7 @@ include:
     - config: {{mntFstab}}
     - persist: True
     - require:
-      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Add / to {{mntFstab}}:
   mount.mounted:
@@ -44,7 +44,7 @@ include:
     - opts: rw,relatime,ssd,space_cache,subvolid=5,subvol=/
     - pass_num: 1
     - require:
-      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
 {#
 {{sls}} - Add /proc to {{mntFstab}}:
@@ -55,7 +55,7 @@ include:
     - device: proc
     - fstype: proc
     - require:
-      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Add /sys to {{mntFstab}}:
   mount.mounted:
@@ -65,7 +65,7 @@ include:
     - device: /sys
     - fstype: sysfs
     - require:
-      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Add /dev to {{mntFstab}}:
   mount.mounted:
@@ -75,7 +75,7 @@ include:
     - device: /dev
     - fstype: devtmpfs
     - require:
-      - mount: installFuntoo.mountSda - Mount btrfs /dev/sda as /mnt/funtoo
+      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 #}
 
 {% else %}

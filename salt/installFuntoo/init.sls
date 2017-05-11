@@ -12,6 +12,7 @@ include:
   - .configurationFiles-makeConf
   - .updatingWorld
   - .installingABootloader
+  - .oldSchoolBiosMbr
   - .umountSda
 
 {% else %}

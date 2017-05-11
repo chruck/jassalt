@@ -9,7 +9,7 @@ include:
   cmd.run:
     - name: /bin/chroot {{mntPt}} grub-install --target=i386-pc --no-floppy /dev/sda
     - require:
-      - installFuntoo.installingABootloader - Install grub
+      - installFuntoo.installingABootloader - Install grub program
 
 {{sls}} - Generate /boot/grub/grub.cfg:
   cmd.run:

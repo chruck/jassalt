@@ -5,7 +5,7 @@
 include:
   - .downloadingThePortageTree
 
-{{sls}} - Install grub:
+{{sls}} - Install grub program:
   cmd.run:
     - name: /bin/chroot {{mntPt}} emerge boot-update
     - require:

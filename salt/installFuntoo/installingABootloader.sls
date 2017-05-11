@@ -16,7 +16,7 @@ include:
     - name: {{mntPt}}/etc/boot.conf
     - source: salt://installFuntoo/boot.conf
     - require:
-      - {{sls}} - Install grub
+      - {{sls}} - Install grub program
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

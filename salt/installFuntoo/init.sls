@@ -13,6 +13,7 @@ include:
   - .updatingWorld
   - .installingABootloader
   - .oldSchoolBiosMbr
+  - .configuringYourNetwork-Wi-Fi
   - .umountSda
 
 {% else %}

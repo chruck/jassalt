@@ -3,6 +3,7 @@
 {% set mntPt = "/mnt/funtoo" %}
 
 include:
+  - .mountVirtFs
   - .downloadingThePortageTree
 
 {{sls}} - Install NetworkManager and Linux Firmware:

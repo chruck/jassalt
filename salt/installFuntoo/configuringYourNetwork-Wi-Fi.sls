@@ -4,13 +4,13 @@
 
 include:
   - .mountVirtFs
-  - .downloadingThePortageTree
+#  - .downloadingThePortageTree
 
 {{sls}} - Install NetworkManager and Linux Firmware:
   cmd.run:
     - name: /bin/chroot {{mntPt}} emerge linux-firmware networkmanager
-    - require:
-      - installFuntoo.downloadingThePortageTree - Download Portage Tree
+#    - require:
+#      - installFuntoo.downloadingThePortageTree - Download Portage Tree
 
 {{sls}} - Start NetworkManager at startup:
   cmd.run:

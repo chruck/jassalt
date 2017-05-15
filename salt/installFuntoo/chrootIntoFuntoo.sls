@@ -1,6 +1,6 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{% include tpldir ~ "/vars.jinja" %}
+{% include tpldir ~ "/vars.jinja" with context %}
 {#
 {% set mntPt = "/mnt/funtoo" %}
 #}

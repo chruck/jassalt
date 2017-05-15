@@ -1,6 +1,9 @@
 {% if "sysresccd" == grains["nodename"] %}
 
+{% include vars.jinja %}
+{#
 {% set mntPt = "/mnt/funtoo" %}
+#}
 
 include:
   - .mountingFilesystems

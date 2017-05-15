@@ -1,6 +1,6 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{% include vars.jinja %}
+{% include "vars.jinja" %}
 {#
 {% set mntPt = "/mnt/funtoo" %}
 #}

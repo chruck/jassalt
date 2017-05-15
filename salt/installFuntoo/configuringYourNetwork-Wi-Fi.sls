@@ -19,8 +19,8 @@ include:
     - name: /bin/chroot {{mntPt}} emerge linux-firmware networkmanager
     - require:
 #      - {{downloadingThePortageTree}} - Download Portage Tree
-      - mount: {{mountVirtFs}} - Bind mount {{mntPt}}/dev:
-      - file: {{configurationFilesMakeConf}} - Set number of threads to {{numThreads}} in {{makeConfFile}} and USE to 'dbus', '-ppp', and '-modemmanager':
+      - mount: {{mountVirtFs}} - Bind mount {{mntPt}}/dev
+      - file: {{configurationFilesMakeConf}} - Set number of threads to {{numThreads}} in {{makeConfFile}} and USE to 'dbus', '-ppp', and '-modemmanager'
 
 {{sls}} - Start NetworkManager at startup:
   cmd.run:

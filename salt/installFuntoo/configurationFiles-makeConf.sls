@@ -3,6 +3,7 @@
 {% from tpldir ~ "/vars.jinja" import
         mntPt,
         makeConfFile,
+        mountingFilesystems,
         numThreads,
         with context %}
 

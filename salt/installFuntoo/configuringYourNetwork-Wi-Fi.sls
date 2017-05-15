@@ -1,19 +1,23 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{% set mntPt = "/mnt/funtoo" %}
+{% from tpldir ~ "/vars.jinja" import
+        mntPt,
+        mountVirtFs,
+        configurationFiles-makeConf,
+        with context %}
 
 include:
-  - .mountVirtFs
-#  - .downloadingThePortageTree
-  - .configurationFiles-makeConf
+  - {{mountVirtFs}}
+#  - {{downloadingThePortageTree}}
+  - {{configurationFiles-makeConf}}
 
 {{sls}} - Install NetworkManager and Linux Firmware:
   cmd.run:
     - name: /bin/chroot {{mntPt}} emerge linux-firmware networkmanager
     - require:
-#      - installFuntoo.downloadingThePortageTree - Download Portage Tree
-      - installFuntoo.mountVirtFs - Bind mount {{mntPt}}/dev:
-      - installFuntoo.configurationFiles-makeConf - Set number of threads to {{numThreads}} in {{makeConfFile}} and USE to 'dbus', '-ppp', and '-modemmanager':
+#      - {{downloadingThePortageTree}} - Download Portage Tree
+      - {{mountVirtFs}} - Bind mount {{mntPt}}/dev:
+      - {{configurationFiles-makeConf}} - Set number of threads to {{numThreads}} in {{makeConfFile}} and USE to 'dbus', '-ppp', and '-modemmanager':
 
 {{sls}} - Start NetworkManager at startup:
   cmd.run:

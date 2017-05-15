@@ -7,10 +7,12 @@
 include:
   - .mountingFilesystems
 
-{{sls}} - Set number of threads to {{numThreads}} in {{makeConfFile}}:
+{{sls}} - Set number of threads to {{numThreads}} in {{makeConfFile}} and USE to 'dbus', '-ppp', and '-modemmanager':
   file.append:
     - name: {{makeConfFile}}
-    - text: MAKEOPTS="-j{{numThreads}}"
+    - text:
+      - MAKEOPTS="-j{{numThreads}}"
+      - USE="dbus -ppp -modemmanager"
     - require:
       - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 

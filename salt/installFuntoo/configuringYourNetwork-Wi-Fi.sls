@@ -3,13 +3,13 @@
 {% from tpldir ~ "/vars.jinja" import
         mntPt,
         mountVirtFs,
-        configurationFiles-makeConf,
+        configurationFilesMakeConf,
         with context %}
 
 include:
   - {{mountVirtFs}}
 #  - {{downloadingThePortageTree}}
-  - {{configurationFiles-makeConf}}
+  - {{configurationFilesMakeConf}}
 
 {{sls}} - Install NetworkManager and Linux Firmware:
   cmd.run:
@@ -17,7 +17,7 @@ include:
     - require:
 #      - {{downloadingThePortageTree}} - Download Portage Tree
       - {{mountVirtFs}} - Bind mount {{mntPt}}/dev:
-      - {{configurationFiles-makeConf}} - Set number of threads to {{numThreads}} in {{makeConfFile}} and USE to 'dbus', '-ppp', and '-modemmanager':
+      - {{configurationFilesMakeConf}} - Set number of threads to {{numThreads}} in {{makeConfFile}} and USE to 'dbus', '-ppp', and '-modemmanager':
 
 {{sls}} - Start NetworkManager at startup:
   cmd.run:

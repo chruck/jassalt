@@ -5,6 +5,7 @@
         mountVirtFs,
         downloadingThePortageTree,
         configurationFilesMakeConf,
+        numThreads,
         with context %}
 
 include:

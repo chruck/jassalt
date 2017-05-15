@@ -1,11 +1,13 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{% set mntPt = "/mnt/funtoo" %}
-{% set makeConfFile = mntPt ~ "/etc/portage/make.conf" %}
-{% set numThreads = grains["num_cpus"] + 1 %}
+{% from tpldir ~ "/vars.jinja" import
+        mntPt,
+        makeConfFile,
+        numThreads,
+        with context %}
 
 include:
-  - .mountingFilesystems
+  - {{mountingFilesystems}}
 
 {{sls}} - Set number of threads to {{numThreads}} in {{makeConfFile}} and USE to 'dbus', '-ppp', and '-modemmanager':
   file.append:
@@ -14,7 +16,7 @@ include:
       - MAKEOPTS="-j{{numThreads}}"
       - USE="dbus -ppp -modemmanager"
     - require:
-      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

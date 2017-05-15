@@ -1,8 +1,12 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{{sls}} - Install Funtoo Stage 3 onto /mnt/funtoo:
+{% from tpldir ~ "/vars.jinja" import
+        mntPt,
+        with context %}
+
+{{sls}} - Install Funtoo Stage 3 onto {{mntPt}}:
   archive.extracted:
-    - name: /mnt/funtoo
+    - name: {{mntPt}}
     - source: http://build.funtoo.org/funtoo-current-hardened/pure64/intel64-haswell-pure64/stage3-latest.tar.xz
     - source_hash: http://build.funtoo.org/funtoo-current-hardened/pure64/intel64-haswell-pure64/stage3-latest.tar.xz.hash.txt
 

@@ -3,6 +3,7 @@
 {% from tpldir ~ "/vars.jinja" import
         mntPt,
         mountVirtFs,
+        downloadingThePortageTree,
         configurationFilesMakeConf,
         with context %}
 

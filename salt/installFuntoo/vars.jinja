@@ -1,2 +1,18 @@
 {% set mntPt = "/mnt/funtoo" %}
+
+# Target Files
+{% set mntFstab = mntPt ~ "/etc/fstab" %}
+{% set localtimeFile = "/etc/localtime" %}
+{% set timezoneFile = "/usr/share/zoneinfo/EST5EDT" %}
+{% set makeConfFile = mntPt ~ "/etc/portage/make.conf" %}
+
+# States
 {% set mountingFilesystems = tpldir ~ ".mountingFilesystems" %}
+{% set mountVirtFs = tpldir ~ ".mountVirtFs" %}
+{% set configurationFiles-makeConf = tpldir ~ ".configurationFiles-makeConf" %}
+{% set downloadingThePortageTree = tpldir ~ ".downloadingThePortageTree" %}
+{% set chrootIntoFuntoo = tpldir ~ ".chrootIntoFuntoo" %}
+{% set prepareHardDisk = tpldir ~ ".prepareHardDisk" %}
+
+# Other
+{% set numThreads = grains["num_cpus"] + 1 %}

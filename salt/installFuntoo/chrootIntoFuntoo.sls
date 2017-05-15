@@ -1,19 +1,19 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{% from tpldir ~ "/vars.jinja" import mntPt with context %}
-{#
-{% set mntPt = "/mnt/funtoo" %}
-#}
+{% from tpldir ~ "/vars.jinja" import
+        mntPt,
+        mountingFilesystems,
+        with context %}
 
 include:
-  - .mountingFilesystems
+  - {{mountingFilesystems}}
 
 {{sls}} - Copy /etc/resolv.conf to {{mntPt}}/etc:
   file.copy:
     - name: {{mntPt}}/etc/resolv.conf
     - source: /etc/resolv.conf
     - require:
-      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
 
 {{sls}} - Ping in chroot of {{mntPt}}:
   cmd.run:

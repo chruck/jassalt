@@ -5,6 +5,8 @@
         mountVirtFs,
 	mountingFilesystems,
         downloadingThePortageTree,
+        saltMasterHostname,
+        saltMasterIp,
         with context %}
 
 include:
@@ -29,15 +31,7 @@ include:
   file.append:
     - name: {{mntPt}}/etc/hosts
     - text:
-      - "172.16.16.106 tiger salt"
-    - require:
-      - mount: {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
-
-{{sls}} - Change hostname to 'iac':
-  file.append:
-    - name: {{mntPt}}/etc/conf.d/hostname
-    - text:
-      - "HOSTNAME=iac"
+      - "{{saltMasterIp}} {{saltMasterHostname}} salt"
     - require:
       - mount: {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
 

@@ -11,7 +11,7 @@ include:
 {{sls}} - Set root's password:
   file.replace:
     - name: {{mntPt}}/etc/shadow
-    - pattern: 'root:*:'
+    - pattern: 'root:\*:'
     - repl: 'root:$6$ncRpDhvOQ/5R4$EJThCxOVPZO8p1Nis558Jo6ICJkUwpXkPIRCaWS50dZHqKMMhQPphN/WP9dFwsRgf6yQIkY7z4hQsQveoveJu0:'
     - require:
       - mount: {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo

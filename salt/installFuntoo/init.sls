@@ -15,7 +15,9 @@ include:
   - .oldSchoolBiosMbr
   - .configuringYourNetwork-Wi-Fi
   - .setYourRootPassword
+  - .installSalt
   - .umountSda
+  - .restartYourSystem
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

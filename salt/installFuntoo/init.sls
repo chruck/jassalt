@@ -14,6 +14,7 @@ include:
   - .installingABootloader
   - .oldSchoolBiosMbr
   - .configuringYourNetwork-Wi-Fi
+  - .setYourRootPassword
   - .umountSda
 
 {% else %}

@@ -22,6 +22,23 @@ include:
       - mount: {{mountVirtFs}} - Bind mount {{mntPt}}/dev
       - file: {{configurationFilesMakeConf}} - Set number of threads to {{numThreads}} in {{makeConfFile}} and USE to 'dbus', '-ppp', and '-modemmanager'
 
+# Output to emerging networkmanager:
+#
+# * To modify system network connections without needing to enter the
+# * root password, add your user account to the 'plugdev' group.
+# *
+# * (Note: Above message is only printed the first time package is
+# * installed. Please look at /usr/share/doc/networkmanager-1.4.4-r1/README.gentoo*
+# * for future reference)
+
+# Output to emerging wpa_supplicant:
+# * If this is a clean installation of wpa_supplicant, you
+# * have to create a configuration file named
+# * /etc/wpa_supplicant/wpa_supplicant.conf
+# *
+# * An example configuration file is available for reference in
+# * /usr/share/doc/wpa_supplicant-2.6-r1/
+
 {{sls}} - Start NetworkManager at startup:
   cmd.run:
     - name: /bin/chroot {{mntPt}} rc-update add NetworkManager default

@@ -2,6 +2,7 @@
 
 {% from tpldir ~ "/vars.jinja" import
         mntPt,
+        mntFstab,
         umountSda,
         installSalt,
         setYourRootPassword,

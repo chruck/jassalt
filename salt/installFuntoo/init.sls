@@ -14,6 +14,7 @@ include:
   - .installingABootloader
   - .oldSchoolBiosMbr
   - .configuringYourNetwork-Wi-Fi
+  - .configuringYourNetwork-Hostname
   - .setYourRootPassword
   - .installSalt
   - .umountSda

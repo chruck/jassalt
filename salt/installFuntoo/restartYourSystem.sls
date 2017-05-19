@@ -13,6 +13,7 @@
 
 include:
   - {{umountSda}}
+  - {{configurationFilesfstab}}
 
 {{sls}} - Reboot:
   cmd.run:
@@ -23,7 +24,7 @@ include:
       - file: {{setYourRootPassword}} - Set root's password
       - cmd: {{configuringYourNetworkWiFi}} - Start NetworkManager at startup
       - cmd: {{oldSchoolBiosMbr}} - Install grub to MBR of /dev/sda
-      - mount: {{configurationFilesfstab}} - Add /dev to {{mntFstab}}
+      - mount: {{configurationFilesfstab}} - Add / to {{mntFstab}}
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

@@ -16,7 +16,7 @@ to set up WiFi connection.
 echo sysresccd: $IP |sudo tee /etc/salt/roster
 ```
 
-## Commands to run
+## Commands to Run
 * Initiate connection from salt-ssh to target (will prompt for password,
 changed above, to exchange keys):
 ```sh
@@ -30,5 +30,12 @@ Because Funtoo builds all its software, the above step will take a long
 time and not return until done.  The output will scroll beyond the
 buffer.  Tests during development of this state showed to be around 75
 minutes.
+* The state names are based on section headers of [Install Funtoo Linux].
+If running each state individually, one at a time, is desired, an
+example command would be:
+```sh
+sudo salt-ssh sysresccd state.apply installFuntoo.chrootIntoFuntoo
+```
 
-[SystemRescueCD]: http://www.system-rescue-cd.org/
+[SystemRescueCD]: http://www.system-rescue-cd.org
+[Install Funtoo Linux]: http://www.funtoo.org/Install

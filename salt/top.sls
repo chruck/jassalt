@@ -3,13 +3,13 @@ base:
   '*':
     - salt
     - grub
-  tiger,stack:
+  tiger,stack,iac:
     - match: list
     - salt.master
     - salt.virt
     - salt.ssh
     #- hosts
-  grace,tiger,stack:
+  grace,tiger,stack,iac:
     - match: list
     - musthaves
     - bashrc

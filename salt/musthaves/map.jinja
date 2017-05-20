@@ -1,4 +1,20 @@
 {% set musthaves = salt['grains.filter_by']({
+    'default': {
+        'pkglist': [
+            'di',
+            'elinks',
+            'locate',
+            'tcptraceroute',
+            'w3m-img',
+            'man-db',
+            'dnsutils',
+            'openssh-server',
+            'bsdutils',
+            'coreutils',
+            'inetutils-traceroute',
+            'whois',
+        ]
+    },
     'Debian': {
         'pkglist': [
             'di',
@@ -43,7 +59,8 @@
             'whois',
         ]
     }, 
-}) %}
+}, default="default",
+) %}
             {#
             'ftp://rpmfind.net/linux/dag/redhat/el6/en/x86_64/dag/RPMS/di-4.35-1.el6.rf.x86_64.rpm', 
             'procps-ng',

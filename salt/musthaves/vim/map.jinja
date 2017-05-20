@@ -1,4 +1,9 @@
 {% set vim = salt['grains.filter_by']({
+    'default': {
+        'pkglist': [
+            'vim',
+        ]
+    },
     'Debian': {
         'pkglist': [
             'vim',
@@ -11,4 +16,5 @@
             'vim-enhanced',
         ]
     },
-}) %}
+}, default="default",
+) %}

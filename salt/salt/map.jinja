@@ -1,4 +1,7 @@
 {% set saltminion = salt['grains.filter_by']({
+    'default': {
+        'pkg': 'salt-minion',
+    },
     'Arch': {
         'pkg': 'salt-zmq',
     },
@@ -8,9 +11,17 @@
     'Gentoo': {
         'pkg': 'app-admin/salt',
     },
-}) %}
+    'Funtoo': {
+        'pkg': 'app-admin/salt',
+    },
+}, default='default'
+) %}
 
 {% set libVirt = salt['grains.filter_by']({
+    'default': {
+        'bin': 'libvirt-bin',
+        'python': 'libvirt-python',
+    },
     'Debian': {
         'bin': 'libvirt-bin',
         'python': 'python-libvirt',
@@ -19,4 +30,5 @@
         'bin': 'libvirt-bin',
         'python': 'libvirt-python',
     },
-}) %}
+}, default='default'
+) %}

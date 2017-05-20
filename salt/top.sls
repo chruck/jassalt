@@ -3,12 +3,6 @@ base:
   '*':
     - salt
     - grub
-  tiger,stack,iac:
-    - match: list
-    - salt.master
-    - salt.virt
-    - salt.ssh
-    #- hosts
   grace,tiger,stack,iac:
     - match: list
     - musthaves
@@ -17,7 +11,15 @@ base:
 #- grub
     - salt.edit
     - musthaves.desktop
-    - musthaves.synergy
     - musthaves.vlc
     - clemson
     - sudoInsult
+  tiger,stack,iac:
+    - match: list
+    - salt.master
+    - salt.virt
+    - salt.ssh
+    #- hosts
+  grace,tiger:
+    - match: list
+    - musthaves.synergy

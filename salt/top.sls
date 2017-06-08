@@ -7,8 +7,8 @@ base:
     - match: list
     - musthaves
     - bashrc
-#- salt
-#- grub
+    #- salt
+    #- grub
     - salt.edit
     - musthaves.desktop
     - musthaves.vlc

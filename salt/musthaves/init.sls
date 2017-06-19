@@ -6,9 +6,9 @@ include:
   - .salt-minion
 
 {{sls}} - Must-Haves:
-  pkg.latest:
+  pkg.install:
     - refresh: True
-    - install_recommends: False
+#    - install_recommends: False
     - pkgs:
       - bash
       - bash-completion

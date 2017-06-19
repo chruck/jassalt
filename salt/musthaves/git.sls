@@ -3,7 +3,7 @@
 
 {% for pkg in musthaves.gitpkgs %}
 {{sls}} - Install {{pkg}} package:
-  pkg.install:
+  pkg.installed:
     - name: {{pkg}}
     - refresh: True
     - install_recommends: False

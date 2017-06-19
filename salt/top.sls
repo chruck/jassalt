@@ -7,8 +7,6 @@ base:
     - match: list
     - musthaves
     - bashrc
-#- salt
-#- grub
     - salt.edit
     - musthaves.desktop
     - musthaves.vlc
@@ -19,7 +17,6 @@ base:
     - salt.master
     - salt.virt
     - salt.ssh
-    #- hosts
   grace,tiger:
     - match: list
     - musthaves.synergy

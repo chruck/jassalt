@@ -1,7 +1,7 @@
 {% from tpldir ~ "/map.jinja" import vim with context %}
 
 {{sls}} - Install Vim packages:
-  pkg.latest:
+  pkg.installed:
     - refresh: True
     - install_recommends: False
     - pkgs:

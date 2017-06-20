@@ -1,6 +1,6 @@
 # From http://docs.saltstack.com/en/latest/faq.html#what-is-the-best-way-to-restart-a-salt-daemon-using-salt :
 
-{% from "salt/map.jinja" import saltminion with context %}
+{% from "salt/map.jinja" import saltminion, at with context %}
 
 {{sls}} - Install salt-minion pkg:
   pkg.installed:
@@ -26,16 +26,17 @@
     - name: echo service salt-minion restart | at now + 1 minute
     - watch:
       - pkg: {{sls}} - Install 'at' package
+      - pkg: {{sls}} - Enable 'at' daemon
       - pkg: {{sls}} - Install salt-minion pkg
 
 {{sls}} - Install 'at' package:
   pkg.installed:
-    - name: at
+    - name: {{at.pkg}}
     - refresh: True
 
 {{sls}} - Enable 'at' daemon:
   service.running:
-    - name: atd
+    - name: {{at.daemon}}
     - enable: True
     - watch:
       - pkg: {{sls}} - Install 'at' package

@@ -25,7 +25,7 @@
   cmd.wait:
     - name: echo service salt-minion restart | at now + 1 minute
     - watch:
-      - pkg: {{sls}} - Install 'at' package:
+      - pkg: {{sls}} - Install 'at' package
       - pkg: {{sls}} - Install salt-minion pkg
 
 {{sls}} - Install 'at' package:
@@ -38,4 +38,4 @@
     - name: atd
     - enable: True
     - watch:
-      - pkg: {{sls}} - Install 'at' package:
+      - pkg: {{sls}} - Install 'at' package

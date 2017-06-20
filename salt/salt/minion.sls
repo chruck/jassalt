@@ -3,7 +3,7 @@
 {% from "salt/map.jinja" import saltminion with context %}
 
 {{sls}} - Install salt-minion pkg:
-  pkg.latest:
+  pkg.installed:
     - name: {{saltminion.pkg}}
     - refresh: True
 
@@ -29,7 +29,7 @@
       - pkg: {{sls}} - Install salt-minion pkg
 
 {{sls}} - Install 'at' package:
-  pkg.latest:
+  pkg.installed:
     - name: at
     - refresh: True
 

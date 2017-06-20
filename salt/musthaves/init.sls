@@ -3,7 +3,7 @@
 include:
   - .git
   - .vim
-  - .salt-minion
+#  - .salt-minion
 
 {{sls}} - Must-Haves:
   pkg.install:

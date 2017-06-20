@@ -6,7 +6,7 @@ include:
 #  - .salt-minion
 
 {{sls}} - Must-Haves:
-  pkg.install:
+  pkg.installed:
     - refresh: True
 #    - install_recommends: False
     - pkgs:

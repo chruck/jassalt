@@ -18,17 +18,29 @@
 ) %}
 
 {% set libVirt = salt['grains.filter_by']({
-    'default': {
+    "default": {
         'bin': 'libvirt-bin',
         'python': 'libvirt-python',
     },
-    'Debian': {
+    "Debian": {
         'bin': 'libvirt-bin',
         'python': 'python-libvirt',
     },
-    'RedHat': {
+    "RedHat": {
         'bin': 'libvirt-bin',
         'python': 'libvirt-python',
+    },
+}, default='default'
+) %}
+
+{% set at = salt['grains.filter_by']({
+    "default": {
+        'pkg': 'at',
+        'daemon': 'atd',
+    },
+    "Gentoo": {
+        'pkg': 'sys-process/at',
+        'daemon': 'atd',
     },
 }, default='default'
 ) %}

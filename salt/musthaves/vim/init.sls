@@ -9,13 +9,11 @@
       - {{pkg}}
       {% endfor %}
 
-{% if 'RedHat' != grains['os_family'] %}
+{% if vim.vimaddonmanager is defined %}
 
-{% set vimaddonmanager = "vim-addon-manager" %}
-
-{{sls}} - Install {{vimaddonmanager}}:
+{{sls}} - Install {{vim.vimaddonmanager}}:
   pkg.latest:
-    - name: {{vimaddonmanager}}
+    - name: {{vim.vimaddonmanager}}
     - refresh: True
     - install_recommends: False
 
@@ -23,6 +21,6 @@
   cmd.wait:
     - name: vim-addons install -w info jinja matchit omnicppcomplete xmledit
     - watch:
-      - pkg: {{vimaddonmanager}}
+      - pkg: {{vim.vimaddonmanager}}
 
 {% endif %}

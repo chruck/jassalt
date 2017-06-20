@@ -1,25 +1,27 @@
 {% set vim = salt['grains.filter_by']({
-    'default': {
+    "default": {
         'pkglist': [
             'vim',
-        ]
+        ],
+        'vimaddonmanager': 'vim-addon-manager',
     },
-    'Gentoo': {
+    "Gentoo": {
         'pkglist': [
             'app-editors/vim',
-        ]
+        ],
     },
-    'Debian': {
+    "Debian": {
         'pkglist': [
             'vim',
             'vim-doc',
             'vim-scripts',
-        ]
+        ],
+        'vimaddonmanager': 'vim-addon-manager',
     },
-    'RedHat': {
+    "RedHat": {
         'pkglist': [
             'vim-enhanced',
-        ]
+        ],
     },
 }, default="default",
 ) %}

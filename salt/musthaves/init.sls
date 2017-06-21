@@ -10,24 +10,6 @@ include:
     - refresh: True
 #    - install_recommends: False
     - pkgs:
-      - bash
-      - bash-completion
-      - coreutils
-      - grep
-      - indent
-      - info
-      - less
-      - links
-      - lynx
-      - make
-      - procps
-      - pv
-      - reptyr
-      - rlwrap
-      - rsync
-      - screen
-      - sed
-      - w3m
       {% for pkg in musthaves.pkglist %}
       - {{pkg}}
       {% endfor %}

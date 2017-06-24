@@ -1,3 +1,5 @@
+{% from "musthaves/map.jinja" import musthaves with context %}
+
 {% set srcDir = "/usr/src/salt-vim" %}
 {% set etcVim = "/etc/vim" %}
 
@@ -9,7 +11,7 @@ include:
     - name: https://github.com/saltstack/salt-vim.git
     - target: {{srcDir}}
     - require:
-      - musthaves.git - Install git package
+      - musthaves.git - Install {{musthaves.gitpkgs[0]}} package
 
 {{sls}} - Symlink sls filetype detection for Vim:
   file.symlink:

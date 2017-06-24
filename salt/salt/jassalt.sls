@@ -1,4 +1,4 @@
-{% from "salt/map.jinja" import jassaltDir with context %}
+{% from "salt/map.jinja" import githubURL, jassaltDir with context %}
 
 {#
 {% set srcDir = "/usr/src" %}

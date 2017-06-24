@@ -1,5 +1,9 @@
+{% from "salt/map.jinja" import jassaltDir with context %}
+
 {% set saltRoster = "/etc/salt/roster" %}
+{#
 {% set jassaltDir = "/usr/src/jassalt" %}
+#}
 
 include:
   - salt.master

@@ -1,13 +1,20 @@
+{% from "salt/map.jinja" import srcDir, jassaltDir with context %
+
 {% set githubURL = "https://github.com/chruck" %}
+{#
 {% set srcDir = "/usr/src" %}
+#}
 {% set srvDir = "/srv" %}
-{% set saltDir = "/srv/salt" %}
-{% set pillarDir = "/srv/pillar" %}
+{% set saltDir = srvDir ~ "/salt" %}
+{% set pillarDir = srvDir ~ "/pillar" %}
+{#
 {% set jassaltDir = srcDir ~ "/jassalt" %}
+#}
 {% set bashrcDir = srcDir ~ "/dot.bashrc.jas" %}
 
 include:
   - musthaves.git
+  - jassalt
   - bashrc
   - salt
 
@@ -30,6 +37,7 @@ include:
     - require:
       - pkg: {{sls}} - Install salt-master pkg
 
+{#
 {{sls}} - Pull down the latest jassalt salt states:
   git.latest:
     - name: {{githubURL}}/jassalt.git
@@ -37,6 +45,7 @@ include:
     - force_reset: True
     - require:
       - pkg: git
+#}
 
 {{sls}} - Create {{srvDir}}:
   file.directory:
@@ -74,7 +83,6 @@ include:
       - file: {{sls}} - Create {{srvDir}}
     - require_in:
       - file: "bashrc - Upload root's .bashrc.jas"
-    - require_in:
       - file: "bashrc - Upload Jas' .bashrc.jas"
 
 {{sls}} - Pull down the latest dnsmasq formula:

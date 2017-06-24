@@ -1,12 +1,14 @@
 {{sls}} - Remove 'quiet':
-  file.comment:
+  file.replace:
     - name: /etc/default/grub
-    - regex: ^GRUB_CMDLINE_LINUX_DEFAULT=.*quiet
+    - pattern: quiet
+    - repl: ""
 
 {{sls}} - Remove 'splash':
-  file.comment:
+  file.replace:
     - name: /etc/default/grub
-    - regex: ^GRUB_CMDLINE_LINUX_DEFAULT=.*splash
+    - pattern: splash
+    - repl: ""
 
 {{sls}} - Rerun grub:
   cmd.wait:

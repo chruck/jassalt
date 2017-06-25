@@ -1,6 +1,9 @@
 {% from "salt/map.jinja" import githubURL, jassaltDir with context %}
 {% from "musthaves/map.jinja" import musthaves with context %}
 
+include:
+  - musthaves.git
+
 {#
 {% set srcDir = "/usr/src" %}
 {% set jassaltDir = srcDir ~ "/jassalt" %}

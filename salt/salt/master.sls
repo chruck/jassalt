@@ -1,4 +1,5 @@
 {% from "salt/map.jinja" import githubURL, jassaltDir, srcDir with context %}
+{% from "musthaves/map.jinja" import musthaves with context %}
 
 {#
 {% set githubURL = "https://github.com/chruck" %}

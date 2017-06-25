@@ -14,9 +14,9 @@
 
 include:
   - musthaves.git
+  - bashrc
   - .minion
   - .jassalt
-  - bashrc
 
 {{sls}} - Install salt-master pkg:
   pkg.latest:
@@ -28,14 +28,14 @@ include:
     - name: /etc/salt/master.d/hash.conf
     - contents: "hash_type: sha512"
     - require:
-      - pkg: {{sls}} - Install salt-master pkg
+      - {{sls}} - Install salt-master pkg
 
 {{sls}} - Set file_ignore:
   file.managed:
     - name: /etc/salt/master.d/file_ignore.conf
     - source: salt://salt/file_ignore.conf
     - require:
-      - pkg: {{sls}} - Install salt-master pkg
+      - {{sls}} - Install salt-master pkg
 
 {#
 {{sls}} - Pull down the latest jassalt salt states:
@@ -56,14 +56,14 @@ include:
     - name: {{saltDir}}
     - target: {{jassaltDir}}/salt
     - require:
-      - file: {{sls}} - Create {{srvDir}}
+      - {{sls}} - Create {{srvDir}}
 
 {{sls}} - Symlink for {{pillarDir}}:
   file.symlink:
     - name: {{pillarDir}}
     - target: {{jassaltDir}}/pillar
     - require:
-      - file: {{sls}} - Create {{srvDir}}
+      - {{sls}} - Create {{srvDir}}
 
 {{sls}} - Pull down the latest .bashrc.jas:
   git.latest:
@@ -71,19 +71,19 @@ include:
     - target: {{bashrcDir}}
     - force_reset: True
     - require:
-      - pkg: git
+      - musthaves.git - Install {{musthaves.gitpkgs[0]}} package
     - require_in:
-      - file: bashrc - Upload root's .bashrc.jas
+      - bashrc - Upload root's .bashrc.jas
 
 {{sls}} - Symlink for {{saltDir}}/.bashrc.jas:
   file.symlink:
     - name: {{saltDir}}/bashrc/.bashrc.jas
     - target: {{bashrcDir}}/.bashrc.jas
     - require:
-      - file: {{sls}} - Create {{srvDir}}
+      - {{sls}} - Create {{srvDir}}
     - require_in:
-      - file: "bashrc - Upload root's .bashrc.jas"
-      - file: "bashrc - Upload Jas' .bashrc.jas"
+      - "bashrc - Upload root's .bashrc.jas"
+      - "bashrc - Upload Jas' .bashrc.jas"
 
 {{sls}} - Pull down the latest dnsmasq formula:
   git.latest:
@@ -91,6 +91,6 @@ include:
     - target: {{saltDir}}/dnsmasq-formula
     - force_reset: True
     - require:
-      - pkg: git
-      - file: "{{sls}} - Symlink for {{saltDir}}"
-      - file: "{{sls}} - Create {{srvDir}}"
+      - musthaves.git - Install {{musthaves.gitpkgs[0]}} package
+      - "{{sls}} - Symlink for {{saltDir}}"
+      - "{{sls}} - Create {{srvDir}}"

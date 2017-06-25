@@ -16,7 +16,7 @@ include:
   - musthaves.git
   - .minion
   - .jassalt
-  - .bashrc
+  - bashrc
 
 {{sls}} - Install salt-master pkg:
   pkg.latest:

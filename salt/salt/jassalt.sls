@@ -1,4 +1,5 @@
 {% from "salt/map.jinja" import githubURL, jassaltDir with context %}
+{% from "musthaves/map.jinja" import musthaves with context %}
 
 {#
 {% set srcDir = "/usr/src" %}
@@ -11,4 +12,4 @@
     - target: {{jassaltDir}}
     - force_reset: True
     - require:
-      - pkg: git
+      - musthaves.git - Install {{musthaves.gitpkgs[0]}} package

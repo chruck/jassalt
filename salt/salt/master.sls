@@ -1,4 +1,4 @@
-{% from "salt/map.jinja" import githubURL, jassaltDir, srcDir with context %
+{% from "salt/map.jinja" import githubURL, jassaltDir, srcDir with context %}
 
 {#
 {% set githubURL = "https://github.com/chruck" %}
@@ -14,9 +14,9 @@
 
 include:
   - musthaves.git
+  - salt
   - jassalt
   - bashrc
-  - salt
 
 {{sls}} - Install salt-master pkg:
   pkg.latest:

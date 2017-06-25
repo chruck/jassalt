@@ -5,5 +5,5 @@
 
 {{sls}} - Upload Jas' .bashrc.jas:
   file.managed:
-    - name: /home/jas/.bashrc.jas
+    - name: /home/{{pillar.user}}/.bashrc.jas
     - source: salt://{{sls}}/.bashrc.jas

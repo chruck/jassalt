@@ -20,7 +20,7 @@ include:
   - .jassalt
 
 {{sls}} - Install salt-master pkg:
-  pkg.latest:
+  pkg.installed:
     - name: {{pkg.master}}
     - refresh: True
 

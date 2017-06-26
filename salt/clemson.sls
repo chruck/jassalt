@@ -1,4 +1,4 @@
-{% set jasHome = "/home/" ~ pillar.user ~ "/" %}
+{% set jasHome = "/home/" ~ pillar['user'] ~ "/" %}
 {% set jasSrcBin = jasHome ~ "/src/bin/" %}
 {% set jasBin = jasHome ~ "/bin/" %}
 {% set programs = [
@@ -24,7 +24,7 @@
   git.latest:
     - name: https://github.com/eckardclemson/bin.git
     - target: {{jasSrcBin}}
-    - user: {{pillar.user}}
+    - user: {{pillar['user']}}
     - require:
       - pkg: git
 
@@ -33,8 +33,8 @@
   file.symlink:
     - name: {{dest}}
     - target: {{src}}
-    - user: {{pillar.user}}
-    - group: {{pillar.user}}
-    - remote_name: {{pillar.user}}
+    - user: {{pillar['user']}}
+    - group: {{pillar['user']}}
+    - remote_name: {{pillar['user']}}
     - makedirs: True
 {% endfor %}

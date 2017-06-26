@@ -2,9 +2,9 @@
     'default': {
         'master': 'salt-master',
         'minion': 'salt-minion',
+        'ssh': 'salt-ssh',
     },
     'Arch': {
-        'master': 'salt-zmq',
         'minion': 'salt-zmq',
     },
     'Debian': {
@@ -14,10 +14,12 @@
     'Gentoo': {
         'master': 'app-admin/salt',
         'minion': 'app-admin/salt',
+        'ssh': 'app-admin/salt',
     },
     'Funtoo': {
         'master': 'app-admin/salt',
         'minion': 'app-admin/salt',
+        'ssh': 'app-admin/salt',
     },
 }, default='default'
 ) %}

@@ -1,4 +1,4 @@
-{{sls}} - Create user '{{grains.user}}':
+{{sls}} - Create user '{{pillar.user}}':
   user.present:
     - name: {{pillar['user']}}
     - fullname: Jas

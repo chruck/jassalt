@@ -1,4 +1,4 @@
-{% from "salt/map.jinja" import jassaltDir with context %}
+{% from "salt/map.jinja" import jassaltDir, pkg with context %}
 
 {% set saltRoster = "/etc/salt/roster" %}
 {#
@@ -10,7 +10,7 @@ include:
 
 {{sls}} - Install salt-ssh pkg:
   pkg.latest:
-    - name: salt-ssh
+    - name: {{pkg.ssh}}
     - refresh: True
 
 {{sls}} - Symlink for {{saltRoster}}:

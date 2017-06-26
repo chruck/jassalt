@@ -11,4 +11,4 @@ include:
     - name: /home/{{pillar['user']}}/.bashrc.jas
     - source: salt://{{sls}}/.bashrc.jas
     - require:
-      - "adduser - Create user '{{grains.user}}'"
+      - "adduser - Create user '{{pillar.user}}'"

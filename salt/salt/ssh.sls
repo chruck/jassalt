@@ -9,7 +9,7 @@ include:
   - salt.master
 
 {{sls}} - Install salt-ssh pkg:
-  pkg.latest:
+  pkg.installed:
     - name: {{pkg.ssh}}
     - refresh: True
 

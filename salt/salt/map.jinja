@@ -1,18 +1,23 @@
-{% set saltminion = salt['grains.filter_by']({
+{% set pkg = salt['grains.filter_by']({
     'default': {
-        'pkg': 'salt-minion',
+        'master': 'salt-master',
+        'minion': 'salt-minion',
     },
     'Arch': {
-        'pkg': 'salt-zmq',
+        'master': 'salt-zmq',
+        'minion': 'salt-zmq',
     },
     'Debian': {
-        'pkg': 'salt-minion',
+        'master': 'salt-master',
+        'minion': 'salt-minion',
     },
     'Gentoo': {
-        'pkg': 'app-admin/salt',
+        'master': 'app-admin/salt',
+        'minion': 'app-admin/salt',
     },
     'Funtoo': {
-        'pkg': 'app-admin/salt',
+        'master': 'app-admin/salt',
+        'minion': 'app-admin/salt',
     },
 }, default='default'
 ) %}

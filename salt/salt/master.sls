@@ -1,4 +1,4 @@
-{% from "salt/map.jinja" import githubURL, jassaltDir, srcDir with context %}
+{% from "salt/map.jinja" import githubURL, jassaltDir, pkg, srcDir with context %}
 {% from "musthaves/map.jinja" import musthaves with context %}
 
 {#
@@ -21,7 +21,7 @@ include:
 
 {{sls}} - Install salt-master pkg:
   pkg.latest:
-    - name: salt-master
+    - name: {{pkg.master}}
     - refresh: True
 
 {{sls}} - Set hash to SHA512:

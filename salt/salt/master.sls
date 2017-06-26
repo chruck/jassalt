@@ -24,6 +24,10 @@ include:
     - name: {{pkg.master}}
     - refresh: True
 
+{{sls}} - Create /etc/salt/master.d:
+  file.directory:
+    - name: /etc/salt/master.d
+
 {{sls}} - Set hash to SHA512:
   file.managed:
     - name: /etc/salt/master.d/hash.conf

@@ -3,6 +3,7 @@ base:
   '*':
     - salt
     - grub
+    - adduser
   grace,tiger,stack,iac:
     - match: list
     - musthaves

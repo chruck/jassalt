@@ -1,10 +1,10 @@
 # From http://docs.saltstack.com/en/latest/faq.html#what-is-the-best-way-to-restart-a-salt-daemon-using-salt :
 
-{% from "salt/map.jinja" import saltminion, at with context %}
+{% from "salt/map.jinja" import at, pkg with context %}
 
 {{sls}} - Install salt-minion pkg:
   pkg.installed:
-    - name: {{saltminion.pkg}}
+    - name: {{pkg.minion}}
     - refresh: True
 
 {{sls}} - Set hash to SHA512:

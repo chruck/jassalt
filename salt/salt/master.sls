@@ -12,6 +12,7 @@
 {% set jassaltDir = srcDir ~ "/jassalt" %}
 #}
 {% set bashrcDir = srcDir ~ "/dot.bashrc.jas" %}
+{% set masterDir = "/etc/salt/master.d" %}
 
 include:
   - musthaves.git
@@ -24,23 +25,25 @@ include:
     - name: {{pkg.master}}
     - refresh: True
 
-{{sls}} - Create /etc/salt/master.d:
+{{sls}} - Create {{masterDir}}:
   file.directory:
-    - name: /etc/salt/master.d
+    - name: {{masterDir}}
 
 {{sls}} - Set hash to SHA512:
   file.managed:
-    - name: /etc/salt/master.d/hash.conf
+    - name: {{masterDir}}/hash.conf
     - contents: "hash_type: sha512"
     - require:
       - {{sls}} - Install salt-master pkg
+      - {{sls}} - Create {{masterDir}}
 
 {{sls}} - Set file_ignore:
   file.managed:
-    - name: /etc/salt/master.d/file_ignore.conf
+    - name: {{masterDir}}/file_ignore.conf
     - source: salt://salt/file_ignore.conf
     - require:
       - {{sls}} - Install salt-master pkg
+      - {{sls}} - Create {{masterDir}}
 
 {#
 {{sls}} - Pull down the latest jassalt salt states:

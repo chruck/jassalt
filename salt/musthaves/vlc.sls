@@ -1,5 +1,7 @@
-{{sls}} - Must-Haves for Desktop:
-  pkg.latest:
-    - name: vlc
+{% from tpldir ~ "/map.jinja" import musthaves with context %}
+
+{{sls}} - Must-Haves for Desktop, vlc:
+  pkg.installed:
+    - name: {{musthaves.vlc}}
     - refresh: True
-    - install_recommends: False
+#    - install_recommends: False

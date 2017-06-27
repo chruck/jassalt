@@ -1,33 +1,10 @@
-{% set autoexpect = "expect-dev" %}
-{% set chromium = "chromium-browser" %}
-{% set ctags = "exuberant-ctags" %}
-{% set display = "imagemagick" %}
-{% set flash = "browser-plugin-gnash" %}
-{% set gvim = "vim-gtk" %}
-{% set irssiscripts = "irssi-scripts" %}
-{% set xmllint = "libxml2-utils" %}
+{% from tpldir ~ "/map.jinja" import musthaves with context %}
 
 {{sls}} - Must-Haves for Desktop:
-  pkg.latest:
+  pkg.installed:
     - refresh: True
-    - install_recommends: False
+#    - install_recommends: False
     - pkgs:
-      - antiword
-      - {{autoexpect}}
-      - {{chromium}}
-      - clusterssh
-      - {{ctags}}
-      - {{display}}
-      #- electricsheep
-      - expect
-      - firefox
-      - {{flash}}
-      - fossil
-      - g++
-      - gdb
-      - gpm
-      - {{gvim}}
-      - irssi
-      - {{irssiscripts}}
-      - ncftp
-      - {{xmllint}}
+      {% for pkg in musthaves.desktoplist %}
+      - {{pkg}}
+      {% endfor %}

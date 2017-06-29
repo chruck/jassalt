@@ -5,3 +5,6 @@
     - name: {{musthaves.vlc}}
     - refresh: True
 #    - install_recommends: False
+
+echo musthaves.vlc is "{{musthaves.vlc}}":
+  cmd.run

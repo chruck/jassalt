@@ -1,1 +1,3 @@
-user: eckard
+user:
+  eckard:
+    - issudo: True

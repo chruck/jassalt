@@ -21,6 +21,7 @@
     - require:
       - {{sls}} - Install salt-minion pkg
 
+{#
 {{sls}} - Restart salt-minion in 1 minute from now:
   cmd.wait:
     - name: echo service salt-minion restart | at now + 1 minute
@@ -28,6 +29,7 @@
       - {{sls}} - Install 'at' package
       - {{sls}} - Enable 'at' daemon
       - {{sls}} - Install salt-minion pkg
+#}
 
 {{sls}} - Install 'at' package:
   pkg.installed:

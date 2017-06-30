@@ -1,3 +1,3 @@
 user:
-  jas:
-    - issudo: True
+  jas
+#    - issudo: True

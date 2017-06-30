@@ -1,16 +1,9 @@
 {% from "salt/map.jinja" import githubURL, jassaltDir, pkg, srcDir with context %}
 {% from "musthaves/map.jinja" import musthaves with context %}
 
-{#
-{% set githubURL = "https://github.com/chruck" %}
-{% set srcDir = "/usr/src" %}
-#}
 {% set srvDir = "/srv" %}
 {% set saltDir = srvDir ~ "/salt" %}
 {% set pillarDir = srvDir ~ "/pillar" %}
-{#
-{% set jassaltDir = srcDir ~ "/jassalt" %}
-#}
 {% set bashrcDir = srcDir ~ "/dot.bashrc.jas" %}
 {% set masterDir = "/etc/salt/master.d" %}
 
@@ -45,15 +38,12 @@ include:
       - {{sls}} - Install salt-master pkg
       - {{sls}} - Create {{masterDir}}
 
-{#
-{{sls}} - Pull down the latest jassalt salt states:
-  git.latest:
-    - name: {{githubURL}}/jassalt.git
-    - target: {{jassaltDir}}
-    - force_reset: True
+{{sls}} - Ensure salt-master service is running:
+  service.running:
+    - name: salt-master
+    - enable: True
     - require:
-      - pkg: git
-#}
+      - {{sls}} - Install salt-master pkg
 
 {{sls}} - Create {{srvDir}}:
   file.directory:

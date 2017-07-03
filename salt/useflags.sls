@@ -6,5 +6,6 @@
     - contents:
       - MAKEOPTS="-j{{grains.num_cpus + 1}}"
       - USE="X dbus -modemmanager -ppp"
+    - order: 1
 
 {% endif %}

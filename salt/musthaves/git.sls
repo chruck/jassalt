@@ -4,6 +4,12 @@
 include:
   - useflags
 
+{{sls}} - Install {{musthaves.gitpkg}} package:
+  pkg.installed:
+    - name: {{musthaves.gitpkg}}
+    - refresh: True
+    - install_recommends: False
+
 {% for pkg in musthaves.gitpkgs %}
 {{sls}} - Install {{pkg}} package:
   pkg.installed:

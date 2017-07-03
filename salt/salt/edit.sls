@@ -8,7 +8,7 @@ include:
   - useflags
 
 {{sls}} - Vim files for editing Saltstack files:
-  git.installed:
+  git.latest:
     - name: https://github.com/saltstack/salt-vim.git
     - target: {{srcDir}}
     - require:

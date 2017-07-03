@@ -9,6 +9,25 @@
                    (jasBin ~ "vmware-view.vdi", jasSrcBin ~ "vmware-view.vdi"),
                    (jasBin ~ "vdi.vmware-view", jasBin ~ "vmware-view.vdi"),
                   ] %}
+{% set pkgs = salt['grains.filter_by']({
+        "default": {
+             #'pkgs': [
+             [
+                      'openconnect',
+                      'subversion',
+                      'rdesktop',
+             ],
+        },
+        "Gentoo": {
+             #'pkgs': [
+             [
+                      'net-vpn/openconnect',
+                      'dev-vcs/subversion',
+                      'net-misc/rdesktop',
+             ],
+        },
+}, default='default'
+) %}
 
 include:
   - useflags
@@ -18,9 +37,12 @@ include:
     - refresh: True
     - install_recommends: False
     - pkgs:
-      - openconnect
-      - subversion
-      - rdesktop
+	{#
+      {% for pkg in pkgs.pkgs %}
+	  #}
+      {% for pkg in pkgs %}
+      - {{pkg}}
+      {% endfor %}
 
 {{sls}} - Download Clemson binaries:
   git.latest:

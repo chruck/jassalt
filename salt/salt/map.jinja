@@ -44,6 +44,17 @@
 }, default='default'
 ) %}
 
+{% set libGuestfs = salt['grains.filter_by']({
+    "default": [
+        'libguestfs',
+        'libguestfs-tools',
+    ],
+    "Gentoo": [
+        'app-emulation/libguestfs',
+    ],
+}, default='default'
+) %}
+
 {% set at = salt['grains.filter_by']({
     "default": {
         'pkg': 'at',

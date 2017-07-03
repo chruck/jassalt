@@ -1,4 +1,4 @@
-{% from "salt/map.jinja" import libVirt with context %}
+{% from "salt/map.jinja" import libVirt, libGuestfs with context %}
 
 include:
   - useflags
@@ -37,5 +37,6 @@ include:
 {{sls}} - Install libguestfs:
   pkg.installed:
     - pkgs:
-      - libguestfs
-      - libguestfs-tools
+      {% for pkg in libGuestfs %}
+      - {{pkg}}
+      {% endfor %}

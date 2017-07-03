@@ -16,7 +16,7 @@ base:
   tiger,stack,iac:
     - match: list
     - salt.master
-    - salt.virt
+    #- salt.virt
     - salt.ssh
   grace,tiger:
     - match: list

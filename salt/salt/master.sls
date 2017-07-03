@@ -70,7 +70,7 @@ include:
     - target: {{bashrcDir}}
     - force_reset: True
     - require:
-      - musthaves.git - Install {{musthaves.gitpkgs[0]}} package
+      - musthaves.git - Install {{musthaves.gitpkg}} package
     - require_in:
       - bashrc - Upload root's .bashrc.jas
 
@@ -90,6 +90,6 @@ include:
     - target: {{saltDir}}/dnsmasq-formula
     - force_reset: True
     - require:
-      - musthaves.git - Install {{musthaves.gitpkgs[0]}} package
+      - musthaves.git - Install {{musthaves.gitpkg}} package
       - "{{sls}} - Symlink for {{saltDir}}"
       - "{{sls}} - Create {{srvDir}}"

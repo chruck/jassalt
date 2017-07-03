@@ -1,3 +1,5 @@
+{% from "musthaves/map.jinja" import musthaves with context %}
+
 {% set jasHome = "/home/" ~ pillar['user'] ~ "/" %}
 {% set jasSrcBin = jasHome ~ "/src/bin/" %}
 {% set jasBin = jasHome ~ "/bin/" %}
@@ -25,6 +27,7 @@
 
 include:
   - useflags
+  - musthaves.git
 
 {{sls}} - Install packages to use with Clemson systems:
   pkg.installed:
@@ -41,7 +44,7 @@ include:
     - target: {{jasSrcBin}}
     - user: {{pillar['user']}}
     - require:
-      - pkg: git
+      - {{sls}} - Install {{musthaves.gitpkg}} package
 
 {% for dest, src in programs %}
 {{sls}} - Symlink {{src}} to {{dest}}:

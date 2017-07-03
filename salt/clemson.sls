@@ -11,7 +11,6 @@
                   ] %}
 {% set pkgs = salt['grains.filter_by']({
         "default": {
-             #'pkgs': [
              [
                       'openconnect',
                       'subversion',
@@ -19,7 +18,6 @@
              ],
         },
         "Gentoo": {
-             #'pkgs': [
              [
                       'net-vpn/openconnect',
                       'dev-vcs/subversion',
@@ -37,9 +35,6 @@ include:
     - refresh: True
     - install_recommends: False
     - pkgs:
-	{#
-      {% for pkg in pkgs.pkgs %}
-	  #}
       {% for pkg in pkgs %}
       - {{pkg}}
       {% endfor %}

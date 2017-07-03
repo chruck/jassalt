@@ -1,5 +1,8 @@
 {% from tpldir ~ "/map.jinja" import vim with context %}
 
+include:
+  - useflags
+
 {{sls}} - Install Vim packages:
   pkg.installed:
     - refresh: True
@@ -12,7 +15,7 @@
 {% if vim.vimaddonmanager is defined %}
 
 {{sls}} - Install {{vim.vimaddonmanager}}:
-  pkg.latest:
+  pkg.installed:
     - name: {{vim.vimaddonmanager}}
     - refresh: True
     - install_recommends: False

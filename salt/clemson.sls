@@ -9,10 +9,12 @@
                    (jasBin ~ "vmware-view.vdi", jasSrcBin ~ "vmware-view.vdi"),
                    (jasBin ~ "vdi.vmware-view", jasBin ~ "vmware-view.vdi"),
                   ] %}
-                
+
+include:
+  - useflags
 
 {{sls}} - Install packages to use with Clemson systems:
-  pkg.latest:
+  pkg.installed:
     - refresh: True
     - install_recommends: False
     - pkgs:

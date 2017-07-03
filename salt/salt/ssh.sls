@@ -1,11 +1,9 @@
 {% from "salt/map.jinja" import jassaltDir, pkg with context %}
 
 {% set saltRoster = "/etc/salt/roster" %}
-{#
-{% set jassaltDir = "/usr/src/jassalt" %}
-#}
 
 include:
+  - useflags
   - salt.master
 
 {{sls}} - Install salt-ssh pkg:

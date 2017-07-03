@@ -11,8 +11,11 @@
   {% set command = "sudo -u " ~ pillar['user'] ~ " sh -c 'pkill synergyc; DISPLAY=:0.0 synergyc " ~ synergyServer ~ "'"%}
 {% endif %}
 
+include:
+  - useflags
+
 {{sls}} - Install Synergy:
-  pkg.latest:
+  pkg.installed:
     - name: synergy
     - refresh: True
     - install_recommends: False

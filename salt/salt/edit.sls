@@ -5,9 +5,10 @@
 
 include:
   - musthaves.git
+  - useflags
 
 {{sls}} - Vim files for editing Saltstack files:
-  git.latest:
+  git.installed:
     - name: https://github.com/saltstack/salt-vim.git
     - target: {{srcDir}}
     - require:

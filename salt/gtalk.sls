@@ -1,3 +1,6 @@
+include:
+  - useflags
+
 {{sls}} - Install Google Talk plugin package:
   - pkg.installed:
     - name: google-talkplugin_current_amd64

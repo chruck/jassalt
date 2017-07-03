@@ -1,6 +1,9 @@
 # Separated out to satisfy another state
 {% from tpldir ~ "/map.jinja" import musthaves with context %}
 
+include:
+  - useflags
+
 {% for pkg in musthaves.gitpkgs %}
 {{sls}} - Install {{pkg}} package:
   pkg.installed:

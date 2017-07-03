@@ -1,5 +1,8 @@
 {% from "salt/map.jinja" import libVirt with context %}
 
+include:
+  - useflags
+
 {{sls}} - Install libvirt:
   pkg.installed:
     - name: {{libVirt.bin}}

@@ -8,6 +8,7 @@
 {% set masterDir = "/etc/salt/master.d" %}
 
 include:
+  - useflags
   - musthaves.git
   - bashrc
   - .minion

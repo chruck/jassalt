@@ -1,5 +1,8 @@
 # From http://docs.saltstack.com/en/latest/faq.html#what-is-the-best-way-to-restart-a-salt-daemon-using-salt :
 
+include:
+  - useflags
+
 {% from "salt/map.jinja" import at, pkg with context %}
 
 {{sls}} - Install salt-minion pkg:

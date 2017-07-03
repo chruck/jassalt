@@ -1,6 +1,7 @@
 {% from tpldir ~ "/map.jinja" import musthaves with context %}
 
 include:
+  - useflags
   - .git
   - .vim
 #  - .salt-minion

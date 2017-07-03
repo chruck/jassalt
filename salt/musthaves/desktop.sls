@@ -1,5 +1,8 @@
 {% from tpldir ~ "/map.jinja" import musthaves with context %}
 
+include:
+  - useflags
+
 {{sls}} - Must-Haves for Desktop:
   pkg.installed:
     - refresh: True

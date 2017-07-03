@@ -1,7 +1,10 @@
 # From http://docs.saltstack.com/en/latest/faq.html#what-is-the-best-way-to-restart-a-salt-daemon-using-salt :
 
+include:
+  - useflags
+
 {{sls}} - Install package salt-minion:
-  pkg.latest:
+  pkg.installed:
     - name: salt-minion
     - refresh: True
     - order: last
@@ -20,7 +23,7 @@
       - pkg: salt-minion
 
 {{sls}} - Install 'at' package:
-  pkg.latest:
+  pkg.installed:
     - name: at
     - refresh: True
 

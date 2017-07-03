@@ -44,7 +44,7 @@ include:
     - target: {{jasSrcBin}}
     - user: {{pillar['user']}}
     - require:
-      - {{sls}} - Install {{musthaves.gitpkg}} package
+      - git - Install {{musthaves.gitpkg}} package
 
 {% for dest, src in programs %}
 {{sls}} - Symlink {{src}} to {{dest}}:

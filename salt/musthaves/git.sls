@@ -10,10 +10,12 @@ include:
     - refresh: True
     - install_recommends: False
 
-{% for pkg in musthaves.gitpkgs %}
+{% if musthaves.gitpkgs is defined %}
+{%   for pkg in musthaves.gitpkgs %}
 {{sls}} - Install {{pkg}} package:
   pkg.installed:
     - name: {{pkg}}
     - refresh: True
     - install_recommends: False
-{% endfor %}
+{%   endfor %}
+{% endif %}

@@ -10,16 +10,16 @@
                    (jasBin ~ "vdi.vmware-view", jasBin ~ "vmware-view.vdi"),
                   ] %}
 {% set pkgs = salt['grains.filter_by']({
-        "default": {[
+        "default": [
                'openconnect',
                'subversion',
                'rdesktop',
-        ]},
-        "Gentoo": {[
+        ],
+        "Gentoo": [
                'net-vpn/openconnect',
                'dev-vcs/subversion',
                'net-misc/rdesktop',
-        ]},
+        ],
 }, default='default'
 ) %}
 

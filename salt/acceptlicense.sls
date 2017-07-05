@@ -5,7 +5,7 @@
 {{sls}} - Touch {{file}}:
   file.touch:
     - name: {{file}}
-    - only_if: "! ls {{file}}"
+    - onlyif: "! ls {{file}}"
 
 {{sls}} - Accept license for Adobe Flash:
   file.replace:

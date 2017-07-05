@@ -2,6 +2,7 @@
 
 include:
   - useflags
+  - acceptlicense
 
 {{sls}} - Must-Haves for Desktop:
   pkg.installed:

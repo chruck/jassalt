@@ -10,10 +10,16 @@
 #      - USE="X dbus -modemmanager -ppp"
     - order: 1
 
-{% for flag in [ X, dbus, -modemmanager, -ppp ] %}
+{% for flag in [ X, dbus, ] %}
 {{sls}} - Set make.conf USE flag '{{flag}}':
   cmd.run:
     - name: euse -E {{flag}}
+{% endfor %}
+
+{% for flag in [ modemmanager, ppp ] %}
+{{sls}} - Unset make.conf USE flag '{{flag}}':
+  cmd.run:
+    - name: euse -D {{flag}}
 {% endfor %}
 
 {% endif %}

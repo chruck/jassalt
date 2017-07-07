@@ -1,3 +1,4 @@
+{#
 {% if "Gentoo" == grains.os %}
 
 {% set file = "/etc/portage/package.license" %}
@@ -19,3 +20,4 @@
       - musthaves.desktop - Must-Haves for Desktop
 
 {% endif %}
+#}

@@ -1,24 +1,24 @@
 {% if "Gentoo" == grains.os %}
 
 #{{sls}} - Set global USE flags:
-{{sls}} - Set global MAKEOPTS:
+{{sls}} - Set global MAKEOPTS and USE:
   file.managed:
     - name: /etc/portage/make.conf
     - contents:
       - MAKEOPTS="-j{{grains.num_cpus + 1}}"
-#      - USE="X dbus -modemmanager -ppp"
+      - USE="X dbus -modemmanager -ppp"
     - order: 1
 
 {% endif %}
 
-{{sls}} - Set global USE flags:
-  portage_config.flags:
-    - name: @world
-    - use:
-      - X
-      - dbus
-      - -modemmanager
-      - -ppp
+#{{sls}} - Set global USE flags:
+#  portage_config.flags:
+#    - name: @world
+#    - use:
+#      - X
+#      - dbus
+#      - -modemmanager
+#      - -ppp
 
 {{sls}} - Set USE flags for libpng:
   portage_config.flags:

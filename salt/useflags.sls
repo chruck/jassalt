@@ -20,4 +20,4 @@
       - -modemmanager
       - -ppp
     - license:
-      - >=www-plugins/adobe-flash-26.0.0.131 AdobeFlash-11.x
+      - ">=www-plugins/adobe-flash-26.0.0.131 AdobeFlash-11.x"

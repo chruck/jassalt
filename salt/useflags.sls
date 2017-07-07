@@ -13,11 +13,21 @@
 
 {{sls}} - Set global USE flags:
   portage_config.flags:
+    - name: @world
     - use:
       - X
-      - apng
       - dbus
       - -modemmanager
       - -ppp
+
+{{sls}} - Set USE flags for libpng:
+  portage_config.flags:
+    - name: libpng
+    - use:
+      - apng
+
+{{sls}} - Set license flag for adobe-flash:
+  portage_config.flags:
+    - name: ">=www-plugins/adobe-flash-26.0.0.131"
     - license:
-      - ">=www-plugins/adobe-flash-26.0.0.131 AdobeFlash-11.x"
+      - AdobeFlash-11.x

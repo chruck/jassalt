@@ -15,3 +15,15 @@
     - name: /etc/hosts
     - text:
       - "172.16.16.131 alarm"
+
+{{sls}} - Add iac to /etc/hosts:
+  file.append:
+    - name: /etc/hosts
+    - text:
+      - "172.16.16.106 iac"
+
+{{sls}} - Add localhost as saltmaster to /etc/hosts:
+  file.append:
+    - name: /etc/hosts
+    - text:
+      - "127.0.0.1 salt"

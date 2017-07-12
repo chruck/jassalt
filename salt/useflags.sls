@@ -8,6 +8,7 @@
     - contents:
       - MAKEOPTS="-j{{grains.num_cpus + 1}}"
 #      - USE="X dbus -modemmanager -ppp"
+#      - PYTHON_TARGETS="python3_6 -python3_4 -python3_5"
     - order: 1
 
 {% for flag in [ 'X', 'dbus', ] %}
@@ -16,7 +17,7 @@
     - name: euse -E {{flag}}
 {% endfor %}
 
-{% for flag in [ 'modemmanager', 'ppp', ] %}
+{% for flag in [ 'modemmanager', 'ppp', 'mercurial', ] %}
 {{sls}} - Unset make.conf USE flag '{{flag}}':
   cmd.run:
     - name: euse -D {{flag}}

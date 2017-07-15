@@ -11,7 +11,7 @@
 #      - PYTHON_TARGETS="python3_6 -python3_4 -python3_5"
     - order: 1
 
-{%      for flag in [ 'X', 'dbus', ] %}
+{%      for flag in [ 'X', 'dbus', 'cups', ] %}
 {{sls}} - Set make.conf USE flag '{{flag}}':
   cmd.run:
     - name: euse -E {{flag}}
@@ -43,5 +43,11 @@
     - name: ">=www-plugins/adobe-flash-26.0.0.131"
     - license:
       - AdobeFlash-11.x
+
+{{sls}} - Set license flag for google-chrome:
+  portage_config.flags:
+    - name: ">=www-client/google-chrome-59.0.3071.115"
+    - license:
+      - google-chrome
 
 {% endif %}  # Gentoo

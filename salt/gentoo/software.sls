@@ -10,5 +10,6 @@ include:
 #    - install_recommends: False
     - pkgs:
       - x11-apps/xinit
+      - cups
 
 {% endif %}  # Gentoo

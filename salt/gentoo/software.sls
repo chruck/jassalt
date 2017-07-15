@@ -2,7 +2,7 @@
 
 include:
   - .useflags
-  - .acceptlicense
+#  - .acceptlicense
 
 {{sls}} - Other Packages for Gentoo:
   pkg.installed:
@@ -10,6 +10,7 @@ include:
 #    - install_recommends: False
     - pkgs:
       - x11-apps/xinit
-      - cups
+      - net-print/cups
 
 {% endif %}  # Gentoo
+

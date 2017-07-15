@@ -11,19 +11,17 @@
 #      - PYTHON_TARGETS="python3_6 -python3_4 -python3_5"
     - order: 1
 
-{% for flag in [ 'X', 'dbus', ] %}
+{%      for flag in [ 'X', 'dbus', ] %}
 {{sls}} - Set make.conf USE flag '{{flag}}':
   cmd.run:
     - name: euse -E {{flag}}
-{% endfor %}
+{%      endfor %}
 
-{% for flag in [ 'modemmanager', 'ppp', 'mercurial', ] %}
+{%      for flag in [ 'modemmanager', 'ppp', 'mercurial', ] %}
 {{sls}} - Unset make.conf USE flag '{{flag}}':
   cmd.run:
     - name: euse -D {{flag}}
-{% endfor %}
-
-{% endif %}
+{%      endfor %}
 
 #{{sls}} - Set global USE flags:
 #  portage_config.flags:
@@ -45,3 +43,5 @@
     - name: ">=www-plugins/adobe-flash-26.0.0.131"
     - license:
       - AdobeFlash-11.x
+
+{% endif %}  # Gentoo

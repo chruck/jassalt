@@ -1,5 +1,5 @@
 include:
-  - useflags
+  - gentoo
 
 {{sls}} - Install Google Talk plugin package:
   - pkg.installed:

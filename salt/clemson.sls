@@ -26,7 +26,7 @@
 ) %}
 
 include:
-  - useflags
+  - gentoo
   - musthaves.git
 
 {{sls}} - Install packages to use with Clemson systems:

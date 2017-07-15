@@ -1,7 +1,7 @@
 {% from tpldir ~ "/map.jinja" import musthaves with context %}
 
 include:
-  - useflags
+  - gentoo
 
 {{sls}} - Must-Haves for Desktop, vlc:
   pkg.installed:

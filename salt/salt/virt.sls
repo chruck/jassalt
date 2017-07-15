@@ -1,7 +1,7 @@
 {% from "salt/map.jinja" import libVirt, libGuestfs with context %}
 
 include:
-  - useflags
+  - gentoo
 
 {{sls}} - Install libvirt:
   pkg.installed:

@@ -1,7 +1,7 @@
 {% from tpldir ~ "/map.jinja" import vim with context %}
 
 include:
-  - useflags
+  - gentoo
 
 {{sls}} - Install Vim packages:
   pkg.installed:

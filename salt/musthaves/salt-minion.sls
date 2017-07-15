@@ -1,7 +1,7 @@
 # From http://docs.saltstack.com/en/latest/faq.html#what-is-the-best-way-to-restart-a-salt-daemon-using-salt :
 
 include:
-  - useflags
+  - gentoo
 
 {{sls}} - Install package salt-minion:
   pkg.installed:

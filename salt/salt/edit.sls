@@ -5,7 +5,7 @@
 
 include:
   - musthaves.git
-  - useflags
+  - gentoo
 
 {{sls}} - Vim files for editing Saltstack files:
   git.latest:

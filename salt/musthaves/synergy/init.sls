@@ -12,7 +12,7 @@
 {% endif %}
 
 include:
-  - useflags
+  - gentoo
 
 {{sls}} - Install Synergy:
   pkg.installed:

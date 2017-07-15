@@ -3,7 +3,7 @@
 {% set saltRoster = "/etc/salt/roster" %}
 
 include:
-  - useflags
+  - gentoo
   - salt.master
 
 {{sls}} - Install salt-ssh pkg:

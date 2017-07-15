@@ -9,6 +9,6 @@ include:
     - refresh: True
 #    - install_recommends: False
     - pkgs:
-      - xinit
+      - x11-apps/xinit
 
 {% endif %}  # Gentoo

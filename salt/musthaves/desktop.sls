@@ -1,8 +1,7 @@
 {% from tpldir ~ "/map.jinja" import musthaves with context %}
 
 include:
-  - useflags
-  - acceptlicense
+  - gentoo
 
 {{sls}} - Must-Haves for Desktop:
   pkg.installed:

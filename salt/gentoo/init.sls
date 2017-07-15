@@ -2,6 +2,6 @@
 
 include:
   - .useflags
-  - .otherpackages
+  - .software
 
 {% endif %}  # Gentoo

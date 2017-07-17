@@ -11,7 +11,7 @@
 #      - PYTHON_TARGETS="python3_6 -python3_4 -python3_5"
     - order: 1
 
-{%      for flag in [ 'X', 'cups', 'dbus', 'icu', ] %}
+{%      for flag in [ 'X', 'cups', 'dbus', 'icu', 'nvidia', ] %}
 {{sls}} - Set make.conf USE flag '{{flag}}':
   cmd.run:
     - name: euse -E {{flag}}

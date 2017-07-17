@@ -9,8 +9,9 @@ include:
     - refresh: True
 #    - install_recommends: False
     - pkgs:
-      - x11-apps/xinit
       - net-print/cups
+      - x11-apps/xinit
+      - x11-base/xorg-x11
 
 {% endif %}  # Gentoo
 

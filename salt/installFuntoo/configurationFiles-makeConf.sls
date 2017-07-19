@@ -10,12 +10,14 @@
 include:
   - {{mountingFilesystems}}
 
-{{sls}} - Set number of threads to {{numThreads}} in {{makeConfFile}} and USE to 'dbus', '-ppp', and '-modemmanager':
+{{sls}} - Set MAKEOPTS, USE, and CFLAGS in {{makeConfFile}}:
   file.append:
     - name: {{makeConfFile}}
     - text:
+      - CFLAGS="-Os -pipe -march=native -std=c11"
+      - CXXFLAGS="-Os -pipe -march=native"
       - MAKEOPTS="-j{{numThreads}}"
-      - USE="dbus -ppp -modemmanager"
+      - USE="X cups dbus icu -mercurial -modemmanager -ppp"
     - require:
       - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
 

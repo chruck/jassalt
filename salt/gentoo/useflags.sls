@@ -9,7 +9,7 @@
       - CFLAGS="-Os -pipe -march=native -std=c11"
       - CXXFLAGS="-Os -pipe -march=native"
       - MAKEOPTS="-j{{grains.num_cpus + 1}}"
-      - USE="X cups dbus icu -mercurial -modemmanager -ppp"
+      - USE="X cups dbus hardened icu -mercurial -modemmanager -ppp"
 #      - PYTHON_TARGETS="python3_6 -python3_4 -python3_5"
     - order: 1
 
@@ -39,6 +39,12 @@
     - name: libpng
     - use:
       - apng
+
+{{sls}} - Set USE flags for firefox:
+  portage_config.flags:
+    - name: firefox
+    - use:
+      - bindist
 
 {{sls}} - Set license flag for adobe-flash:
   portage_config.flags:

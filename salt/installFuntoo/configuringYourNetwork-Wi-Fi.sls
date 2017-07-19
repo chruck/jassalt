@@ -20,7 +20,7 @@ include:
     - require:
 #      - {{downloadingThePortageTree}} - Download Portage Tree
       - mount: {{mountVirtFs}} - Bind mount {{mntPt}}/dev
-      - file: {{configurationFilesMakeConf}} - Set number of threads to {{numThreads}} in {{makeConfFile}} and USE to 'dbus', '-ppp', and '-modemmanager'
+      - {{configurationFilesMakeConf}} - Set MAKEOPTS, USE, and CFLAGS in {{makeConfFile}}:
 
 # Output to emerging networkmanager:
 #

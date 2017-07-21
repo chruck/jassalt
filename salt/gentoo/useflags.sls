@@ -6,8 +6,8 @@
   file.managed:
     - name: /etc/portage/make.conf
     - contents:
-      - CFLAGS="-Os -pipe -march=native -std=c11"
-      - CXXFLAGS="-Os -pipe -march=native"
+      - CFLAGS="-Os -pipe -march=native"
+      - CXXFLAGS="${CFLAGS}"
       - MAKEOPTS="-j{{grains.num_cpus + 1}}"
       - USE="X cups dbus hardened icu -mercurial -modemmanager -ppp"
 #      - PYTHON_TARGETS="python3_6 -python3_4 -python3_5"
@@ -66,10 +66,13 @@
 
 {{sls}} - Install gcc-5.4.0:
   pkg.installed:
-    - name: "=sys-devel/gcc-5.4.0"
+    - name: sys-devel/gcc
+    - version: 5.4.0
+    - require: {{sls}} - Unmask gcc-5.4.0 for Chromium
 
 {{sls}} - Switch to gcc-5.4.0:
   cmd.run:
     - name: gcc-config x86_64-pc-linux-gnu-5.4.0
+    - require: {{sls}} - Install gcc-5.4.0
 
 {% endif %}  # Gentoo

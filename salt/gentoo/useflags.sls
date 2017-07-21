@@ -68,11 +68,13 @@
   pkg.installed:
     - name: sys-devel/gcc
     - version: 5.4.0
-    - require: {{sls}} - Unmask gcc-5.4.0 for Chromium
+    - require:
+      - {{sls}} - Unmask gcc-5.4.0 for Chromium
 
 {{sls}} - Switch to gcc-5.4.0:
   cmd.run:
     - name: gcc-config x86_64-pc-linux-gnu-5.4.0
-    - require: {{sls}} - Install gcc-5.4.0
+    - require:
+      - {{sls}} - Install gcc-5.4.0
 
 {% endif %}  # Gentoo

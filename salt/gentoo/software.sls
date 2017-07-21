@@ -9,6 +9,7 @@ include:
     - refresh: True
 #    - install_recommends: False
     - pkgs:
+      - app-admin/sudo
       - net-print/cups
       - x11-apps/xinit
       - x11-base/xorg-x11

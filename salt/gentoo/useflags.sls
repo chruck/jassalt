@@ -58,4 +58,18 @@
     - license:
       - google-chrome
 
+{{sls}} - Unmask gcc-5.4.0 for Chromium:
+  file.managed:
+    - name: /etc/portage/package.unmask/chromium
+    - contents:
+      - =sys-devel/gcc-5.4.0
+
+{{sls}} - Install gcc-5.4.0:
+  pkg.installed:
+    - name: "=sys-devel/gcc-5.4.0"
+
+{{sls}} - Switch to gcc-5.4.0:
+  cmd.run:
+    - name: gcc-config x86_64-pc-linux-gnu-5.4.0
+
 {% endif %}  # Gentoo

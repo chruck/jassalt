@@ -12,6 +12,7 @@ include:
     - pkgs:
       - app-admin/sudo
       - net-print/cups
+      - www-plugins/adobe-flash
       - x11-apps/xinit
       - x11-base/xorg-x11
 

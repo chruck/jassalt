@@ -3,6 +3,7 @@
 include:
   - .useflags
 #  - .acceptlicense
+  - .enlightenment
 
 {{sls}} - Other Packages for Gentoo:
   pkg.installed:
@@ -15,4 +16,3 @@ include:
       - x11-base/xorg-x11
 
 {% endif %}  # Gentoo
-

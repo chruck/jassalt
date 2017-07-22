@@ -10,6 +10,7 @@
                    (jasBin ~ "vdi.rdesktop",    jasBin ~ "rdesktop.vdi"),
                    (jasBin ~ "vmware-view.vdi", jasSrcBin ~ "vmware-view.vdi"),
                    (jasBin ~ "vdi.vmware-view", jasBin ~ "vmware-view.vdi"),
+                   (jasBin ~ "vpnc-script",     jasSrcBin ~ "vpnc-script"),
                   ] %}
 {% set pkgs = salt['grains.filter_by']({
         "default": [

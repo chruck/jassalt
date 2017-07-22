@@ -12,7 +12,7 @@ include:
 
 {{sls}} - Add 'enlightenment-live' overlay with Layman:
   cmd.run:
-    - name: layman -Na enlightenment-live
+    - name: layman -Nfa enlightenment-live
     - require:
       - {{sls}} - Install Layman (for Enlightenment)
 

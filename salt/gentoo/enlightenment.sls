@@ -8,7 +8,7 @@ include:
 
 {{sls}} - Install Layman (for Enlightenment):
   pkg.installed:
-    - name: layman
+    - name: app-portage/layman
 
 {{sls}} - Add 'enlightenment-live' overlay with Layman:
   cmd.shell:

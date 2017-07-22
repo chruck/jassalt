@@ -62,7 +62,7 @@
 
 {{sls}} - Unmask gcc-{{gccver}} for Chromium:
   file.managed:
-    - name: /etc/portage/package.unmask/chromium
+    - name: /etc/portage/package.unmask/sys-devel/gcc
     - contents:
       - =sys-devel/gcc-{{gccver}}
 

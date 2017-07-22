@@ -14,12 +14,14 @@
                   ] %}
 {% set pkgs = salt['grains.filter_by']({
         "default": [
+                'icedtea',
                 'openconnect',
                 'rdesktop',
                 'subversion',
                 'vpnc',
         ],
         "Gentoo": [
+                'dev-java/icedtea-web',
                 'dev-vcs/subversion',
                 'net-misc/rdesktop',
                 'net-vpn/openconnect',

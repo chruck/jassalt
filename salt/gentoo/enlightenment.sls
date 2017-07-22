@@ -11,7 +11,7 @@ include:
     - name: app-portage/layman
 
 {{sls}} - Add 'enlightenment-live' overlay with Layman:
-  cmd.shell:
+  cmd.run:
     - name: layman -a enlightenment-live
     - require:
       - {{sls}} - Install Layman (for Enlightenment)

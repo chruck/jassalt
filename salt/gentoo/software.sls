@@ -11,6 +11,7 @@ include:
 #    - install_recommends: False
     - pkgs:
       - app-admin/sudo
+      - app-emulation/docker
       - net-print/cups
       - www-plugins/adobe-flash
       - x11-apps/xinit

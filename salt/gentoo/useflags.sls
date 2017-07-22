@@ -11,7 +11,7 @@
       - CFLAGS="-Os -pipe -march=native"
       - CXXFLAGS="${CFLAGS}"
       - MAKEOPTS="-j{{grains.num_cpus + 1}}"
-      - USE="X cups dbus hardened icu networkmanager pulseaudio xcomposite xinerama xrandr -mercurial -modemmanager -ppp"
+      - USE="X cups dbus hardened icu networkmanager pulseaudio sound xcomposite xinerama xrandr -mercurial -modemmanager -ppp"
 #      - PYTHON_TARGETS="python3_6 -python3_4 -python3_5"
     - order: 1
 

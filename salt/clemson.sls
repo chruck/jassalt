@@ -14,14 +14,16 @@
                   ] %}
 {% set pkgs = salt['grains.filter_by']({
         "default": [
-               'openconnect',
-               'subversion',
-               'rdesktop',
+                'openconnect',
+                'rdesktop',
+                'subversion',
+                'vpnc',
         ],
         "Gentoo": [
-               'net-vpn/openconnect',
-               'dev-vcs/subversion',
-               'net-misc/rdesktop',
+                'dev-vcs/subversion',
+                'net-misc/rdesktop',
+                'net-vpn/openconnect',
+                'net-vpn/vpnc',
         ],
 }, default='default'
 ) %}

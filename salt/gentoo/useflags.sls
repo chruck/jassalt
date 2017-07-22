@@ -1,5 +1,7 @@
 {% if "Gentoo" == grains.os %}
 
+{% set gccver = "5.4.0" %}
+
 #{{sls}} - Set global USE flags:
 #{{sls}} - Set global MAKEOPTS and USE:
 {{sls}} - Set make.conf MAKEOPTS:
@@ -9,7 +11,7 @@
       - CFLAGS="-Os -pipe -march=native"
       - CXXFLAGS="${CFLAGS}"
       - MAKEOPTS="-j{{grains.num_cpus + 1}}"
-      - USE="X cups dbus hardened icu xrandr -mercurial -modemmanager -ppp"
+      - USE="X cups dbus hardened icu networkmanager pulseaudio xcomposite xinerama xrandr -mercurial -modemmanager -ppp"
 #      - PYTHON_TARGETS="python3_6 -python3_4 -python3_5"
     - order: 1
 
@@ -58,23 +60,29 @@
     - license:
       - google-chrome
 
-{{sls}} - Unmask gcc-5.4.0 for Chromium:
+{{sls}} - Unmask gcc-{{gccver}} for Chromium:
   file.managed:
     - name: /etc/portage/package.unmask/chromium
     - contents:
-      - =sys-devel/gcc-5.4.0
+      - =sys-devel/gcc-{{gccver}}
 
-{{sls}} - Install gcc-5.4.0:
+{{sls}} - Install gcc-{{gccver}}:
   pkg.installed:
     - name: sys-devel/gcc
-    - version: 5.4.0
+    - version: {{gccver}}
     - require:
-      - {{sls}} - Unmask gcc-5.4.0 for Chromium
+      - {{sls}} - Unmask gcc-{{gccver}} for Chromium
 
-{{sls}} - Switch to gcc-5.4.0:
+{{sls}} - Switch to gcc-{{gccver}}:
   cmd.run:
-    - name: gcc-config x86_64-pc-linux-gnu-5.4.0
+    - name: gcc-config x86_64-pc-linux-gnu-{{gccver}}
     - require:
-      - {{sls}} - Install gcc-5.4.0
+      - {{sls}} - Install gcc-{{gccver}}
+
+{{sls}} - Rebuild Standard C++ library for gcc-5:
+  cmd.run:
+    - name: revdep-rebuild --library 'libstdc++.so.6' -- --exclude gcc
+    - require:
+      - {{sls}} - Switch to gcc-{{gccver}}
 
 {% endif %}  # Gentoo

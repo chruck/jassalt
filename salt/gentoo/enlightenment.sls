@@ -13,8 +13,8 @@ include:
 {{sls}} - Configure Layman:
   file.replace:
     - name: /etc/layman/layman.cfg
-    - pattern: check_official : Yes
-    - repl: check_official : No
+    - pattern: "check_official : Yes"
+    - repl: "check_official : No"
     - append_if_not_found: True
     - require:
       - {{sls}} - Install Layman (for Enlightenment)

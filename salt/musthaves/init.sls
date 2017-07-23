@@ -4,6 +4,7 @@ include:
   - gentoo
   - .git
   - .vim
+  - .opensshd
 #  - .salt-minion
 
 {{sls}} - Must-Haves:

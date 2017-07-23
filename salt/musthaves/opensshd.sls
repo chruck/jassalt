@@ -4,7 +4,7 @@ include:
 {{sls}} - Configure opensshd:
   file.append:
     - name: /etc/ssh/sshd_config
-    - content:
+    - text:
       - X11Forwarding yes
     - require_in:
       - musthaves - Must-Haves

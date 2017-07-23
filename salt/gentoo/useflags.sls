@@ -2,6 +2,9 @@
 
 {% set gccver = "5.4.0" %}
 
+include:
+  - musthaves.desktop
+
 {{sls}} - Set make.conf MAKEOPTS:
   file.managed:
     - name: /etc/portage/make.conf
@@ -61,5 +64,7 @@
     - name: revdep-rebuild --library 'libstdc++.so.6' -- --exclude gcc
     - require:
       - {{sls}} - Switch to gcc-{{gccver}}
+    - onfail:
+      - musthaves.desktop - Must-Haves for Desktop
 
 {% endif %}  # Gentoo

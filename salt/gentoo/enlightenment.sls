@@ -36,7 +36,7 @@ include:
 #    - name: '@enlightenment-core'
 #    - version: 9999
   cmd.run:
-    - name: 'emerge --autounmask-write @enlightenment-core-9999'
+    - name: 'emerge --autounmask-write y --autounmask-continue y @enlightenment-core-9999'
     - require:
       - {{sls}} - Add 'enlightenment-live' overlay with Layman
       - {{sls}} - Create keywords directoy for Portage

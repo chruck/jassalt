@@ -29,6 +29,12 @@ include:
     - use:
       - bindist
 
+{{sls}} - Set USE flags for libxcb:
+  portage_config.flags:
+    - name: libxcb
+    - use:
+      - xkb
+
 {{sls}} - Set license flag for adobe-flash:
   portage_config.flags:
     - name: ">=www-plugins/adobe-flash-26.0.0.131"

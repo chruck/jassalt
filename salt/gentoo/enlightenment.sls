@@ -22,13 +22,14 @@ include:
 {{sls}} - Add 'enlightenment-live' overlay with Layman:
   cmd.run:
     - name: layman -Nfa enlightenment-live
+    - onlyif: 'layman -l |grep enlightenment-live'
     - require:
       - {{sls}} - Install Layman (for Enlightenment)
       - {{sls}} - Configure Layman
 
 {{sls}} - Install Enlightenment E21:
   pkg.installed:
-    - name: enlightenment-core
+    - name: @enlightenment-core
     - version: 9999
     - require:
       - {{sls}} - Add 'enlightenment-live' overlay with Layman

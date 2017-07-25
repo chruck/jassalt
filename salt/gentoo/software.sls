@@ -17,5 +17,6 @@ include:
       - www-plugins/adobe-flash
       - x11-apps/xinit
       - x11-base/xorg-x11
+      - x11-drivers/nvidia-drivers
 
 {% endif %}  # Gentoo

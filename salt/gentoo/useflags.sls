@@ -61,12 +61,12 @@ include:
     - require:
       - {{sls}} - Install gcc-{{gccver}}
 
-{{sls}} - Rebuild Standard C++ library for gcc-5:
-  cmd.run:
-    - name: revdep-rebuild --library 'libstdc++.so.6' -- --exclude gcc
-    - require:
-      - {{sls}} - Switch to gcc-{{gccver}}
-    - onfail:
-      - musthaves.desktop - Must-Haves for Desktop
+#{{sls}} - Rebuild Standard C++ library for gcc-5:
+#  cmd.run:
+#    - name: revdep-rebuild --library 'libstdc++.so.6' -- --exclude gcc
+#    - require:
+#      - {{sls}} - Switch to gcc-{{gccver}}
+#    - onfail:
+#      - musthaves.desktop - Must-Haves for Desktop
 
 {% endif %}  # Gentoo

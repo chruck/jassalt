@@ -29,7 +29,7 @@ include:
 
 {{sls}} - Install Enlightenment E21:
   pkg.installed:
-    - name: @enlightenment-core
+    - name: '@enlightenment-core'
     - version: 9999
     - require:
       - {{sls}} - Add 'enlightenment-live' overlay with Layman

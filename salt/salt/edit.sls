@@ -31,3 +31,8 @@ include:
     - name: {{etcVim}}/syntax/sls.vim
     - target: {{srcDir}}/syntax/sls.vim
     - makedirs: True
+
+{{sls}} - Install pylint:
+  pip.installed:
+    - pkgs:
+      - saltpylint

@@ -22,7 +22,7 @@ include:
 {{sls}} - Add 'enlightenment-live' overlay with Layman:
   cmd.run:
     - name: layman -Nfa enlightenment-live
-    - onlyif: 'layman -l |grep enlightenment-live'
+    - onlyif: '! ( layman -l |grep enlightenment-live )'
     - require:
       - {{sls}} - Install Layman (for Enlightenment)
       - {{sls}} - Configure Layman

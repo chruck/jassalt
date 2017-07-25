@@ -1,3 +1,5 @@
+{% from tpldir ~ "/map.jinja" import musthaves with context %}
+
 include:
   - musthaves
 
@@ -11,7 +13,7 @@ include:
 
 {{sls}} - Enable and start opensshd service:
   service.running:
-    - name: opensshd
+    - name: {{musthaves.opensshdServiceName}}
     - enable: True
     - watch:
       - {{sls}} - Configure opensshd

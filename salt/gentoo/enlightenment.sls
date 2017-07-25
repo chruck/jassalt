@@ -27,19 +27,26 @@ include:
       - {{sls}} - Install Layman (for Enlightenment)
       - {{sls}} - Configure Layman
 
-{{sls}} - Create keywords directoy for Portage:
+{{sls}} - Create keywords directory for Portage:
   file.directory:
     - name: /etc/portage/package.keywords
+
+{{sls}} - Install dependancy packages:
+  pkg.installed:
+    - pkgs:
+      - x11-libs/libxkbcommon
+      - dev-libs/libinput
 
 {{sls}} - Install Enlightenment E21:
 #  pkg.installed:
 #    - name: '@enlightenment-core'
 #    - version: 9999
   cmd.run:
-    - name: 'emerge --autounmask-write y --autounmask-continue y @enlightenment-core-9999'
+    - name: 'emerge --color n --nospinner --autounmask-write y --autounmask-continue y @enlightenment-core-9999'
     - require:
       - {{sls}} - Add 'enlightenment-live' overlay with Layman
       - {{sls}} - Create keywords directoy for Portage
+      - {{sls}} - Install dependancy packages
 
 {{sls}} - Create ~/.xinitrc:
   file.managed:

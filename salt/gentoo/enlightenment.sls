@@ -27,12 +27,19 @@ include:
       - {{sls}} - Install Layman (for Enlightenment)
       - {{sls}} - Configure Layman
 
+{{sls}} - Create keywords directoy for Portage:
+  file.directory:
+    - name: /etc/portage/package.keywords
+
 {{sls}} - Install Enlightenment E21:
-  pkg.installed:
-    - name: '@enlightenment-core'
-    - version: 9999
+#  pkg.installed:
+#    - name: '@enlightenment-core'
+#    - version: 9999
+  cmd.run:
+    - name: 'emerge --autounmask-write @enlightenment-core-9999'
     - require:
       - {{sls}} - Add 'enlightenment-live' overlay with Layman
+      - {{sls}} - Create keywords directoy for Portage
 
 {{sls}} - Create ~/.xinitrc:
   file.managed:

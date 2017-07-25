@@ -1,6 +1,7 @@
 {% if "Gentoo" == grains.os %}
 
 {% set gccver = "5.4.0" %}
+{% set targetgcc = "x86_64-pc-linux-gnu-" ~ gccver %}
 
 include:
   - musthaves.desktop
@@ -55,7 +56,8 @@ include:
 
 {{sls}} - Switch to gcc-{{gccver}}:
   cmd.run:
-    - name: gcc-config x86_64-pc-linux-gnu-{{gccver}}
+    - name: gcc-config {{targetgcc}}
+    - onlyif: 'test {{targetgcc}} != $(gcc-config -c)'
     - require:
       - {{sls}} - Install gcc-{{gccver}}
 

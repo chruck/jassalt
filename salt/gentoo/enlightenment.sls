@@ -45,7 +45,7 @@ include:
     - name: 'emerge --color n --nospinner --autounmask-write y --autounmask-continue y @enlightenment-core-9999'
     - require:
       - {{sls}} - Add 'enlightenment-live' overlay with Layman
-      - {{sls}} - Create keywords directoy for Portage
+      - {{sls}} - Create keywords directory for Portage
       - {{sls}} - Install dependancy packages
 
 {{sls}} - Create ~/.xinitrc:

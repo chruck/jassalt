@@ -12,6 +12,7 @@ include:
     - pkgs:
       - app-admin/sudo
       - app-emulation/docker
+      - media-fonts/corefonts
       - net-misc/ntp
       - net-print/cups
       - www-plugins/adobe-flash

@@ -6,26 +6,28 @@ include:
   - .useflags
 #  - .acceptlicense
 
-{{sls}} - Install Layman (for Enlightenment):
-  pkg.installed:
-    - name: app-portage/layman
-
-{{sls}} - Configure Layman:
-  file.replace:
-    - name: /etc/layman/layman.cfg
-    - pattern: "check_official : Yes"
-    - repl: "check_official : No"
-    - append_if_not_found: True
-    - require:
-      - {{sls}} - Install Layman (for Enlightenment)
-
+#{{sls}} - Install Layman (for Enlightenment):
+#  pkg.installed:
+#    - name: app-portage/layman
+#
+#{{sls}} - Configure Layman:
+#  file.replace:
+#    - name: /etc/layman/layman.cfg
+#    - pattern: "check_official : Yes"
+#    - repl: "check_official : No"
+#    - append_if_not_found: True
+#    - require:
+#      - {{sls}} - Install Layman (for Enlightenment)
+#
 {{sls}} - Add 'enlightenment-live' overlay with Layman:
-  cmd.run:
-    - name: layman -Nfa enlightenment-live
-    - onlyif: '! ( layman -l |grep enlightenment-live )'
-    - require:
-      - {{sls}} - Install Layman (for Enlightenment)
-      - {{sls}} - Configure Layman
+#  cmd.run:
+#    - name: layman -Nfa enlightenment-live
+#    - onlyif: '! ( layman -l |grep enlightenment-live )'
+#    - require:
+#      - {{sls}} - Install Layman (for Enlightenment)
+#      - {{sls}} - Configure Layman
+  layman.present:
+    - name: enlightenment-live
 
 {{sls}} - Create keywords directory for Portage:
   file.directory:

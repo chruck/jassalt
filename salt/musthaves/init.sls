@@ -16,6 +16,16 @@ include:
       - {{pkg}}
       {% endfor %}
 
+{% for svc in musthaves.services %}
+
+{{sls}} - Enable and Start {{svc}}:
+  service.running:
+    - name: {{svc}}
+    - enable: True
+    - require: {{sls}} - Must-Haves
+
+{% endfor %}
+
 {{sls}} - Must-Not-Haves:
   pkg.purged:
     - pkgs:

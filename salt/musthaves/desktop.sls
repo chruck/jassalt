@@ -18,6 +18,7 @@ include:
   service.running:
     - name: {{svc}}
     - enable: True
-    - require: {{sls}} - Must-Haves for Desktop
+    - require:
+      - {{sls}} - Must-Haves for Desktop
 
 {% endfor %}

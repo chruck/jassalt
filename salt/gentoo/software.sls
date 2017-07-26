@@ -20,4 +20,15 @@ include:
       - x11-base/xorg-x11
       - x11-drivers/nvidia-drivers
 
+{%      for svc in 'ntpd', 'cupsd', 'docker' %}
+
+{{sls}} - Start {{svc}} service:
+  service.running:
+    - name: {{svc}}
+    - enable: True
+    - require:
+      - {{sls}} - Other Packages for Gentoo
+
+{%      endfor %}
+
 {% endif %}  # Gentoo

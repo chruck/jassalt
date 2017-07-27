@@ -32,4 +32,10 @@ include:
 
 {%      endfor %}
 
+{{sls}} - Use running kernel's config for next to build:
+  archive.extracted:
+    - name: /usr/src/linux/.config
+    - if_missing: /usr/src/linux/.config
+    - source: /proc/config.gz
+
 {% endif %}  # Gentoo

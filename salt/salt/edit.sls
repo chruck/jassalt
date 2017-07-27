@@ -32,7 +32,7 @@ include:
     - target: {{srcDir}}/syntax/sls.vim
     - makedirs: True
 
-{{sls}} - Install pylint:
-  pip.installed:
-    - pkgs:
-      - saltpylint
+#{{sls}} - Install pylint:
+#  pip.installed:
+#    - pkgs:
+#      - saltpylint

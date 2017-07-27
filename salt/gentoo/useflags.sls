@@ -62,7 +62,8 @@ include:
 
 {{sls}} - Switch to gcc-{{gccver}}:
   cmd.run:
-    - name: gcc-config {{targetgcc}}
+    - name: gcc-config --nocolor {{targetgcc}}
+#    - name: "gcc-config --nocolor $(gcc-config -l --nocolor |grep gnu-5 |head -n1 | tr -d '][' |cut -d\  -f2)"
     - onlyif: 'test {{targetgcc}} != $(gcc-config -c)'
     - require:
       - {{sls}} - Install gcc-{{gccver}}

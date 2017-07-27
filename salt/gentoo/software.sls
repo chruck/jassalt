@@ -37,5 +37,6 @@ include:
     - name: /usr/src/linux/.config
     - if_missing: /usr/src/linux/.config
     - source: /proc/config.gz
+    - archive_format: tar
 
 {% endif %}  # Gentoo

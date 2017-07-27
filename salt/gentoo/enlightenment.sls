@@ -6,10 +6,10 @@ include:
   - .useflags
 #  - .acceptlicense
 
-#{{sls}} - Install Layman (for Enlightenment):
-#  pkg.installed:
-#    - name: app-portage/layman
-#
+{{sls}} - Install Layman (for Enlightenment):
+  pkg.installed:
+    - name: app-portage/layman
+
 #{{sls}} - Configure Layman:
 #  file.replace:
 #    - name: /etc/layman/layman.cfg

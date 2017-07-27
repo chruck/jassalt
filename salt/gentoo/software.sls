@@ -38,5 +38,9 @@ include:
     - if_missing: /usr/src/linux/.config
     - source: /proc/config.gz
     - archive_format: tar
+    - require:
+      - pkg: sys-kernel/gentoo-sources
+    - require_in:
+      - pkg: x11-drivers/nvidia-drivers
 
 {% endif %}  # Gentoo

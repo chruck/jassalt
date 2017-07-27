@@ -15,6 +15,7 @@ include:
       - media-fonts/corefonts
       - net-misc/ntp
       - net-print/cups
+      - sys-kernel/gentoo-sources
       - www-plugins/adobe-flash
       - x11-apps/xinit
       - x11-base/xorg-x11

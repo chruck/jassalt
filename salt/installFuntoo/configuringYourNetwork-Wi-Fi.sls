@@ -11,14 +11,14 @@
 
 include:
   - {{mountVirtFs}}
-#  - {{downloadingThePortageTree}}
+  - {{downloadingThePortageTree}}
   - {{configurationFilesMakeConf}}
 
 {{sls}} - Install NetworkManager and Linux Firmware:
   cmd.run:
     - name: /bin/chroot {{mntPt}} emerge linux-firmware networkmanager
     - require:
-#      - {{downloadingThePortageTree}} - Download Portage Tree
+      - {{downloadingThePortageTree}} - Download Portage Tree
       - mount: {{mountVirtFs}} - Bind mount {{mntPt}}/dev
       - {{configurationFilesMakeConf}} - Set MAKEOPTS, USE, and CFLAGS in {{makeConfFile}}:
 

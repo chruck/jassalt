@@ -8,9 +8,9 @@
 include:
   - {{chrootIntoFuntoo}}
 
-{{sls}} - Download Portage Tree:
+{{sls}} - Download Portage Tree (tail):
   cmd.run:
-    - name: /bin/chroot {{mntPt}} emerge --sync
+    - name: "/bin/chroot {{mntPt}} emerge --sync |tail -n50"
     - require:
       - {{chrootIntoFuntoo}} - Ping in chroot of {{mntPt}}
 

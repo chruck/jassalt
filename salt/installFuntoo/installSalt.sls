@@ -3,7 +3,7 @@
 {% from tpldir ~ "/vars.jinja" import
         mntPt,
         mountVirtFs,
-	mountingFilesystems,
+        mountingFilesystems,
         downloadingThePortageTree,
         saltMasterHostname,
         saltMasterIp,
@@ -12,13 +12,13 @@
 include:
   - {{mountVirtFs}}
   - {{mountingFilesystems}}
-#  - {{downloadingThePortageTree}}
+  - {{downloadingThePortageTree}}
 
 {{sls}} - Install Salt:
   cmd.run:
     - name: /bin/chroot {{mntPt}} emerge salt
     - require:
-#      - {{downloadingThePortageTree}} - Download Portage Tree
+      - {{downloadingThePortageTree}} - Download Portage Tree
       - mount: {{mountVirtFs}} - Bind mount {{mntPt}}/dev
 
 {{sls}} - Start salt-minion at startup:

@@ -2,14 +2,14 @@
 
 {% set mntPt = "/mnt/funtoo" %}
 
-#include:
-#  - .downloadingThePortageTree
+include:
+  - .downloadingThePortageTree
 
 {{sls}} - Install grub program:
   cmd.run:
     - name: /bin/chroot {{mntPt}} emerge boot-update
-#    - require:
-#      - installFuntoo.downloadingThePortageTree - Download Portage Tree
+    - require:
+      - installFuntoo.downloadingThePortageTree - Download Portage Tree
 
 {{sls}} - Update /etc/boot.conf:
   file.managed:

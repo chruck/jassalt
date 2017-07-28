@@ -14,10 +14,10 @@ include:
   file.append:
     - name: {{makeConfFile}}
     - text:
-      - CFLAGS="-Os -pipe -march=native -std=c11"
-      - CXXFLAGS="-Os -pipe -march=native"
+      - CFLAGS="-Os -pipe -march=native"
+      - CXXFLAGS="${CFLAGS}"
       - MAKEOPTS="-j{{numThreads}}"
-      - USE="X cups dbus icu -mercurial -modemmanager -ppp"
+      - USE="X alsa bluetooth btrfs cups dbus hardened icu networkmanager pulseaudio sound symlink xcomposite xinerama xrandr -mercurial -modemmanager -ppp"
     - require:
       - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
 

@@ -18,7 +18,7 @@ include:
   cmd.run:
     - name: /bin/chroot {{mntPt}} emerge salt
     - require:
-      - {{downloadingThePortageTree}} - Download Portage Tree
+      - {{emergeSync}}
       - mount: {{mountVirtFs}} - Bind mount {{mntPt}}/dev
 
 {{sls}} - Start salt-minion at startup:

@@ -9,7 +9,7 @@ include:
   cmd.run:
     - name: /bin/chroot {{mntPt}} emerge boot-update
     - require:
-      - installFuntoo.downloadingThePortageTree - Download Portage Tree
+      - {{emergeSync}}
 
 {{sls}} - Update /etc/boot.conf:
   file.managed:

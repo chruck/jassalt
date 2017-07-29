@@ -8,7 +8,7 @@
 include:
   - {{chrootIntoFuntoo}}
 
-{{sls}} - Download Portage Tree (tail):
+{{emergeSync}}:
   cmd.run:
     - name: "/bin/chroot {{mntPt}} emerge --sync |tail -n50"
     - require:

@@ -1,6 +1,7 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 {% from tpldir ~ "/vars.jinja" import
+        downloadingThePortageTree,
         emergeSync,
         mntPt,
         with context %}

@@ -1,11 +1,12 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 {% from tpldir ~ "/vars.jinja" import
-        mntPt,
-        makeConfFile,
-        mountVirtFs,
-        downloadingThePortageTree,
         configurationFilesMakeConf,
+        downloadingThePortageTree,
+        emergeSync,
+        makeConfFile,
+        mntPt,
+        mountVirtFs,
         numThreads,
         with context %}
 
@@ -18,7 +19,7 @@ include:
   cmd.run:
     - name: /bin/chroot {{mntPt}} emerge linux-firmware networkmanager
     - require:
-      - {{downloadingThePortageTree}} - Download Portage Tree
+      - {{emergeSync}}
       - {{mountVirtFs}} - Bind mount {{mntPt}}/dev
       - {{configurationFilesMakeConf}} - Set MAKEOPTS, USE, and CFLAGS in {{makeConfFile}}
 

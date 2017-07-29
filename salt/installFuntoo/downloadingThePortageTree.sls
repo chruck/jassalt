@@ -9,6 +9,7 @@
 
 include:
   - {{chrootIntoFuntoo}}
+  - {{mountVirtFs}}
 
 {{emergeSync}}:
   cmd.run:

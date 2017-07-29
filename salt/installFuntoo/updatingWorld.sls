@@ -1,6 +1,9 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{% set mntPt = "/mnt/funtoo" %}
+{% from tpldir ~ "/vars.jinja" import
+        emergeSync,
+        mntPt,
+        with context %}
 
 include:
   - {{downloadingThePortageTree}}

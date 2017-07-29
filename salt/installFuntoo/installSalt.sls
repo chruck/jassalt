@@ -1,10 +1,11 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 {% from tpldir ~ "/vars.jinja" import
+        downloadingThePortageTree,
+        emergeSync,
         mntPt,
         mountVirtFs,
         mountingFilesystems,
-        downloadingThePortageTree,
         saltMasterHostname,
         saltMasterIp,
         with context %}

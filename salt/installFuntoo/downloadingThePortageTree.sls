@@ -1,8 +1,9 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 {% from tpldir ~ "/vars.jinja" import
-        mntPt,
+        emergeSync,
         chrootIntoFuntoo,
+        mntPt,
         with context %}
 
 include:

@@ -20,7 +20,7 @@ include:
     - require:
       - {{downloadingThePortageTree}} - Download Portage Tree
       - mount: {{mountVirtFs}} - Bind mount {{mntPt}}/dev
-      - {{configurationFilesMakeConf}} - Set MAKEOPTS, USE, and CFLAGS in {{makeConfFile}}:
+      - file: {{configurationFilesMakeConf}} - Set MAKEOPTS, USE, and CFLAGS in {{makeConfFile}}:
 
 # Output to emerging networkmanager:
 #

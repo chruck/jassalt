@@ -12,7 +12,6 @@
 {% set configurationFilesfstab = tpldir ~ ".configurationFiles-fstab" %}
 {% set configuringYourNetworkWiFi = tpldir ~ ".configuringYourNetwork-Wi-Fi" %}
 {% set downloadingThePortageTree = tpldir ~ ".downloadingThePortageTree" %}
-{% set emergeSync = downloadingThePortageTree ~ " - Download Portage Tree (tail)" %}
 {% set installSalt = tpldir ~ ".installSalt" %}
 {% set mountVirtFs = tpldir ~ ".mountVirtFs" %}
 {% set mountingFilesystems = tpldir ~ ".mountingFilesystems" %}
@@ -20,6 +19,10 @@
 {% set prepareHardDisk = tpldir ~ ".prepareHardDisk" %}
 {% set setYourRootPassword = tpldir ~ ".setYourRootPassword" %}
 {% set umountSda = tpldir ~ ".umountSda" %}
+
+# SubState
+{% set emergeSync = downloadingThePortageTree ~ " - Download Portage Tree (tail)" %}
+{% set bindMountDev = mountVirtFs ~ " - Bind mount " ~ mntPt ~ "/dev" %}
 
 # Other
 {% set futureHostname = "iac" %}

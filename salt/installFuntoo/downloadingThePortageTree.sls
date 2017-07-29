@@ -5,6 +5,7 @@
         chrootIntoFuntoo,
         emergeSync,
         mntPt,
+        mountVirtFs,
         with context %}
 
 include:

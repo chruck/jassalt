@@ -37,5 +37,5 @@ example command would be:
 sudo salt-ssh sysresccd state.apply installFuntoo.chrootIntoFuntoo
 ```
 
-[SystemRescueCD]: http://www.system-rescue-cd.org
+[SystemRescueCD]: http://build.funtoo.org/distfiles/sysresccd/
 [Install Funtoo Linux]: http://www.funtoo.org/Install

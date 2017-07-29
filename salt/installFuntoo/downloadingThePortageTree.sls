@@ -12,7 +12,7 @@ include:
 
 {{emergeSync}}:
   cmd.run:
-    - name: "/bin/chroot {{mntPt}} emerge --sync |tail -n50"
+    - name: "/bin/chroot {{mntPt}} sh -c 'emerge --sync >/tmp/emerge-sync; rc=$?; tail -n50 /tmp/emerge-sync; exit $rc'"
     - require:
       - {{chrootIntoFuntoo}} - Ping in chroot of {{mntPt}}
       - {{bindMountDev}}

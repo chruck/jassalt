@@ -1,6 +1,9 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{% set mntPt = "/mnt/funtoo" %}
+{% from tpldir ~ "/vars.jinja" import
+        bindMountDev,
+        mntPt,
+        with context %}
 
 include:
   - .mountingFilesystems
@@ -24,7 +27,7 @@ include:
     - require:
       - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
 
-{{sls}} - Bind mount {{mntPt}}/dev:
+{{bindMountDev}}:
   mount.mounted:
     - name: {{mntPt}}/dev
     - device: /dev

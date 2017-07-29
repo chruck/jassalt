@@ -1,6 +1,7 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 {% from tpldir ~ "/vars.jinja" import
+        bindMountDev,
         configurationFilesMakeConf,
         downloadingThePortageTree,
         emergeSync,
@@ -20,7 +21,7 @@ include:
     - name: /bin/chroot {{mntPt}} emerge linux-firmware networkmanager
     - require:
       - {{emergeSync}}
-      - {{mountVirtFs}} - Bind mount {{mntPt}}/dev
+      - {{bindMountDev}}
       - {{configurationFilesMakeConf}} - Set MAKEOPTS, USE, and CFLAGS in {{makeConfFile}}
 
 # Output to emerging networkmanager:

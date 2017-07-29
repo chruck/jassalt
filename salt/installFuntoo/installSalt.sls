@@ -1,6 +1,7 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 {% from tpldir ~ "/vars.jinja" import
+        bindMountDev,
         downloadingThePortageTree,
         emergeSync,
         mntPt,
@@ -20,7 +21,7 @@ include:
     - name: /bin/chroot {{mntPt}} emerge salt
     - require:
       - {{emergeSync}}
-      - mount: {{mountVirtFs}} - Bind mount {{mntPt}}/dev
+      - {{bindMountDev}}
 
 {{sls}} - Start salt-minion at startup:
   cmd.run:

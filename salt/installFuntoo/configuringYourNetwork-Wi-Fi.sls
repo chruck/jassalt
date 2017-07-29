@@ -19,8 +19,8 @@ include:
     - name: /bin/chroot {{mntPt}} emerge linux-firmware networkmanager
     - require:
       - {{downloadingThePortageTree}} - Download Portage Tree
-      - mount: {{mountVirtFs}} - Bind mount {{mntPt}}/dev
-      - file: {{configurationFilesMakeConf}} - Set MAKEOPTS, USE, and CFLAGS in {{makeConfFile}}:
+      - {{mountVirtFs}} - Bind mount {{mntPt}}/dev
+      - {{configurationFilesMakeConf}} - Set MAKEOPTS, USE, and CFLAGS in {{makeConfFile}}
 
 # Output to emerging networkmanager:
 #

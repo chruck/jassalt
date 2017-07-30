@@ -7,7 +7,7 @@ States to install Funtoo distribution on a target node.
 so that at reboot, the system boots into the new Funtoo system that
 was just built.
 * Target has root password changed with `passwd` command.
-* Target's IP address is `$IP` (use `ip a` to find it).  Use 'nmtui'
+* Target's IP address is `$IP` (use `ip a` to find it).  Use `nmtui`
 to set up WiFi connection.
 * Target's hostname is unchanged from `sysresccd`.
 * Salt master has `salt-ssh` installed.

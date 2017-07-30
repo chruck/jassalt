@@ -3,7 +3,7 @@
 include:
   - .prepareHardDisk
   - .mountingFilesystems
-  - .downloadTheStage3
+  - .installingTheStage3Tarball
   - .mountVirtFs
   - .chrootIntoFuntoo
   - .downloadingThePortageTree

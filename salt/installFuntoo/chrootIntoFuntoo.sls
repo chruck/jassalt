@@ -3,10 +3,12 @@
 {% from tpldir ~ "/vars.jinja" import
         mntPt,
         mountingFilesystems,
+        mountVirtFs,
         with context %}
 
 include:
   - {{mountingFilesystems}}
+  - {{mountVirtFs}}
 
 {{sls}} - Copy /etc/resolv.conf to {{mntPt}}/etc:
   file.copy:

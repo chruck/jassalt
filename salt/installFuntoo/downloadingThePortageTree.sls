@@ -15,7 +15,7 @@ include:
 {{emergeSync}}:
   cmd.run:
 #    - name: "/bin/chroot {{mntPt}} sh -c 'emerge --sync >/tmp/emerge-sync; rc=$?; tail -n50 /tmp/emerge-sync; exit $rc'"
-    - name: ego sync
+    - name: /bin/chroot {{mntPt}} ego sync
     - require:
       - {{chrootIntoFuntoo}} - Ping in chroot of {{mntPt}}
       - {{bindMountDev}}

@@ -19,6 +19,12 @@ include:
     - require:
       - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
 
+{{sls}} - Set USE flag for consolekit:
+  portage_config.flags:
+    - name: ">=sys-auth/consolekit-1.0.1"
+    - use:
+      - policykit
+
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:
   cmd.run

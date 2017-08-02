@@ -4,11 +4,11 @@
 {% set synergyClientIP = "172.16.16.107" %}
 
 {% if grains["host"] == synergyServer %}
-  {% set daemon = "Server" %}
-  {% set command = "sudo -u " ~ pillar['user'] ~ " sh -c 'pkill synergys; DISPLAY=:0.0 synergys'" %}
+{%      set daemon = "Server" %}
+{%      set command = "sudo -u " ~ pillar['user'] ~ " sh -c 'pkill synergys; DISPLAY=:0.0 synergys'" %}
 {% elif grains["host"] == synergyClient %}
-  {% set daemon = "Client" %}
-  {% set command = "sudo -u " ~ pillar['user'] ~ " sh -c 'pkill synergyc; DISPLAY=:0.0 synergyc " ~ synergyServer ~ "'"%}
+{%      set daemon = "Client" %}
+{%      set command = "sudo -u " ~ pillar['user'] ~ " sh -c 'pkill synergyc; DISPLAY=:0.0 synergyc " ~ synergyServer ~ "'"%}
 {% endif %}
 
 include:

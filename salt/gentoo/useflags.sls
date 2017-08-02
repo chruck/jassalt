@@ -9,12 +9,9 @@ include:
 {{sls}} - Set make.conf MAKEOPTS:
   file.managed:
     - name: /etc/portage/make.conf
-    - contents:
-      - CFLAGS="-Os -pipe -march=native"
-      - CXXFLAGS="${CFLAGS}"
-      - MAKEOPTS="-j{{grains.num_cpus + 1}}"
-      - USE="X alsa bluetooth btrfs cups dbus hardened icu networkmanager pulseaudio sound symlink xcomposite xinerama xrandr -mercurial -modemmanager -ppp"
-#      - PYTHON_TARGETS="python3_6 -python3_4 -python3_5"
+    - source: salt://gentoo/make.conf
+    - defaults:
+        numThreads: {{grains.num_cpus + 1}}
     - order: 1
 
 {{sls}} - Set USE flags for libpng:

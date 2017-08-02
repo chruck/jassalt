@@ -11,13 +11,11 @@ include:
   - {{mountingFilesystems}}
 
 {{sls}} - Set MAKEOPTS, USE, and CFLAGS in {{makeConfFile}}:
-  file.append:
+  file.managed:
     - name: {{makeConfFile}}
-    - text:
-      - CFLAGS="-Os -pipe -march=native"
-      - CXXFLAGS="${CFLAGS}"
-      - MAKEOPTS="-j{{numThreads}}"
-      - USE="X alsa bluetooth btrfs cups dbus hardened icu networkmanager pulseaudio sound symlink xcomposite xinerama xrandr -mercurial -modemmanager -ppp"
+    - source: salt://gentoo/make.conf
+    - defaults:
+        numThreads: {{numThreads}}
     - require:
       - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
 

@@ -10,6 +10,7 @@ include:
   file.managed:
     - name: /etc/portage/make.conf
     - source: salt://gentoo/make.conf
+    - template: jinja
     - defaults:
         numThreads: {{grains.num_cpus + 1}}
     - order: 1

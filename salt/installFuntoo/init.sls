@@ -3,6 +3,7 @@
 include:
   - .prepareHardDisk
   - .mountingFilesystems
+  - .settingTheDate
   - .installingTheStage3Tarball
   - .mountVirtFs
   - .chrootIntoFuntoo

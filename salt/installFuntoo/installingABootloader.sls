@@ -4,6 +4,7 @@
         emergeSync,
         mntPt,
         with context %}
+{% from tpldir ~ "/headtail.jinja" import headtail with context %}
 
 include:
   - .downloadingThePortageTree

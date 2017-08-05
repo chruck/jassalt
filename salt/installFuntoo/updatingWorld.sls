@@ -5,13 +5,14 @@
         emergeSync,
         mntPt,
         with context %}
+{% from tpldir ~ "/headtail.jinja" import headtail with context %}
 
 include:
   - {{downloadingThePortageTree}}
 
 {{sls}} - Update @world:
   cmd.run:
-    - name: /bin/chroot {{mntPt}} emerge -uDN @world
+    - name: /bin/chroot {{mntPt}} emerge -uDN @world {{headtail}}
     - require:
       - {{emergeSync}}
 

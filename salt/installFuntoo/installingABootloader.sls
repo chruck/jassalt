@@ -10,7 +10,7 @@ include:
 
 {{sls}} - Install grub program:
   cmd.run:
-    - name: /bin/chroot {{mntPt}} emerge boot-update
+    - name: /bin/chroot {{mntPt}} emerge boot-update {{headtail}}
     - require:
       - {{emergeSync}}
 

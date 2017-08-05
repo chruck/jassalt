@@ -10,6 +10,7 @@
         saltMasterHostname,
         saltMasterIp,
         with context %}
+{% from tpldir ~ "/headtail.jinja" import headtail with context %}
 
 include:
   - {{mountVirtFs}}
@@ -18,7 +19,7 @@ include:
 
 {{sls}} - Install Salt:
   cmd.run:
-    - name: /bin/chroot {{mntPt}} emerge salt
+    - name: /bin/chroot {{mntPt}} emerge salt {{headtail}}
     - require:
       - {{emergeSync}}
       - {{bindMountDev}}

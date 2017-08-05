@@ -10,6 +10,7 @@
         mountVirtFs,
         numThreads,
         with context %}
+{% from tpldir ~ "/headtail.jinja" import headtail with context %}
 
 include:
   - {{mountVirtFs}}
@@ -18,7 +19,7 @@ include:
 
 {{sls}} - Install NetworkManager and Linux Firmware:
   cmd.run:
-    - name: /bin/chroot {{mntPt}} emerge linux-firmware networkmanager
+    - name: /bin/chroot {{mntPt}} emerge linux-firmware networkmanager {{headtail}}
     - require:
       - {{emergeSync}}
       - {{bindMountDev}}

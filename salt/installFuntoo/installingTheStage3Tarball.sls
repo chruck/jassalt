@@ -1,6 +1,7 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 {% from tpldir ~ "/vars.jinja" import
+        installStage3,
         mntPt,
         with context %}
 

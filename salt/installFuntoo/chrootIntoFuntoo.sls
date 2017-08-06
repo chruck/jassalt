@@ -1,7 +1,7 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 {% from tpldir ~ "/vars.jinja" import
-        installStage3
+        installStage3,
         mntPt,
         mountingFilesystems,
         mountVirtFs,

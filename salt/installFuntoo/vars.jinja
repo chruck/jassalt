@@ -1,6 +1,7 @@
 {% set mntPt = "/mnt/funtoo" %}
 
 # Target Files
+{% set hostnameFile = mntPt ~ "/etc/conf.d/hostname" %}
 {% set localtimeFile = "/etc/localtime" %}
 {% set makeConfFile = mntPt ~ "/etc/portage/make.conf" %}
 {% set mntFstab = mntPt ~ "/etc/fstab" %}

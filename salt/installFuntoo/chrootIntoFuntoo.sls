@@ -1,12 +1,14 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 {% from tpldir ~ "/vars.jinja" import
+        installStage3
         mntPt,
         mountingFilesystems,
         mountVirtFs,
         with context %}
 
 include:
+  - {{installingTheStage3Tarball}}
   - {{mountingFilesystems}}
   - {{mountVirtFs}}
 
@@ -16,6 +18,7 @@ include:
     - source: /etc/resolv.conf
     - require:
       - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{installStage3}}
 
 {{sls}} - Ping in chroot of {{mntPt}}:
   cmd.run:

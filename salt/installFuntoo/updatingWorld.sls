@@ -12,7 +12,7 @@ include:
 
 {{sls}} - Update @world:
   cmd.run:
-    - name: /bin/chroot {{mntPt}} emerge -uDN @world {{headtail}}
+    - name: "/bin/chroot {{mntPt}} emerge -uDN @world {{headtail}}"
     - require:
       - {{emergeSync}}
 

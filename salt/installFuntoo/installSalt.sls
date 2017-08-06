@@ -19,7 +19,7 @@ include:
 
 {{sls}} - Install Salt:
   cmd.run:
-    - name: /bin/chroot {{mntPt}} emerge salt {{headtail}}
+    - name: "/bin/chroot {{mntPt}} emerge salt {{headtail}}"
     - require:
       - {{emergeSync}}
       - {{bindMountDev}}

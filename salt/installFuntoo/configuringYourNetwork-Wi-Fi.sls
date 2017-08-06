@@ -19,7 +19,7 @@ include:
 
 {{sls}} - Install NetworkManager and Linux Firmware:
   cmd.run:
-    - name: /bin/chroot {{mntPt}} emerge linux-firmware networkmanager {{headtail}}
+    - name: "/bin/chroot {{mntPt}} emerge linux-firmware networkmanager {{headtail}}"
     - require:
       - {{emergeSync}}
       - {{bindMountDev}}

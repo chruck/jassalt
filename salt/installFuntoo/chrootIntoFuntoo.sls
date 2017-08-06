@@ -2,9 +2,10 @@
 
 {% from tpldir ~ "/vars.jinja" import
         installStage3,
+        installingTheStage3Tarball,
         mntPt,
-        mountingFilesystems,
         mountVirtFs,
+        mountingFilesystems,
         with context %}
 
 include:

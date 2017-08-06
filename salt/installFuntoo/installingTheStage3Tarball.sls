@@ -4,12 +4,16 @@
         mntPt,
         with context %}
 
+#{{sls}} - Install Funtoo Stage 3 onto {{mntPt}}:
+#  archive.extracted:
+#    - name: {{mntPt}}
+#    - source: http://build.funtoo.org/funtoo-current-hardened/pure64/intel64-haswell-pure64/stage3-latest.tar.xz
+#    - source_hash: http://build.funtoo.org/funtoo-current-hardened/pure64/intel64-haswell-pure64/stage3-latest.tar.xz.hash.txt
+#    - trim_output: True
+
 {{sls}} - Install Funtoo Stage 3 onto {{mntPt}}:
-  archive.extracted:
-    - name: {{mntPt}}
-    - source: http://build.funtoo.org/funtoo-current-hardened/pure64/intel64-haswell-pure64/stage3-latest.tar.xz
-    - source_hash: http://build.funtoo.org/funtoo-current-hardened/pure64/intel64-haswell-pure64/stage3-latest.tar.xz.hash.txt
-    - trim_output: True
+  cmd.run:
+    - name: "cd {{mntPt}} ; wget -O - http://build.funtoo.org/funtoo-current-hardened/pure64/intel64-haswell-pure64/stage3-latest.tar.xz | tar xf -"
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

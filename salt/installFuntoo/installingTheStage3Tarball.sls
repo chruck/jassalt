@@ -13,7 +13,7 @@
 
 {{sls}} - Install Funtoo Stage 3 onto {{mntPt}}:
   cmd.run:
-    - name: "cd {{mntPt}} ; wget -O - http://build.funtoo.org/funtoo-current-hardened/pure64/intel64-haswell-pure64/stage3-latest.tar.xz | tar xf -"
+    - name: "cd {{mntPt}} ; wget -O - http://build.funtoo.org/funtoo-current-hardened/pure64/intel64-haswell-pure64/stage3-latest.tar.xz | tar xJf -"
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

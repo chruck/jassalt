@@ -22,14 +22,12 @@ include:
       - x11-drivers/nvidia-drivers
 
 {%      for svc in 'ntpd', 'cupsd', 'docker' %}
-
 {{sls}} - Start {{svc}} service:
   service.running:
     - name: {{svc}}
     - enable: True
     - require:
       - {{sls}} - Other Packages for Gentoo
-
 {%      endfor %}
 
 {{sls}} - Use running kernel's config for next to build:
@@ -40,7 +38,13 @@ include:
     - archive_format: tar
     - require:
       - pkg: sys-kernel/gentoo-sources
-    - require_in:
-      - pkg: x11-drivers/nvidia-drivers
+
+{{sls}} - NVidia Package for Gentoo:
+  pkg.installed:
+    - name: x11-drivers/nvidia-drivers
+    - refresh: True
+#    - install_recommends: False
+    - require:
+      - {{sls}} - Use running kernel's config for next to build
 
 {% endif %}  # Gentoo

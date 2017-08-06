@@ -1,1 +1,1 @@
-{% set headtail=" | (head; echo ...; tail) " %}
+{% set headtail=" >/tmp/headtail; head /tmp/headtail && echo ... && tail /tmp/headtail " %}

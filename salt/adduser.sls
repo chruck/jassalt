@@ -10,6 +10,7 @@
     - gid_from_name: True
     - groups:
       - adm
+      - wheel
 
 {{sls}} - Give {{pillar.user}} full sudo access:
   file.managed:

@@ -3,8 +3,13 @@
 {% set gccver = "5.4.0" %}
 {% set targetgcc = "x86_64-pc-linux-gnu-" ~ gccver %}
 
+{% from "musthaves/vars.jinja" import
+        musthavesDesktop,
+        musthaves4Desktop,
+        with context %}
+
 include:
-  - musthaves.desktop
+  - {{musthavesDesktop}}
 
 {{sls}} - Set make.conf MAKEOPTS:
   file.managed:
@@ -20,6 +25,8 @@ include:
     - name: libpng
     - use:
       - apng
+    - require_in:
+      - {{musthaves4Desktop}}
 
 {{sls}} - Set USE flags for firefox:
   portage_config.flags:
@@ -44,10 +51,13 @@ include:
     - name: ">=www-client/google-chrome-59.0.3071.115"
     - license:
       - google-chrome
+    - require_in:
+      - {{musthaves4Desktop}}
 
 {{sls}} - Unmask gcc-{{gccver}} for Chromium:
   file.managed:
     - name: /etc/portage/package.unmask/sys-devel/gcc
+    - makedirs: True
     - contents:
       - =sys-devel/gcc-{{gccver}}
 
@@ -72,6 +82,6 @@ include:
     - require:
       - {{sls}} - Switch to gcc-{{gccver}}
     - onfail:
-      - musthaves.desktop - Must-Haves for Desktop
+      - {{musthaves4Desktop}}
 
 {% endif %}  # Gentoo

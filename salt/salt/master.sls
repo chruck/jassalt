@@ -74,7 +74,7 @@ include:
     - require_in:
       - bashrc - Upload root's .bashrc.jas
 
-{{sls}} - Symlink for {{saltDir}}/.bashrc.jas:
+{{sls}} - Symlink for {{bashrcDir}}/.bashrc.jas:
   file.symlink:
     - name: {{saltDir}}/bashrc/.bashrc.jas
     - target: {{bashrcDir}}/.bashrc.jas

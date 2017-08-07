@@ -4,18 +4,18 @@ include:
   - .useflags
 #  - .acceptlicense
   - .enlightenment
+  - adduser
+  - sudoInsult
 
 {{sls}} - Other Packages for Gentoo:
   pkg.installed:
     - refresh: True
 #    - install_recommends: False
     - pkgs:
-      - app-admin/sudo
       - app-emulation/docker
       - media-fonts/corefonts
       - net-misc/ntp
       - net-print/cups
-      - sys-kernel/gentoo-sources
       - www-plugins/adobe-flash
       - x11-apps/xinit
       - x11-base/xorg-x11
@@ -30,6 +30,21 @@ include:
       - {{sls}} - Other Packages for Gentoo
 {%      endfor %}
 
+{{sls}} - Kernel Source Package for Gentoo:
+  pkg.installed:
+    - name: sys-kernel/gentoo-sources
+    - refresh: True
+#    - install_recommends: False
+
+{{sls}} - Sudo Package for Gentoo:
+  pkg.installed:
+    - name: app-admin/sudo
+    - refresh: True
+#    - install_recommends: False
+    - require_in:
+      - sudoInsult - Set sudo to insult you when you put in a bad password
+      - adduser - Give eckard full sudo access
+
 {{sls}} - Use running kernel's config for next to build:
   archive.extracted:
     - name: /usr/src/linux/.config
@@ -37,7 +52,7 @@ include:
     - source: /proc/config.gz
     - archive_format: tar
     - require:
-      - pkg: sys-kernel/gentoo-sources
+      - {{sls}} - Kernel Source Package for Gentoo
 
 {{sls}} - NVidia Package for Gentoo:
   pkg.installed:

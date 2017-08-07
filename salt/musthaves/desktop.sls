@@ -1,9 +1,12 @@
 {% from tpldir ~ "/map.jinja" import musthaves with context %}
+{% from tpldir ~ "/vars.jinja" import
+        musthaves4Desktop,
+        with context %}
 
 include:
   - gentoo
 
-{{sls}} - Must-Haves for Desktop:
+{{musthaves4Desktop}}:
   pkg.installed:
     - refresh: True
 #    - install_recommends: False
@@ -13,12 +16,10 @@ include:
       {% endfor %}
 
 {% for svc in musthaves.desktopservices %}
-
 {{sls}} - Enable and Start {{svc}}:
   service.running:
     - name: {{svc}}
     - enable: True
     - require:
-      - {{sls}} - Must-Haves for Desktop
-
+      - {{musthaves4Desktop}}
 {% endfor %}

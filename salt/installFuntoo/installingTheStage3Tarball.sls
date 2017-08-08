@@ -2,9 +2,9 @@
 
 {% from tpldir ~ "/vars.jinja" import
         installStage3,
-        headtail,
         mntPt,
         with context %}
+{% from tpldir ~ "/headtail.jinja" import headtail with context %}
 
 #{{installStage3}}:
 #  archive.extracted:

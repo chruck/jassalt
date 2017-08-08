@@ -2,6 +2,7 @@
 
 {% from tpldir ~ "/vars.jinja" import
         installStage3,
+        headtail,
         mntPt,
         with context %}
 

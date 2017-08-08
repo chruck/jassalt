@@ -11,6 +11,7 @@
     - groups:
       - adm
       - wheel
+      - plugdev
 
 {{sls}} - Give {{pillar.user}} full sudo access:
   file.managed:

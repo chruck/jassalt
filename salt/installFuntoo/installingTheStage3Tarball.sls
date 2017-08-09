@@ -16,7 +16,7 @@
 
 {{installStage3}}:
   cmd.run:
-    - name: "cd {{mntPt}} ; wget -nv -O - http://build.funtoo.org/funtoo-current-hardened/pure64/intel64-haswell-pure64/stage3-latest.tar.xz | tar xpJf - {{headtail}}"
+    - name: "cd {{mntPt}} ; wget -nv -O - http://build.funtoo.org/funtoo-current-hardened/pure64/intel64-haswell-pure64/stage3-latest.tar.xz | tar xvpJf - {{headtail}}"
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

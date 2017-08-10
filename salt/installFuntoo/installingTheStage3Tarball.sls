@@ -6,6 +6,8 @@
         with context %}
 {% from tpldir ~ "/headtail.jinja" import headtail with context %}
 
+# Prefer cmd.run below, since trim_output doesn't work and output
+# still scrolls off the screen
 #{{installStage3}}:
 #  archive.extracted:
 #    - name: {{mntPt}}

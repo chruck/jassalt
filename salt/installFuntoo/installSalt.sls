@@ -4,6 +4,7 @@
         bindMountDev,
         downloadingThePortageTree,
         emergeSync,
+        futureHostname,
         mntPt,
         mountVirtFs,
         mountingFilesystems,
@@ -36,7 +37,16 @@ include:
     - text:
       - "{{saltMasterIp}} {{saltMasterHostname}} salt"
     - require:
-      - mount: {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+
+# Commented out, seeing if setting 'hostname' takes care of this:
+#{{sls}} - Set the minion id:
+#  file.managed:
+#    - name: {{mntPt}}/etc/salt/minion_id
+#    - text:
+#      - {{futureHostname}}
+#    - require:
+#      - {{sls}} - Install Salt
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

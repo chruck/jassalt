@@ -1,7 +1,7 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 {% from tpldir ~ "/vars.jinja" import
-        mntPt,
+        hostnameFile,
         mountingFilesystems,
         futureHostname,
         with context %}
@@ -11,11 +11,11 @@ include:
 
 {{sls}} - Change hostname to '{{futureHostname}}':
   file.replace:
-    - name: {{mntPt}}/etc/conf.d/hostname
-    - pattern: "HOSTNAME=.*"
-    - repl: "HOSTNAME={{futureHostname}}"
+    - name: {{hostnameFile}}
+    - pattern: "hostname=.*"
+    - repl: "hostname={{futureHostname}}"
     - require:
-      - mount: {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

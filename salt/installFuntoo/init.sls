@@ -18,6 +18,7 @@ include:
   - .configuringYourNetwork-Hostname
   - .setYourRootPassword
   - .installSalt
+  - .patchFakeFuntooIsGentoo
   - .umountSda
   - .restartYourSystem
 

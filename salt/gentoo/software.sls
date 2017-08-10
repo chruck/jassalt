@@ -16,6 +16,7 @@ include:
       - media-fonts/corefonts
       - net-misc/ntp
       - net-print/cups
+      - sys-power/pm-utils
       - www-plugins/adobe-flash
       - x11-apps/xinit
       - x11-base/xorg-x11

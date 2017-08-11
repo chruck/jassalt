@@ -79,8 +79,8 @@ include:
 
 {{sls}} - Rebuild Standard C++ library for gcc-5:
   cmd.run:
-    - name:
-      "revdep-rebuild --library 'libstdc++.so.6' -- --exclude gcc {{headtail}}"
+    - name: "revdep-rebuild --library 'libstdc++.so.6' -- --exclude
+             gcc {{headtail}}"
     - watch:
       - {{sls}} - Switch to gcc-{{gccver}}
     - onfail:

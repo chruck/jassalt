@@ -2,10 +2,8 @@
 
 include:
   - .useflags
-#  - .acceptlicense
   - .enlightenment
-  - adduser
-  - sudoInsult
+  - .sudo
 
 {{sls}} - Other Packages for Gentoo:
   pkg.installed:
@@ -36,15 +34,6 @@ include:
     - name: sys-kernel/gentoo-sources
     - refresh: True
 #    - install_recommends: False
-
-{{sls}} - Sudo Package for Gentoo:
-  pkg.installed:
-    - name: app-admin/sudo
-    - refresh: True
-#    - install_recommends: False
-    - require_in:
-      - sudoInsult - Set sudo to insult you when you put in a bad password
-      - adduser - Give eckard full sudo access
 
 {{sls}} - Use running kernel's config for next to build:
 #  archive.extracted:

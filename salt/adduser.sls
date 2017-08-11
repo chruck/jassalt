@@ -1,3 +1,6 @@
+include:
+  - gentoo.sudo
+
 {{sls}} - Create user '{{pillar.user}}':
   user.present:
     - name: {{pillar.user}}

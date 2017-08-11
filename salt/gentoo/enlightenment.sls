@@ -46,8 +46,8 @@ include:
 #    - name: '@enlightenment-core'
 #    - version: 9999
   cmd.run:
-    - name:
-      'emerge --color n --nospinner --autounmask-write y --autounmask-continue y @enlightenment-core-9999 {{headtail}}'
+    - name: 'emerge --color n --nospinner --autounmask-write y 
+             --autounmask-continue y @enlightenment-core-9999 {{headtail}}'
     - onlyif: "! test -f /usr/bin/enlightenment"
     - require:
       - {{sls}} - Add 'enlightenment-live' overlay with Layman

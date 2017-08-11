@@ -7,6 +7,7 @@
         musthavesDesktop,
         musthaves4Desktop,
         with context %}
+{% from "installFuntoo/headtail.jinja" import headtail with context %}
 
 include:
   - {{musthavesDesktop}}
@@ -78,8 +79,9 @@ include:
 
 {{sls}} - Rebuild Standard C++ library for gcc-5:
   cmd.run:
-    - name: revdep-rebuild --library 'libstdc++.so.6' -- --exclude gcc
-    - require:
+    - name:
+      "revdep-rebuild --library 'libstdc++.so.6' -- --exclude gcc {{headtail}}"
+    - watch:
       - {{sls}} - Switch to gcc-{{gccver}}
     - onfail:
       - {{musthaves4Desktop}}

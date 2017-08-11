@@ -47,11 +47,13 @@ include:
       - adduser - Give eckard full sudo access
 
 {{sls}} - Use running kernel's config for next to build:
-  archive.extracted:
-    - name: /usr/src/linux/.config
-    - if_missing: /usr/src/linux/.config
-    - source: /proc/config.gz
-    - archive_format: tar
+#  archive.extracted:
+#    - name: /usr/src/linux/.config
+#    - if_missing: /usr/src/linux/.config
+#    - source: /proc/config.gz
+#    - archive_format: tar
+  cmd.run
+    - name: "cd /usr/src/linux; gunzip /proc/config.gz; mv config .config"
     - require:
       - {{sls}} - Kernel Source Package for Gentoo
 

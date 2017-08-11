@@ -52,7 +52,7 @@ include:
 #    - if_missing: /usr/src/linux/.config
 #    - source: /proc/config.gz
 #    - archive_format: tar
-  cmd.run
+  cmd.run:
     - name: "cd /usr/src/linux; gunzip /proc/config.gz; mv config .config"
     - require:
       - {{sls}} - Kernel Source Package for Gentoo

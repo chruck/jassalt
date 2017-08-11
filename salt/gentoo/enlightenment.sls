@@ -1,5 +1,7 @@
 {% if "Gentoo" == grains.os %}
 
+{% from "installFuntoo/headtail.jinja" import headtail with context %}
+
 # From https://wiki.gentoo.org/wiki/Enlightenment :
 
 include:
@@ -44,7 +46,9 @@ include:
 #    - name: '@enlightenment-core'
 #    - version: 9999
   cmd.run:
-    - name: 'emerge --color n --nospinner --autounmask-write y --autounmask-continue y @enlightenment-core-9999'
+    - name:
+      'emerge --color n --nospinner --autounmask-write y
+      --autounmask-continue y @enlightenment-core-9999 {{headtail}}'
     - onlyif: "! test -f /usr/bin/enlightenment"
     - require:
       - {{sls}} - Add 'enlightenment-live' overlay with Layman

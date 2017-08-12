@@ -41,6 +41,12 @@ include:
     - use:
       - xkb
 
+{{sls}} - Set USE flags for imagemagick:
+  portage_config.flags:
+    - name: imagemagick
+    - use:
+      - corefonts
+
 {{sls}} - Set license flag for adobe-flash:
   portage_config.flags:
     - name: ">=www-plugins/adobe-flash-26.0.0.131"

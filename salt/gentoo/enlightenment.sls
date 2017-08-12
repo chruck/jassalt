@@ -31,6 +31,24 @@ include:
   layman.present:
     - name: enlightenment-live
 
+{{sls}} - Generate metadata for 'enlightenment-live' overlay:
+  cmd.run:
+    - name: 'egencache --repo=enlightenment-live --update'
+    - require:
+      - {{sls}} - Add 'enlightenment-live' overlay with Layman
+
+{{sls}} - Set USE flags for eterm:
+  portage_config.flags:
+    - name: eterm
+    - use:
+      - escreen
+
+{{sls}} - Set USE flags for efl:
+  portage_config.flags:
+    - name: efl
+    - use:
+      - drm
+
 {{sls}} - Create keywords directory for Portage:
   file.directory:
     - name: /etc/portage/package.keywords

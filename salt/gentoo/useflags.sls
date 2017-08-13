@@ -87,7 +87,7 @@ include:
   cmd.run:
     - name: "revdep-rebuild --library 'libstdc++.so.6' -- --exclude
              gcc {{headtail}}"
-    - watch:
+    - onchanges:
       - {{sls}} - Switch to gcc-{{gccver}}
     - onfail:
       - {{musthaves4Desktop}}

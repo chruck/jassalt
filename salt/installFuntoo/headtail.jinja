@@ -1,2 +1,2 @@
-{% set headtail = ">/tmp/headtail; head /tmp/headtail && echo ... && tail /tmp/headtail " %}
+{% set headtail = ">/tmp/headtail; rc=$?; head /tmp/headtail && echo ... && tail /tmp/headtail ; exit ${rc}" %}
 {#% set headtail = "" %#}

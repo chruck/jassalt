@@ -31,11 +31,11 @@ include:
   layman.present:
     - name: enlightenment-live
 
-{{sls}} - Generate metadata for 'enlightenment-live' overlay:
-  cmd.run:
-    - name: 'egencache --repo=enlightenment-live --update'
-    - require:
-      - {{sls}} - Add 'enlightenment-live' overlay with Layman
+#{{sls}} - Generate metadata for 'enlightenment-live' overlay:
+#  cmd.run:
+#    - name: 'egencache --repo=enlightenment-live --update'
+#    - require:
+#      - {{sls}} - Add 'enlightenment-live' overlay with Layman
 
 {{sls}} - Set USE flags for eterm:
   portage_config.flags:

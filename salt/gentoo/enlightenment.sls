@@ -8,6 +8,11 @@ include:
   - .useflags
 #  - .acceptlicense
 
+{{sls}} - Install Enlightenment E20 first (for backup):
+  pkg.installed:
+    - name: x11-wm/enlightenment
+    - version: 0.17
+
 {{sls}} - Install Layman (for Enlightenment):
   pkg.installed:
     - name: app-portage/layman

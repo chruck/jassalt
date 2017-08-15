@@ -1,5 +1,7 @@
 {% if "Gentoo" == grains.os %}
 
+{% from vars.jinja import kernelConfig with context %}
+
 include:
   - .useflags
   - .enlightenment

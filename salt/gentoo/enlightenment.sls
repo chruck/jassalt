@@ -11,7 +11,7 @@ include:
 {{sls}} - Install Enlightenment E20 first (for backup):
   pkg.installed:
     - name: x11-wm/enlightenment
-    - version: 0.17
+#    - version: 0.17
 
 {{sls}} - Install Layman (for Enlightenment):
   pkg.installed:
@@ -54,9 +54,20 @@ include:
     - use:
       - drm
 
-{{sls}} - Create keywords directory for Portage:
+#{{sls}} - Create keywords directory for Portage:
+#  file.directory:
+#    - name: /etc/portage/package.keywords
+
+{{sls}} - Create package.accept_keywords directory for Portage:
   file.directory:
-    - name: /etc/portage/package.keywords
+    - name: /etc/portage/package.accept_keywords
+
+{{sls}} - Create package.accept_keywords/enlightenment:
+  file.managed:
+    - name: /etc/portage/package.accept_keywords/enlightenment
+    - source: salt://gentoo/enlightenment.accept_keywords
+    - require:
+      - {{sls}} - Create package.accept_keywords directory for Portage
 
 {{sls}} - Install dependancy packages:
   pkg.installed:
@@ -74,7 +85,9 @@ include:
     - onlyif: "! test -f /usr/bin/enlightenment"
     - require:
       - {{sls}} - Add 'enlightenment-live' overlay with Layman
-      - {{sls}} - Create keywords directory for Portage
+#      - {{sls}} - Create keywords directory for Portage
+      - {{sls}} - Create package.accept_keywords directory for Portage
+      - {{sls}} - Create package.accept_keywords/enlightenment
       - {{sls}} - Install dependancy packages
 
 {{sls}} - Create ~/.xinitrc:

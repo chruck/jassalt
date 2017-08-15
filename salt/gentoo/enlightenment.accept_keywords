@@ -1,0 +1,4 @@
+# required by @enlightenment-core-9999 (argument)
+=dev-libs/efl-9999 **
+# required by @enlightenment-core-9999 (argument)
+=x11-wm/enlightenment-9999 **

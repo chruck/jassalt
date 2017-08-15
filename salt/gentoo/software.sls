@@ -1,6 +1,6 @@
 {% if "Gentoo" == grains.os %}
 
-{% from vars.jinja import kernelConfig with context %}
+{% from tpldir ~ "/vars.jinja" import kernelConfig with context %}
 
 include:
   - .useflags

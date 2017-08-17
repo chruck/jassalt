@@ -21,7 +21,6 @@ include:
       - www-plugins/adobe-flash
       - x11-apps/xinit
       - x11-base/xorg-x11
-      - x11-drivers/nvidia-drivers
     - require:
       - {{kernelConfig}}
 
@@ -33,6 +32,13 @@ include:
     - require:
       - {{sls}} - Other Packages for Gentoo
 {%      endfor %}
+
+{{sls}} - Intel Video Drivers:
+  pkg.installed:
+    - name: x11-drivers/xf86-video-intel
+    - refresh: True
+    - require:
+      - gentoo.useflags - Set USE flags for libdrm
 
 {{sls}} - NVidia Package for Gentoo:
   pkg.installed:

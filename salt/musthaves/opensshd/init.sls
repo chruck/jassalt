@@ -1,4 +1,4 @@
-{% from tpldir ~ "/map.jinja" import musthaves with context %}
+{% from tpldir ~ "/../map.jinja" import musthaves with context %}
 
 include:
   - musthaves

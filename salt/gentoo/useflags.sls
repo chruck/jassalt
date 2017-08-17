@@ -47,6 +47,12 @@ include:
     - use:
       - corefonts
 
+{{sls}} - Set USE flags for libdrm:
+  portage_config.flags:
+    - name: libdrm
+    - use:
+      - video_cards_intel
+
 {{sls}} - Set license flag for adobe-flash:
   portage_config.flags:
     - name: ">=www-plugins/adobe-flash-26.0.0.131"

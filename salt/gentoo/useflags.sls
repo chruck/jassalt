@@ -66,6 +66,9 @@ include:
     - name: efl
     - use:
       - physics
+      - gstreamer
+      - gstreamer1
+      - multisense
 
 {{sls}} - Set license flag for adobe-flash:
   portage_config.flags:

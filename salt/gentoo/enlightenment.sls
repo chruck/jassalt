@@ -48,12 +48,6 @@ include:
     - use:
       - escreen
 
-{{sls}} - Set USE flags for efl:
-  portage_config.flags:
-    - name: efl
-    - use:
-      - drm
-
 #{{sls}} - Create keywords directory for Portage:
 #  file.directory:
 #    - name: /etc/portage/package.keywords
@@ -79,10 +73,11 @@ include:
   portage_config.flags:
     - name: efl
     - use:
-      - physics
+      - drm
       - gstreamer
       - gstreamer1
       - multisense
+      - physics
 
 {{sls}} - Install Enlightenment E21:
 #  pkg.installed:

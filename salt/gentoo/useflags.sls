@@ -12,6 +12,8 @@
 include:
   - {{musthavesDesktop}}
 
+# I could use salt state module 'makeconf', but I couldn't also use it
+# for 'installFuntoo'.
 {{sls}} - Set make.conf MAKEOPTS:
   file.managed:
     - name: /etc/portage/make.conf
@@ -52,6 +54,12 @@ include:
     - name: libdrm
     - use:
       - video_cards_intel
+
+{{sls}} - Set USE flags for gentoo-sources:
+  portage_config.flags:
+    - name: gentoo-sources
+    - use:
+      - binary
 
 {{sls}} - Set license flag for adobe-flash:
   portage_config.flags:

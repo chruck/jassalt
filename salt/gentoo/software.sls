@@ -21,8 +21,8 @@ include:
       - www-plugins/adobe-flash
       - x11-apps/xinit
       - x11-base/xorg-x11
-    - require:
-      - {{kernelConfig}}
+#    - require:
+#      - {{kernelConfig}}
 
 {%      for svc in 'ntpd', 'cupsd', 'docker' %}
 {{sls}} - Start {{svc}} service:

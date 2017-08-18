@@ -61,15 +61,6 @@ include:
     - use:
       - binary
 
-{{sls}} - Set USE flags for efl:
-  portage_config.flags:
-    - name: efl
-    - use:
-      - physics
-      - gstreamer
-      - gstreamer1
-      - multisense
-
 {{sls}} - Set license flag for adobe-flash:
   portage_config.flags:
     - name: ">=www-plugins/adobe-flash-26.0.0.131"

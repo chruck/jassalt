@@ -75,6 +75,15 @@ include:
       - x11-libs/libxkbcommon
       - dev-libs/libinput
 
+{{sls}} - Set USE flags for efl:
+  portage_config.flags:
+    - name: efl
+    - use:
+      - physics
+      - gstreamer
+      - gstreamer1
+      - multisense
+
 {{sls}} - Install Enlightenment E21:
 #  pkg.installed:
 #    - name: '@enlightenment-core'
@@ -89,6 +98,7 @@ include:
       - {{sls}} - Create package.accept_keywords directory for Portage
       - {{sls}} - Create package.accept_keywords/enlightenment
       - {{sls}} - Install dependancy packages
+      - {{sls}} - Set USE flags for efl
 
 {{sls}} - Create ~/.xinitrc:
   file.managed:

@@ -8,7 +8,7 @@ include:
   - .useflags
 #  - .acceptlicense
 
-{{sls}} - Install Enlightenment E20 first (for backup):
+{{sls}} - Install legacy Enlightenment first (for backup):
   pkg.installed:
     - name: x11-wm/enlightenment
 #    - version: 0.17
@@ -79,6 +79,8 @@ include:
       - multisense
       - physics
 
+# I needed to rebuild 'poppler' and 'gtkmm' as a one-shot to fix build
+# errors for 'efl' after changing to 'gcc5.4':
 {{sls}} - Install Enlightenment E21:
 #  pkg.installed:
 #    - name: '@enlightenment-core'

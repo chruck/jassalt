@@ -1,6 +1,6 @@
 {% if "Gentoo" == grains.os %}
 
-{% from tpldir ~ "/vars.jinja" import kernelConfig with context %}
+{% from tpldir ~ "/vars.jinja" import kernelConfig, kernelSrc with context %}
 
 include:
   - .useflags
@@ -46,6 +46,6 @@ include:
     - refresh: True
 #    - install_recommends: False
     - require:
-      - {{kernelConfig}}
+      - {{kernelSrc}}
 
 {% endif %}  # Gentoo

@@ -8,7 +8,7 @@ include:
   - .useflags
 #  - .acceptlicense
 
-{{sls}} - Install Enlightenment E20 first (for backup):
+{{sls}} - Install legacy Enlightenment first (for backup):
   pkg.installed:
     - name: x11-wm/enlightenment
 #    - version: 0.17
@@ -48,12 +48,6 @@ include:
     - use:
       - escreen
 
-{{sls}} - Set USE flags for efl:
-  portage_config.flags:
-    - name: efl
-    - use:
-      - drm
-
 #{{sls}} - Create keywords directory for Portage:
 #  file.directory:
 #    - name: /etc/portage/package.keywords
@@ -75,6 +69,18 @@ include:
       - x11-libs/libxkbcommon
       - dev-libs/libinput
 
+{{sls}} - Set USE flags for efl:
+  portage_config.flags:
+    - name: efl
+    - use:
+      - drm
+      - gstreamer
+      - gstreamer1
+      - multisense
+      - physics
+
+# I needed to rebuild 'poppler' and 'gtkmm' as a one-shot to fix build
+# errors for 'efl' after changing to 'gcc5.4':
 {{sls}} - Install Enlightenment E21:
 #  pkg.installed:
 #    - name: '@enlightenment-core'
@@ -89,6 +95,7 @@ include:
       - {{sls}} - Create package.accept_keywords directory for Portage
       - {{sls}} - Create package.accept_keywords/enlightenment
       - {{sls}} - Install dependancy packages
+      - {{sls}} - Set USE flags for efl
 
 {{sls}} - Create ~/.xinitrc:
   file.managed:

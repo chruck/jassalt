@@ -10,6 +10,7 @@
 include:
   - {{downloadingThePortageTree}}
 
+# Rebuilding gcc-5.4 in the future?  Maybe do that here.
 {{sls}} - Update @world:
   cmd.run:
     - name: "/bin/chroot {{mntPt}} emerge -uDN @world {{headtail}}"

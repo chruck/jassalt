@@ -1,11 +1,11 @@
 {% if "Gentoo" == grains.os %}
 
-{% from tpldir ~ "/vars.jinja" import kernelConfig with context %}
+{% from tpldir ~ "/vars.jinja" import kernelConfig kernelSrc with context %}
 
 include:
   - .useflags
 
-{{sls}} - Kernel Source Package for Gentoo:
+{{kernelSrc}}:
   pkg.installed:
     - name: sys-kernel/gentoo-sources
     - refresh: True
@@ -27,6 +27,5 @@ include:
 #    - onlyif: "! test -e /usr/src/linux/.config"
 #    - require:
 #      - {{sls}} - Kernel Source Package for Gentoo
-
 
 {% endif %}  # Gentoo

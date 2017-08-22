@@ -58,6 +58,15 @@ include:
 #      - {{sls}} - Update old kernel config to latest format
       - {{sls}} - Install 'genkernel'
 
+{{sls}} - NVidia Package for Gentoo:
+  pkg.installed:
+    - name: x11-drivers/nvidia-drivers
+    - refresh: True
+#    - install_recommends: False
+    - require:
+      - {{kernelSrc}}
+      - {{sls}} - Build and install kernel with genkernel
+
 {{sls}} - Now you should be able to reboot into new kernel:
   test.show_notification:
     - text:  Type 'reboot'

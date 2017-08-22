@@ -1,6 +1,7 @@
 {% if "Gentoo" == grains.os %}
 
 {% from tpldir ~ "/vars.jinja" import kernelConfig, kernelSrc with context %}
+{% from "installFuntoo/headtail.jinja" import headtail with context %}
 
 include:
   - .useflags
@@ -44,17 +45,17 @@ include:
     - require:
       - {{sls}} - Kernel Source Package for Gentoo
 
-{{sls}} - Update old kernel config to latest format:
-  cmd.run:
-    - name: "cd /usr/src/linux; make oldconfig"
-    - require:
-      - {{kernelConfig}}
+#{{sls}} - Update old kernel config to latest format:
+#  cmd.run:
+#    - name: "cd /usr/src/linux; make oldconfig {{headtail}}"
+#    - require:
+#      - {{kernelConfig}}
 
 {{sls}} - Build and install kernel with genkernel:
   cmd.run:
-    - name: "genkernel --no-mrproper all"
+    - name: "genkernel --no-color --oldconfig all {{headtail}}"
     - require:
-      - {{sls}} - Update old kernel config to latest format
+#      - {{sls}} - Update old kernel config to latest format
       - {{sls}} - Install 'genkernel'
 
 {{sls}} - Now you should be able to reboot into new kernel:

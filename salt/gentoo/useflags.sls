@@ -55,12 +55,6 @@ include:
     - use:
       - video_cards_intel
 
-{{sls}} - Set USE flags for gentoo-sources:
-  portage_config.flags:
-    - name: gentoo-sources
-    - use:
-      - binary
-
 {{sls}} - Set license flag for adobe-flash:
   portage_config.flags:
     - name: ">=www-plugins/adobe-flash-26.0.0.131"

@@ -3,6 +3,9 @@
 {% set synergyClient = "grace" %}
 {% set synergyClientIP = "172.16.16.107" %}
 
+{% if synergyServer == grains.nodename or synergyClient ==
+        grains.nodename %}
+
 {% if grains["host"] == synergyServer %}
 {%      set daemon = "Server" %}
 {%      set command = "sudo -u " ~ pillar['user'] ~ " sh -c 'pkill synergys; DISPLAY=:0.0 synergys'" %}
@@ -36,3 +39,5 @@ include:
     - name: {{command}}
     - watch:
       - file: {{sls}} - Add Synergy config file
+
+{% endif %}  # nodename is tiger or grace

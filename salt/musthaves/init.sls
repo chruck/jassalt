@@ -5,6 +5,7 @@ include:
   - .git
   - .vim
   - .opensshd
+  - .synergy
 #  - .salt-minion
 
 {{sls}} - Must-Haves:

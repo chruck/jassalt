@@ -5,13 +5,19 @@
 include:
   - .useflags
 
+{{sls}} - Set USE flags for gentoo-sources:
+  portage_config.flags:
+    - name: gentoo-sources
+    - use:
+      - binary
+
 {{kernelSrc}}:
   pkg.installed:
     - name: sys-kernel/gentoo-sources
     - refresh: True
 #    - install_recommends: False
     - require:
-      - {{tpldir}}.useflags - Set USE flags for gentoo-sources
+      - {{sls}} - Set USE flags for gentoo-sources
 
 #{{kernelConfig}}:
 ##  archive.extracted:

@@ -13,8 +13,10 @@ include:
     - gid_from_name: True
     - groups:
       - adm
-      - wheel
       - plugdev
+      {% if "Gentoo" == grains.os %}
+      - wheel
+      {% endif %}
 
 {{sls}} - Give {{pillar.user}} full sudo access:
   file.managed:

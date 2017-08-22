@@ -5,6 +5,18 @@
 include:
   - .useflags
 
+{{sls}} - Set USE flags for genkernel:
+  portage_config.flags:
+    - name: genkernel
+    - use:
+      - "-cryptsetup"
+
+{{sls}} - Install 'genkernel':
+  pkg.installed:
+    - name: sys-kernel/genkernel
+    - require:
+      - {{sls}} - Set USE flags for genkernel
+
 {{sls}} - Set USE flags for gentoo-sources:
   portage_config.flags:
     - name: gentoo-sources
@@ -18,6 +30,7 @@ include:
 #    - install_recommends: False
     - require:
       - {{sls}} - Set USE flags for gentoo-sources
+      - {{sls}} - Install 'genkernel'
 
 #{{kernelConfig}}:
 ##  archive.extracted:

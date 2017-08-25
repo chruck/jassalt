@@ -8,10 +8,18 @@ include:
   - .useflags
 #  - .acceptlicense
 
+{{sls}} - Set USE flags for enlightenment:
+  portage_config.flags:
+    - name: enlightenment
+    - use:
+      - pm-utils
+
 {{sls}} - Install legacy Enlightenment first (for backup):
   pkg.installed:
     - name: x11-wm/enlightenment
 #    - version: 0.17
+    - require:
+      = {{sls}} - Set USE flags for enlightenment
 
 {{sls}} - Install Layman (for Enlightenment):
   pkg.installed:
@@ -59,7 +67,7 @@ include:
 {{sls}} - Create package.accept_keywords/enlightenment:
   file.managed:
     - name: /etc/portage/package.accept_keywords/enlightenment
-    - source: salt://gentoo/enlightenment.accept_keywords
+    - source: salt://gentoo/accept_keywords.enlightenment
     - require:
       - {{sls}} - Create package.accept_keywords directory for Portage
 
@@ -90,6 +98,7 @@ include:
              --autounmask-continue y @enlightenment-core-9999 {{headtail}}'
     - onlyif: "! test -f /usr/bin/enlightenment"
     - require:
+      - {{sls}} - Set USE flags for enlightenment
       - {{sls}} - Add 'enlightenment-live' overlay with Layman
 #      - {{sls}} - Create keywords directory for Portage
       - {{sls}} - Create package.accept_keywords directory for Portage
@@ -109,6 +118,19 @@ include:
     - require:
       - {{sls}} - Install Enlightenment E21
       - {{sls}} - Set USE flags for connman
+
+{{sls}} - Set USE flags for Elementary:
+  portage_config.flags:
+    - name: elementary
+    - use:
+      - javascript
+
+{{sls}} - Install Elementary toolkit:
+  pkg.installed:
+    - name: media-libs/elementary
+    - require:
+      - {{sls}} - Install Enlightenment E21
+      - {{sls}} - Set USE flags for Elementary
 
 {{sls}} - Create ~/.xinitrc:
   file.managed:

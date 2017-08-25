@@ -108,6 +108,7 @@ include:
     - name: net-misc/econnman
     - require:
       - {{sls}} - Install Enlightenment E21
+      - {{sls}} - Set USE flags for connman
 
 {{sls}} - Create ~/.xinitrc:
   file.managed:

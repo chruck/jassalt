@@ -119,18 +119,18 @@ include:
       - {{sls}} - Install Enlightenment E21
       - {{sls}} - Set USE flags for connman
 
-{{sls}} - Set USE flags for Elementary:
-  portage_config.flags:
-    - name: elementary
-    - use:
-      - javascript
-
-{{sls}} - Install Elementary toolkit:
-  pkg.installed:
-    - name: media-libs/elementary
-    - require:
-      - {{sls}} - Install Enlightenment E21
-      - {{sls}} - Set USE flags for Elementary
+#{{sls}} - Set USE flags for Elementary:
+#  portage_config.flags:
+#    - name: elementary
+#    - use:
+#      - javascript
+#
+#{{sls}} - Install Elementary toolkit:
+#  pkg.installed:
+#    - name: media-libs/elementary
+#    - require:
+#      - {{sls}} - Install Enlightenment E21
+#      - {{sls}} - Set USE flags for Elementary
 
 {{sls}} - Create ~/.xinitrc:
   file.managed:

@@ -61,6 +61,12 @@ include:
     - use:
       - "PYTHON_SINGLE_TARGET: python3_4"
 
+{{sls}} - Set PYTHON_SINGLE_TARGET USE flags for gdb:
+  portage_config.flags:
+    - name: gdb
+    - use:
+      - "PYTHON_SINGLE_TARGET: python3_4"
+
 {{sls}} - Set license flag for adobe-flash:
   portage_config.flags:
     - name: ">=www-plugins/adobe-flash-26.0.0.131"

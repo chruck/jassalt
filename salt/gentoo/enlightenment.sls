@@ -19,7 +19,7 @@ include:
     - name: x11-wm/enlightenment
 #    - version: 0.17
     - require:
-      = {{sls}} - Set USE flags for enlightenment
+      - {{sls}} - Set USE flags for enlightenment
 
 {{sls}} - Install Layman (for Enlightenment):
   pkg.installed:

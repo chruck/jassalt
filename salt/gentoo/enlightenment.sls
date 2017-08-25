@@ -97,6 +97,12 @@ include:
       - {{sls}} - Install dependancy packages
       - {{sls}} - Set USE flags for efl
 
+{{sls}} - Set USE flags for connman:
+  portage_config.flags:
+    - name: connman
+    - use:
+      - iptables
+
 {{sls}} - Install EConnMan for network management:
   pkg.installed:
     - name: net-misc/econnman

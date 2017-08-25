@@ -99,7 +99,7 @@ include:
 
 {{sls}} - Install EConnMan for network management:
   pkg.installed:
-    - name: econnman
+    - name: net-misc/econnman
     - require:
       - {{sls}} - Install Enlightenment E21
 

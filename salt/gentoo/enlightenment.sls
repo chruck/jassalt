@@ -97,6 +97,12 @@ include:
       - {{sls}} - Install dependancy packages
       - {{sls}} - Set USE flags for efl
 
+{{sls}} - Install EConnMan for network management:
+  pkg.installed:
+    - name: econnman
+    - require:
+      - {{sls}} - Install Enlightenment E21
+
 {{sls}} - Create ~/.xinitrc:
   file.managed:
     - name: /home/{{pillar.user}}/.xinitrc

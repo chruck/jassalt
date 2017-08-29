@@ -16,6 +16,7 @@ include:
       - app-emulation/docker
       - media-fonts/corefonts
       - net-misc/ntp
+      - net-misc/wicd
       - net-print/cups
       - sys-power/pm-utils
       - www-plugins/adobe-flash

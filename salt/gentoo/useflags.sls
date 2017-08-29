@@ -55,11 +55,13 @@ include:
     - use:
       - video_cards_intel
 
-{{sls}} - Set USE flags for gentoo-sources:
+{% for atom in ['boot-update', 'gdb', 'util-linux', ] %}
+{{sls}} - Set PYTHON_SINGLE_TARGET USE flags for {{atom}}:
   portage_config.flags:
-    - name: gentoo-sources
+    - name: {{atom}}
     - use:
-      - binary
+      - "PYTHON_SINGLE_TARGET: python3_4"
+{% endfor %}
 
 {{sls}} - Set license flag for adobe-flash:
   portage_config.flags:

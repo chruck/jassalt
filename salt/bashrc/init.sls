@@ -22,5 +22,6 @@ include:
     - name: /home/{{pillar.user}}/.bashrc
     - text:
       - . .bashrc.jas
+    - onlyif: "! test -L /home/{{pillar.user}}/.bashrc"
     - require:
       - {{sls}} - Upload Jas' .bashrc.jas

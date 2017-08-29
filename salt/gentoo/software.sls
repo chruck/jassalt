@@ -41,12 +41,4 @@ include:
     - require:
       - gentoo.useflags - Set USE flags for libdrm
 
-{{sls}} - NVidia Package for Gentoo:
-  pkg.installed:
-    - name: x11-drivers/nvidia-drivers
-    - refresh: True
-#    - install_recommends: False
-    - require:
-      - {{kernelSrc}}
-
 {% endif %}  # Gentoo

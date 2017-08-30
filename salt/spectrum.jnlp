@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+-->
+
+<!-- JNLP File for Session Client -->
+<jnlp spec="1.0+" codebase="http://spec-ocp.clemson.edu:8080/spectrum"
+                  href="/spectrum/oneclick.jnlp">
+  <information>
+    <title>CA Spectrum OneClick Console on spec-ocp.clemson.edu</title>
+    <vendor>CA Technologies</vendor>
+    <homepage href="index.jsp"/>
+    <description>CA Spectrum OneClick Console</description>
+    <description kind="short">CA Spectrum OneClick Console</description>
+    <icon href="images/i_icon.jpg"/>
+    <!-- <offline-allowed/> -->
+  </information>
+  <security>
+    <all-permissions/>
+  </security>
+  <resources>
+
+    <!-- This is used for the alarm notification dialog and will
+         prevent the background color from being shown, so you will
+         not get a flash of color.  In order for this property to
+	 be set you need to have the following
+           deployment.javaws.secure.properties=sun.awt.noerasebackground
+         in the deployment.config file which lives in 
+           <Windows Directory>\Sun\Java\Deployment\deployment.config on Windows
+              and
+           /etc/.java/deployment/deployment.config on Unix.
+    -->
+    <property name="sun.awt.noerasebackground" value="true"/>
+    <!-- To get rid of Java Authentication Required dialog -->
+    <property name="javaws.cfg.jauthenticator" value="true" />
+
+    <j2se version="1.8.0_141+ 1.8.0_121+ 1.8.0_31+" href="http://java.sun.com/products/autodl/j2se"
+          initial-heap-size="256m" max-heap-size="512m" />
+    <jar href="lib/clientconsole.jar;no_javaws_cheat"/>
+    <jar href="lib/clientalarm.jar;no_javaws_cheat"/>
+    <jar href="lib/clienttopo.jar;no_javaws_cheat"/>
+    <jar href="lib/clientapp.jar;no_javaws_cheat"/>
+    <jar href="lib/clientevent.jar;no_javaws_cheat"/>
+    <jar href="lib/clientadmin.jar;no_javaws_cheat"/>
+    <jar href="lib/util.jar;no_javaws_cheat"/>
+    <jar href="lib/utilsrv.jar;no_javaws_cheat"/>
+    <jar href="lib/utilnet.jar;no_javaws_cheat"/>
+    <jar href="lib/utilapp.jar;no_javaws_cheat"/>
+    <jar href="lib/utilgui.jar;no_javaws_cheat"/>
+    <jar href="lib/jecds.jar;no_javaws_cheat"/>
+    <jar href="lib/global.jar;no_javaws_cheat"/>
+    <jar href="lib/productsuite.jar;no_javaws_cheat"/>
+    <jar href="lib/jdom.jar;no_javaws_cheat"/>
+    <jar href="lib/xercesImpl.jar;no_javaws_cheat"/>
+    <jar href="lib/xml-apis.jar;no_javaws_cheat"/>
+    <jar href="lib/commons-collections.jar;no_javaws_cheat"/>
+    <jar href="lib/mindterm.jar;no_javaws_cheat"/>
+    <jar href="lib/oneclickclient.jar;no_javaws_cheat"/>
+    <jar href="lib/occversion.jar;no_javaws_cheat"/>
+    <jar href="lib/icu4j-4_4_2_2.jar;no_javaws_cheat"/>
+    <extension name="RSA Crypto-J" href="cryptoj.jnlp"/>
+    <!-- To use embedded browser in OneClick, you need to copy
+         3rd party jars from CDs (DJNativeSwing.jar, DJNativeSwing-SWT.jar,
+         swt-win32.jar, swt-wlinux.jar, jna.jar)
+         to <...>/tomcat/webapps/spectrum/lib, and uncomment
+         following line.
+    -->
+    <!--
+    <extension name="Embedded Browser" href="embedded-browser.jnlp"/>
+    -->
+    <jar href="lib/contrib/clientsiemn.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientevpn.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientvhm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientextrm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientlancm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientbroc.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientalctl.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientciucs.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientnetqos.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientscm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientpcktr.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientqos.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientmulticast.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientliebt.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientmib.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientspm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientades.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientcluster.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientjunpr.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientften.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientcitrix.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientpalo.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientvpls.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientmpls.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientcrsbm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientsanm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientrim.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientsdm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientcisco.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clienthost.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientf5bigip.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/utilncm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientcivpn.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientfubld.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientbluct.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientroam.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clienthstca.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientslm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientntscr.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clienthpbld.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientec.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientcss.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientfndry.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientiprm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientrex.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientforti.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/json.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clienthpprocurve.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientmtrix.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientlmtmgr.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clienthuawe.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientcpqnk.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientadtrn.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientxypts.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientmotbb.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientjdcm.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/version.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clienthph3c.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientnwapl.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientaruba.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientjehealth.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientwily.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientrvbed.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clienteventcorrelation.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientapc.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientairsp.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientsvdsk.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clienttelco.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientnimsoft.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientavaya.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientvpn.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientntopt.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientmmsw.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientadisc.jar;no_javaws_cheat"/>
+<jar href="lib/contrib/clientpolicy.jar;no_javaws_cheat"/>
+
+
+  </resources>
+    <application-desc main-class="com.aprisma.spectrum.app.console.client.ConsoleApp">
+    <!--<argument>-debug Poller=on</argument> -->
+    <argument>-timeout 0</argument>
+    <argument>-loginTitle </argument>
+    <argument>-appBrandName </argument>
+    <argument>-appSuiteName </argument>
+    <argument>-appIcon </argument>
+    <argument>-splashImage </argument>
+
+    <argument>-contextPort 43000</argument><argument>-compress 9</argument>
+    
+    
+  </application-desc>
+</jnlp>

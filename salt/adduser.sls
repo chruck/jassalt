@@ -15,6 +15,7 @@ include:
       - adm
       - plugdev
       {% if "Gentoo" == grains.os %}
+      - users
       - wheel
       {% endif %}
 

@@ -61,3 +61,14 @@ include:
     - remote_name: {{pillar['user']}}
     - makedirs: True
 {% endfor %}
+
+{{sls}} - Install Spectrum JNLP file:
+  file.managed:
+    - name: {{jasBin}}/spectrum.jnlp
+    - source: salt://spectrum.jnlp
+
+{{sls}} - Allow MD5-signed jars (for Spectrum):
+  file.replace:
+    - name: /etc/java-config-2/current-system-vm/lib/security/java.security
+    - pattern: jdk.jar.disabledAlgorithms=MD2, MD5, RSA keySize < 1024
+    - repl: jdk.jar.disabledAlgorithms=MD2, RSA keySize < 1024

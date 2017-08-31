@@ -18,6 +18,12 @@ include:
     - require:
       - {{sls}} - Set USE flags for genkernel
 
+{{sls}} - Install 'intel-microcode':
+  pkg.installed:
+    - name: sys-firmware/intel-microcode
+#    - require:
+#      - {{sls}} - Set USE flags for genkernel
+
 {{sls}} - Set USE flags for gentoo-sources:
   portage_config.flags:
     - name: gentoo-sources
@@ -65,6 +71,14 @@ include:
 #    - install_recommends: False
     - require:
       - {{kernelSrc}}
+      - {{sls}} - Build and install kernel with genkernel
+
+{{sls}} - Execute 'boot-update':
+  cmd.run:
+    - name: boot-update
+    - require:
+#      - {{sls}} - Update old kernel config to latest format
+      - {{sls}} - Install 'genkernel'
       - {{sls}} - Build and install kernel with genkernel
 
 {{sls}} - Now you should be able to reboot into new kernel:

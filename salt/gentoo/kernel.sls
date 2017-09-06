@@ -24,19 +24,23 @@ include:
 #    - require:
 #      - {{sls}} - Set USE flags for genkernel
 
-{{sls}} - Set USE flags for gentoo-sources:
+#{{sls}} - Set USE flags for gentoo-sources:
+{{sls}} - Set USE flags for tuxonice-sources:
   portage_config.flags:
-    - name: gentoo-sources
+    #- name: gentoo-sources
+    - name: tuxonice-sources
     - use:
       - binary
 
 {{kernelSrc}}:
   pkg.installed:
-    - name: sys-kernel/gentoo-sources
+    #- name: sys-kernel/gentoo-sources
+    - name: sys-kernel/tuxonice-sources
     - refresh: True
 #    - install_recommends: False
     - require:
-      - {{sls}} - Set USE flags for gentoo-sources
+      #- {{sls}} - Set USE flags for gentoo-sources
+      - {{sls}} - Set USE flags for tuxonice-sources
       - {{sls}} - Install 'genkernel'
 
 {{kernelConfig}}:
@@ -49,7 +53,7 @@ include:
     - name: "zcat /proc/config.gz >/usr/src/linux/.config"
     - onlyif: "! test -e /usr/src/linux/.config"
     - require:
-      - {{sls}} - Kernel Source Package for Gentoo
+      - {{kernelSrc}}
 
 #{{sls}} - Update old kernel config to latest format:
 #  cmd.run:

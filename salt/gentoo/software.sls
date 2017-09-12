@@ -26,7 +26,7 @@ include:
 #    - require:
 #      - {{kernelConfig}}
 
-{%      for svc in 'ntpd', 'cupsd', 'docker' %}
+{%      for svc in 'ntpd', 'metalog', 'cupsd', 'docker' %}
 {{sls}} - Start {{svc}} service:
   service.running:
     - name: {{svc}}

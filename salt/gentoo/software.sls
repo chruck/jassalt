@@ -14,6 +14,7 @@ include:
 #    - install_recommends: False
     - pkgs:
       - app-emulation/docker
+      - app-vim/vim-spell-en
       - media-fonts/corefonts
       - net-misc/ntp
       - net-misc/wicd

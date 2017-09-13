@@ -3,6 +3,9 @@
 {% from tpldir ~ "/vars.jinja" import kernelConfig, kernelSrc with context %}
 {% from "installFuntoo/headtail.jinja" import headtail with context %}
 
+{% set kernelName = "gentoo-sources" %}
+{# set kernelName = "tuxonice-sources" #}
+
 include:
   - .useflags
 
@@ -24,23 +27,19 @@ include:
 #    - require:
 #      - {{sls}} - Set USE flags for genkernel
 
-#{{sls}} - Set USE flags for gentoo-sources:
-{{sls}} - Set USE flags for tuxonice-sources:
+{{sls}} - Set USE flags for {{kernelName}}:
   portage_config.flags:
-    #- name: gentoo-sources
-    - name: tuxonice-sources
+    - name: {{kernelName}}
     - use:
       - binary
 
 {{kernelSrc}}:
   pkg.installed:
-    #- name: sys-kernel/gentoo-sources
-    - name: sys-kernel/tuxonice-sources
+    - name: sys-kernel/{{kernelName}}
     - refresh: True
 #    - install_recommends: False
     - require:
-      #- {{sls}} - Set USE flags for gentoo-sources
-      - {{sls}} - Set USE flags for tuxonice-sources
+      - {{sls}} - Set USE flags for {{kernelName}}
       - {{sls}} - Install 'genkernel'
 
 {{kernelConfig}}:

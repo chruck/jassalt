@@ -48,8 +48,11 @@ include:
 #    - if_missing: /usr/src/linux/.config
 #    - source: /proc/config.gz
 #    - archive_format: tar
-  cmd.run:
-    - name: "zcat /proc/config.gz >/usr/src/linux/.config"
+  #cmd.run:
+  file.managed:
+    #- name: "zcat /proc/config.gz >/usr/src/linux/.config"
+    - name: /usr/src/linux/.config
+    - source: salt://gentoo/kernel.config
     - onlyif: "! test -e /usr/src/linux/.config"
     - require:
       - {{kernelSrc}}

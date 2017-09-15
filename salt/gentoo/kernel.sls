@@ -4,7 +4,6 @@
 {% from "installFuntoo/headtail.jinja" import headtail with context %}
 
 {% set kernelName = "gentoo-sources" %}
-{# set kernelName = "tuxonice-sources" #}
 
 include:
   - .useflags
@@ -37,37 +36,22 @@ include:
   pkg.installed:
     - name: sys-kernel/{{kernelName}}
     - refresh: True
-#    - install_recommends: False
     - require:
       - {{sls}} - Set USE flags for {{kernelName}}
       - {{sls}} - Install 'genkernel'
 
 {{kernelConfig}}:
-#  archive.extracted:
-#    - name: /usr/src/linux/.config
-#    - if_missing: /usr/src/linux/.config
-#    - source: /proc/config.gz
-#    - archive_format: tar
-  #cmd.run:
   file.managed:
-    #- name: "zcat /proc/config.gz >/usr/src/linux/.config"
     - name: /usr/src/linux/.config
     - source: salt://gentoo/kernel.config
     - onlyif: "! test -e /usr/src/linux/.config"
     - require:
       - {{kernelSrc}}
 
-#{{sls}} - Update old kernel config to latest format:
-#  cmd.run:
-#    - name: "cd /usr/src/linux; make oldconfig {{headtail}}"
-#    - require:
-#      - {{kernelConfig}}
-
 {{sls}} - Build and install kernel with genkernel:
   cmd.run:
-    - name: "genkernel --no-color --oldconfig all {{headtail}}"
+    - name: "genkernel --no-color --oldconfig all"
     - require:
-#      - {{sls}} - Update old kernel config to latest format
       - {{sls}} - Install 'genkernel'
 
 {{sls}} - NVidia Package for Gentoo:
@@ -83,7 +67,6 @@ include:
   cmd.run:
     - name: boot-update
     - require:
-#      - {{sls}} - Update old kernel config to latest format
       - {{sls}} - Install 'genkernel'
       - {{sls}} - Build and install kernel with genkernel
 

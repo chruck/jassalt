@@ -21,6 +21,7 @@
                 'vpnc',
         ],
         "Gentoo": [
+                'dev-java/icedtea',
                 'dev-java/icedtea-web',
                 'dev-vcs/subversion',
                 'net-misc/rdesktop',

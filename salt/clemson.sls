@@ -12,9 +12,10 @@
                    (jasBin ~ "vdi.vmware-view", jasBin ~ "vmware-view.vdi"),
                    (jasBin ~ "vpnc-script",     jasSrcBin ~ "vpnc-script"),
                   ] %}
+# "default" below is using Debian as basis
 {% set pkgs = salt['grains.filter_by']({
         "default": [
-                'icedtea',
+                'icedtea-plugin',
                 'openconnect',
                 'rdesktop',
                 'subversion',
@@ -30,7 +31,7 @@
         ],
 }, default='default'
 ) %}
-
+# "default" below is using Gentoo as basis
 {% set javaSecFile = salt['grains.filter_by']({
         "default": '/etc/java-config-2/current-system-vm/lib/security/java.security',
         "Debian": '/etc/java-8-openjdk/security/java.security',

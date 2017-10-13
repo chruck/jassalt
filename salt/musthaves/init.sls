@@ -80,7 +80,6 @@ include:
       - libsub-identify-perl
       - libtext-levenshtein-perl
       - libtimezonemap1
-      - libunistring0
       - libvte-2.90-9
       - libvte-2.90-common
       - lintian

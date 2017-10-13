@@ -12,9 +12,10 @@
                    (jasBin ~ "vdi.vmware-view", jasBin ~ "vmware-view.vdi"),
                    (jasBin ~ "vpnc-script",     jasSrcBin ~ "vpnc-script"),
                   ] %}
+# "default" below is using Debian as basis
 {% set pkgs = salt['grains.filter_by']({
         "default": [
-                'icedtea',
+                'icedtea-plugin',
                 'openconnect',
                 'rdesktop',
                 'subversion',
@@ -28,6 +29,12 @@
                 'net-vpn/openconnect',
                 'net-vpn/vpnc',
         ],
+}, default='default'
+) %}
+# "default" below is using Gentoo as basis
+{% set javaSecFile = salt['grains.filter_by']({
+        "default": '/etc/java-config-2/current-system-vm/lib/security/java.security',
+        "Debian": '/etc/java-8-openjdk/security/java.security',
 }, default='default'
 ) %}
 
@@ -70,6 +77,6 @@ include:
 
 {{sls}} - Allow MD5-signed jars (for Spectrum):
   file.replace:
-    - name: /etc/java-config-2/current-system-vm/lib/security/java.security
+    - name: {{javaSecFile}}
     - pattern: jdk.jar.disabledAlgorithms=MD2, MD5, RSA keySize < 1024
     - repl: jdk.jar.disabledAlgorithms=MD2, RSA keySize < 1024

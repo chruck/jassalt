@@ -93,3 +93,18 @@ include:
       - musthaves.git - Install {{musthaves.gitpkg}} package
       - "{{sls}} - Symlink for {{saltDir}}"
       - "{{sls}} - Create {{srvDir}}"
+
+{{sls}} - Install CIFS-mounting software:
+  pkg.installed:
+    - name: cifs-utils
+    - refresh: True
+
+{{sls}} - Mount isoarchive:
+  mount.mounted:
+    - name: /mnt/isoarchive
+    - device: //isoarchive.zfs.clemson.edu/isoarchive
+    - fstype: cifs
+    - mkmnt: True
+    - opts: 'user=eckard,passwd='
+    - require:
+      - {{sls}} - Install CIFS-mounting software

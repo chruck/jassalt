@@ -1,7 +1,7 @@
 {% set synergyServer = "tiger" %}
-{% set synergyServerIP = "172.16.16.100" %}
+{% set synergyServerIP = "172.16.16.16" %}
 {% set synergyClient = "grace" %}
-{% set synergyClientIP = "172.16.16.107" %}
+{% set synergyClientIP = "172.16.16.128" %}
 
 {% if synergyServer == grains.nodename or synergyClient ==
         grains.nodename %}

@@ -79,5 +79,6 @@ include:
 {{sls}} - Allow MD5-signed jars (for Spectrum):
   file.replace:
     - name: {{javaSecFile}}
+    - onlyif: test -f {{javaSecFile}}
     - pattern: jdk.jar.disabledAlgorithms=MD2, MD5, RSA keySize < 1024
     - repl: jdk.jar.disabledAlgorithms=MD2, RSA keySize < 1024

@@ -34,8 +34,9 @@
 # "default" below is using Gentoo as basis
 {% set javaSecFile = salt['grains.filter_by']({
         "default": '/etc/java-config-2/current-system-vm/lib/security/java.security',
-        "Gentoo": '/etc/java-config-2/current-system-vm/jre/lib/security/java.security',
         "Debian": '/etc/java-8-openjdk/security/java.security',
+        "RedHat": '/etc/alternatives/jre/lib/security/java.security',
+        "Gentoo": '/etc/java-config-2/current-system-vm/jre/lib/security/java.security',
 }, default='default'
 ) %}
 

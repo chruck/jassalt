@@ -7,6 +7,7 @@ include:
   - .opensshd
   - .synergy
 #  - .salt-minion
+  - .browserextensions
 
 {{sls}} - Must-Haves:
   pkg.installed:

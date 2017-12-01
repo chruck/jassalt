@@ -21,7 +21,7 @@ include:
   file.append:
     - name: /home/{{pillar.user}}/.bashrc
     - text:
-      - . .bashrc.jas
+      - . ~/.bashrc.jas
     - onlyif: "! test -L /home/{{pillar.user}}/.bashrc"
     - require:
       - {{sls}} - Upload Jas' .bashrc.jas

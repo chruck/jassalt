@@ -16,7 +16,7 @@ include:
 {{sls}} - Download GhostText Vim repo:
   git.latest:
     - name: https://github.com/falstro/ghost-text-vim.git
-    - target: {{jasSrc}}
+    - target: {{jasSrc}}ghost-text-vim
     - user: {{pillar['user']}}
     - require:
       - musthaves.git - Install {{musthaves.gitpkg}} package

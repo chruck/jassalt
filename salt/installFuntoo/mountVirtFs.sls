@@ -2,6 +2,7 @@
 
 {% from tpldir ~ "/vars.jinja" import
         bindMountDev,
+        mountAsFuntoo,
         mntPt,
         with context %}
 
@@ -15,7 +16,7 @@ include:
     - fstype: proc
     - mkmnt: True
     - require:
-      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {{sls}} - Bind mount {{mntPt}}/sys:
   mount.mounted:
@@ -25,7 +26,7 @@ include:
     - mkmnt: True
     - opts: rbind
     - require:
-      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {{bindMountDev}}:
   mount.mounted:
@@ -35,7 +36,7 @@ include:
     - mkmnt: True
     - opts: rbind
     - require:
-      - installFuntoo.mountingFilesystems - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

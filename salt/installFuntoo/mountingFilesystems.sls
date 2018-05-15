@@ -1,9 +1,15 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{{sls}} - Mount btrfs /dev/sda as /mnt/funtoo:
+{% from tpldir ~ "/vars.jinja" import
+        mountAsFuntoo,
+        mntPt,
+        mntDev,
+        with context %}
+
+{{mountAsFuntoo}}:
   mount.mounted:
-    - name: /mnt/funtoo
-    - device: /dev/sda
+    - name: {{mntPt}}
+    - device: {{mntDev}}
     - fstype: btrfs
     #- pass_num: 1
     - mkmnt: True

@@ -1,4 +1,5 @@
 {% set mntPt = "/mnt/funtoo" %}
+{% set mntDev = "/dev/mapper/dmcrypt_root" %}
 
 # Target Files
 {% set hostnameFile = mntPt ~ "/etc/conf.d/hostname" %}
@@ -26,6 +27,7 @@
 {% set emergeSync = downloadingThePortageTree ~ " - Download Portage Tree (tail)" %}
 {% set bindMountDev = mountVirtFs ~ " - Bind mount " ~ mntPt ~ "/dev" %}
 {% set installStage3 = installingTheStage3Tarball ~ " - Install Funtoo Stage 3 onto " ~ mntPt  %}
+{% set mountAsFuntoo = mountingFilesystems ~ " - Mount btrfs " ~ mntDev ~ " as " ~ mntPt %}
 
 # Other
 {% set futureHostname = "iac" %}

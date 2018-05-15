@@ -2,6 +2,7 @@
 
 {% from tpldir ~ "/vars.jinja" import
         harddriveDev,
+        mntDev,
         mntPt,
         mntFstab,
         mountAsFuntoo,
@@ -44,6 +45,7 @@ include:
     - mount: False
     - config: {{mntFstab}}
     - device: {{harddriveDev}}
+#    - device: {{mntDev}}
     - fstype: btrfs
     - dump: 1
     - opts: rw,relatime,ssd,space_cache,subvolid=5,subvol=/

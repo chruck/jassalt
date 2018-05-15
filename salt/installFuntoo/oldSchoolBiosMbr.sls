@@ -1,13 +1,16 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-{% set mntPt = "/mnt/funtoo" %}
+{% from tpldir ~ "/vars.jinja" import
+        harddriveDev,
+        mntPt,
+        with context %}
 
 include:
   - .installingABootloader
 
-{{sls}} - Install grub to MBR of /dev/sda:
+{{sls}} - Install grub to MBR of {{harddriveDev}}:
   cmd.run:
-    - name: /bin/chroot {{mntPt}} grub-install --target=i386-pc --no-floppy /dev/sda
+    - name: /bin/chroot {{mntPt}} grub-install --target=i386-pc --no-floppy {{harddriveDev}}
     - require:
       - installFuntoo.installingABootloader - Install grub program
 

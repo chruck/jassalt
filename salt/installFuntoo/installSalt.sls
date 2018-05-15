@@ -6,6 +6,7 @@
         emergeSync,
         futureHostname,
         mntPt,
+        mountAsFuntoo,
         mountVirtFs,
         mountingFilesystems,
         saltMasterHostname,
@@ -37,7 +38,7 @@ include:
     - text:
       - "{{saltMasterIp}} {{saltMasterHostname}} salt"
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 # Commented out, seeing if setting 'hostname' takes care of this:
 #{{sls}} - Set the minion id:

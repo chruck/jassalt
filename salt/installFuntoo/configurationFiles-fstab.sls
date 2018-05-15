@@ -1,22 +1,24 @@
 {% if "sysresccd" == grains["nodename"] %}
 
 {% from tpldir ~ "/vars.jinja" import
+        harddriveDev,
         mntPt,
         mntFstab,
+        mountAsFuntoo,
         mountingFilesystems,
         with context %}
 
 include:
   - {{mountingFilesystems}}
 
-{{sls}} - Remove all /dev/sda*'s from {{mntFstab}}:
+{{sls}} - Remove all {{harddriveDev}}*'s from {{mntFstab}}:
   file.line:
     - name: {{mntFstab}}
-    - match: /dev/sda
+    - match: {{harddriveDev}}
     - content:
     - mode: delete
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {{sls}} - Remove swap from {{mntFstab}}:
   file.line:
@@ -25,7 +27,7 @@ include:
     - content:
     - mode: delete
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {{sls}} - Remove /boot from {{mntFstab}}:
   #file.comment:
@@ -34,20 +36,20 @@ include:
     - config: {{mntFstab}}
     - persist: True
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {{sls}} - Add / to {{mntFstab}}:
   mount.mounted:
     - name: /
     - mount: False
     - config: {{mntFstab}}
-    - device: /dev/sda
+    - device: {{harddriveDev}}
     - fstype: btrfs
     - dump: 1
     - opts: rw,relatime,ssd,space_cache,subvolid=5,subvol=/
     - pass_num: 1
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {#
 {{sls}} - Add /proc to {{mntFstab}}:
@@ -58,7 +60,7 @@ include:
     - device: proc
     - fstype: proc
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {{sls}} - Add /sys to {{mntFstab}}:
   mount.mounted:
@@ -68,7 +70,7 @@ include:
     - device: /sys
     - fstype: sysfs
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {{sls}} - Add /dev to {{mntFstab}}:
   mount.mounted:
@@ -78,7 +80,7 @@ include:
     - device: /dev
     - fstype: devtmpfs
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 #}
 
 {% else %}

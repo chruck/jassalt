@@ -3,6 +3,7 @@
 {% from tpldir ~ "/vars.jinja" import
         mntPt,
         makeConfFile,
+        mountAsFuntoo,
         mountingFilesystems,
         numThreads,
         with context %}
@@ -18,7 +19,7 @@ include:
     - defaults:
         numThreads: {{numThreads}}
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 #{{sls}} - Set USE flag for consolekit:
 #  portage_config.flags:

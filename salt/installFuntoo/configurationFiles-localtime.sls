@@ -2,6 +2,7 @@
 
 {% from tpldir ~ "/vars.jinja" import
         mntPt,
+        mountAsFuntoo,
         mountingFilesystems,
         localtimeFile,
         timezoneFile,
@@ -14,7 +15,7 @@ include:
   cmd.run:
     - name: /bin/chroot {{mntPt}} ln -sf {{timezoneFile}} {{localtimeFile}}
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

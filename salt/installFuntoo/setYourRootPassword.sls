@@ -2,6 +2,7 @@
 
 {% from tpldir ~ "/vars.jinja" import
         mntPt,
+        mountAsFuntoo,
         mountingFilesystems,
         with context %}
 
@@ -14,7 +15,7 @@ include:
     - pattern: 'root:\*:'
     - repl: 'root:$6$ncRpDhvOQ/5R4$EJThCxOVPZO8p1Nis558Jo6ICJkUwpXkPIRCaWS50dZHqKMMhQPphN/WP9dFwsRgf6yQIkY7z4hQsQveoveJu0:'
     - require:
-      - mount: {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

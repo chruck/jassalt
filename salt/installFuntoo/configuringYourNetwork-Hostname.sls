@@ -2,6 +2,7 @@
 
 {% from tpldir ~ "/vars.jinja" import
         hostnameFile,
+        mountAsFuntoo,
         mountingFilesystems,
         futureHostname,
         with context %}
@@ -15,7 +16,7 @@ include:
     - pattern: "hostname=.*"
     - repl: "hostname={{futureHostname}}"
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

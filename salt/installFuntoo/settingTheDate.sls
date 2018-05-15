@@ -2,7 +2,7 @@
 
 {{sls}} - Set the time:
   cmd.run:
-    - name: ntpdate pool.ntp.org
+    - name: ntpd -gq
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

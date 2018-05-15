@@ -4,6 +4,7 @@
         installStage3,
         installingTheStage3Tarball,
         mntPt,
+        mountAsFuntoo,
         mountVirtFs,
         mountingFilesystems,
         with context %}
@@ -18,7 +19,7 @@ include:
     - name: {{mntPt}}/etc/resolv.conf
     - source: /etc/resolv.conf
     - require:
-      - {{mountingFilesystems}} - Mount btrfs /dev/sda as /mnt/funtoo
+      - {{mountAsFuntoo}}
       - {{installStage3}}
 
 {{sls}} - Ping in chroot of {{mntPt}}:

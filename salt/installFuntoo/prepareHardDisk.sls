@@ -1,16 +1,22 @@
 {% if "sysresccd" == grains["nodename"] %}
 
-#{{sls}} - Label /dev/sda as GPT:
+{% from tpldir ~ "/vars.jinja" import
+        harddriveDev,
+        mntDev,
+        with context %}
+{# set luksPasswd = salt['pillar.get']('luks:passwd', 'passwd') #}
+
+#{{sls}} - Label {{harddriveDev}} as GPT:
 #  module.run:
 #    - name: partition.mklabel
-#    - device: /dev/sda
+#    - device: {{harddriveDev}}
 #    - label_type: gpt
 #    - label_type: msdos
 
-#{{sls}} - Create partition /dev/sda1 as fat32:
+#{{sls}} - Create partition {{harddriveDev}}1 as fat32:
 #  module.run:
 #    - name: partition.mkpart
-#    - device: /dev/sda
+#    - device: {{harddriveDev}}
 #    - part_type: primary
 #    - fs_type: fat32
 #    - start: 2048s
@@ -18,10 +24,10 @@
 #    - start: 0
 #    - end: 260
 
-#{{sls}} - Create partition /dev/sda2 as btrfs:
+#{{sls}} - Create partition {{harddriveDev}}2 as btrfs:
 #  module.run:
 #    - name: partition.mkpart
-#    - device: /dev/sda
+#    - device: {{harddriveDev}}
 #    - part_type: primary
 #    - fs_type: btrfs
 #    - start: 534528s
@@ -29,24 +35,38 @@
 #    - end: 1000215182s
 #    - start: 260
 
-#{{sls}} - Format /dev/sda (cmd.run):
-#  cmd.run:
-#    - name: "mkfs.btrfs /dev/sda -f"
+{{sls}} - Format {{harddriveDev}} as LUKS:
+  cmd.run:
+#    - name: cryptsetup luksFormat --cipher aes-xts-plain64 --hash sha512 --key-size 512 {{harddriveDev}}
+#zettaknight:    - name: cryptsetup luksFormat --cipher aes-xts-plain --hash sha256 --key-size 512 {{harddriveDev}}
+    - name: cryptsetup luksFormat --cipher aes-xts-plain64 {{harddriveDev}} <<< {{pillar['luks:passwd']}}
 
-{{sls}} - Format /dev/sda (module.run):
+{{sls}} - Make {{harddriveDev}} a mapper device named {{mapperName}}:
+  cmd.run:
+    - name: cryptsetup luksOpen {{harddriveDev}} {{mapperName}}
+    - require:
+      - {{sls}} - Format {{harddriveDev}} as LUKS
+
+#{{sls}} - Format {{mntDev}} (cmd.run):
+#  cmd.run:
+#    - name: "mkfs.btrfs {{mntDev}} -f"
+
+{{sls}} - Format {{mntDev}} (module.run):
   module.run:
     - name: btrfs.mkfs
     - devices:
-      - /dev/sda
+      - {{mntDev}}
+    - require:
+      - {{sls}} - Make {{harddriveDev}} a mapper device named {{mapperName}}
 
-{{sls}} - Format /dev/sda:
+{{sls}} - Format {{mntDev}}
   blockdev.formatted:
-    - name: /dev/sda
+    - name: {{mntDev}}
     - fs_type: btrfs
     - force: True
     - require:
-#      - cmd: {{sls}} - Format /dev/sda (cmd.run)
-      - module: {{sls}} - Format /dev/sda (module.run)
+#      - {{sls}} - Format {{mntDev}} (cmd.run)
+      - {{sls}} - Format {{mntDev}} (module.run)
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

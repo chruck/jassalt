@@ -51,6 +51,7 @@
 #  cmd.run:
 #    - name: "mkfs.btrfs {{mntDev}} -f"
 
+{#
 {{sls}} - Format {{mntDev}} (module.run):
   module.run:
     - name: btrfs.mkfs
@@ -58,6 +59,7 @@
       - {{mntDev}}
     - require:
       - {{sls}} - Make {{harddriveDev}} a mapper device named {{mapperName}}
+#}
 
 {{sls}} - Format {{mntDev}}
   blockdev.formatted:
@@ -66,7 +68,8 @@
     - force: True
     - require:
 #      - {{sls}} - Format {{mntDev}} (cmd.run)
-      - {{sls}} - Format {{mntDev}} (module.run)
+#      - {{sls}} - Format {{mntDev}} (module.run)
+      - {{sls}} - Make {{harddriveDev}} a mapper device named {{mapperName}}
 
 {% else %}
 echo "Not installing on '{{grains["nodename"]}}'; expecting 'sysresccd'."; exit 1:

@@ -1,6 +1,7 @@
 {% set mntPt = "/mnt/funtoo" %}
 {% set harddriveDev = "/dev/sda" %}
-{% set mntDev = "/dev/mapper/dmcrypt_root" %}
+{% set mapperName = "luks_root" %}
+{% set mntDev = "/dev/mapper/" ~ mapperName %}
 
 # Target Files
 {% set hostnameFile = mntPt ~ "/etc/conf.d/hostname" %}

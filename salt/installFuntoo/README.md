@@ -29,7 +29,7 @@ sudo salt-ssh sysresccd state.apply installFuntoo
 Because Funtoo builds all its software, the above step will take a long
 time and not return until done.  The output will scroll beyond the
 buffer.  Tests during development of this state showed to be:
-        62(2)-63-64-65-(72)-75-83
+        62(2)-63-64-65-(72)-75-83-190
 minutes.
 * The state names are based on section headers of [Install Funtoo Linux].
 If running each state individually, one at a time, is desired, an

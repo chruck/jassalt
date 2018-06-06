@@ -13,8 +13,8 @@ include:
     - gid_from_name: True
     - groups:
       - adm
-      - plugdev
       {% if "Gentoo" == grains.os %}
+      - plugdev
       - users
       - wheel
       {% endif %}

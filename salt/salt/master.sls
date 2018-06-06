@@ -94,17 +94,18 @@ include:
       - "{{sls}} - Symlink for {{saltDir}}"
       - "{{sls}} - Create {{srvDir}}"
 
-{{sls}} - Install CIFS-mounting software:
-  pkg.installed:
-    - name: cifs-utils
-    - refresh: True
+#{{sls}} - Install CIFS-mounting software:
+#  pkg.installed:
+#    - name: cifs-utils
+#    - refresh: True
 
 {{sls}} - Mount isoarchive:
   mount.mounted:
     - name: /mnt/isoarchive
-    - device: //isoarchive.zfs.clemson.edu/isoarchive
-    - fstype: cifs
+#    - device: //isoarchive.zfs.clemson.edu/isoarchive
+    - device: isoarchive.zfs.clemson.edu:zfs_data/isoarchive
+#    - fstype: cifs
     - mkmnt: True
-    - opts: 'user=eckard,passwd='
-    - require:
-      - {{sls}} - Install CIFS-mounting software
+    - opts: 'user=eckard,passwd={{pillar.passwd}}'
+#    - require:
+#      - {{sls}} - Install CIFS-mounting software

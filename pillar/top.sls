@@ -2,5 +2,6 @@ base:
   '*':
     - userJas
     - luks
-  iac:
+  iac,stack,zetta:
+    - match: list
     - userEckard

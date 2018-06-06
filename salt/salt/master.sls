@@ -105,6 +105,7 @@ include:
 #    - device: //isoarchive.zfs.clemson.edu/isoarchive
     - device: isoarchive.zfs.clemson.edu:zfs_data/isoarchive
 #    - fstype: cifs
+    - fstype: nfs
     - mkmnt: True
     - opts: 'user=eckard,passwd={{pillar.passwd}}'
 #    - require:

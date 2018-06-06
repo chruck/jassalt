@@ -4,7 +4,7 @@ base:
     - salt
     - grub
     - adduser
-  grace,tiger,stack,iac:
+  grace,tiger,stack,iac,zetta:
     - match: list
     - musthaves
     - bashrc
@@ -13,7 +13,7 @@ base:
     - musthaves.vlc
     - clemson
     - sudoInsult
-  tiger,stack,iac:
+  tiger,stack,iac,zetta:
     - match: list
     - salt.master
     #- salt.virt

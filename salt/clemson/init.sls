@@ -29,6 +29,13 @@
                 'net-vpn/openconnect',
                 'net-vpn/vpnc',
         ],
+        "RedHat": [
+                'icedtea-web',
+                'openconnect',
+                'rdesktop',
+                'subversion',
+                'vpnc',
+        ],
 }, default='default'
 ) %}
 # "default" below is using Gentoo as basis

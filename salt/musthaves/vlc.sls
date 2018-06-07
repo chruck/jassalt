@@ -7,7 +7,7 @@ include:
 
 {{sls}} - Must-Haves for Desktop, VLC repo:
   pkg.installed:
-    - name: https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+    - name: https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{grains.osrelease}}.noarch.rpm
     - refresh: True
     - require_in:
       - {{sls}} - Must-Haves for Desktop, vlc

@@ -6,9 +6,11 @@ include:
 {% if "Fedora" == grains.os %}
 
 {{sls}} - Must-Haves for Desktop, VLC repo:
-  pkg.installed:
-    - name: https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{grains.osrelease}}.noarch.rpm
-    - refresh: True
+#  pkg.installed:
+#    - name: https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{grains.osrelease}}.noarch.rpm
+#    - refresh: True
+  cmd.run:
+    - name: yum install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{grains.osrelease}}.noarch.rpm
     - require_in:
       - {{sls}} - Must-Haves for Desktop, vlc
 

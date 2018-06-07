@@ -107,6 +107,6 @@ include:
 #    - fstype: cifs
     - fstype: nfs
     - mkmnt: True
-    - opts: 'user=eckard,passwd={{pillar.passwd}}'
+#    - opts: 'user=eckard,passwd={{pillar.passwd}}'
 #    - require:
 #      - {{sls}} - Install CIFS-mounting software

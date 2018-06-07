@@ -10,7 +10,7 @@ include:
 #    - name: https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{grains.osrelease}}.noarch.rpm
 #    - refresh: True
   cmd.run:
-    - name: yum install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{grains.osrelease}}.noarch.rpm
+    - name: yum install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{grains.osrelease}}.noarch.rpm
     - require_in:
       - {{sls}} - Must-Haves for Desktop, vlc
 

@@ -5,6 +5,7 @@
 
 include:
   - gentoo
+  - googlechrome
 
 {{musthaves4Desktop}}:
   pkg.installed:

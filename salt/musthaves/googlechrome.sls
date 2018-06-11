@@ -7,7 +7,8 @@ include:
 
 {{sls}} - Must-Haves for Desktop, Google Chrome repo:
   pkgrepo.managed:
-    - humanname: Google Chrome
+    - name: GoogleChrome
+    - humanname: GoogleChrome
     - baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
     - gpgkey: https://dl-ssl.google.com/linux/linux_signing_key.pub
     - gpgcheck: 1

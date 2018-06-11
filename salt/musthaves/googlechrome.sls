@@ -5,7 +5,7 @@ include:
 
 {% if "Fedora" == grains.os %}
 
-{{sls}} - Must-Haves for Desktop, Google Chrome:
+{{sls}} - Must-Haves for Desktop, Google Chrome repo:
   pkgrepo.managed:
     - humanname: Google Chrome
     - baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64

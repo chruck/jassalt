@@ -5,7 +5,7 @@ include:
 
 {% if "Fedora" == grains.os %}
 
-{{sls}} - Must-Haves for Desktop, Google Chrome repo:
+{{sls}} - Must-Haves for Desktop, Google Chrome repo (Fedora):
   pkgrepo.managed:
     - name: GoogleChrome
     - humanname: GoogleChrome
@@ -15,7 +15,21 @@ include:
     - require_in:
       - {{sls}} - Must-Haves for Desktop, Google Chrome
 
-{% endif %}  # Fedora
+{% if "Debian" == grains.os_family %}
+
+{{sls}} - Must-Haves for Desktop, Google Chrome repo (Debian):
+  pkgrepo.managed:
+    - humanname: GoogleChrome
+    #- name: deb http://dl.google.com/linux/chrome/deb/ stable main
+    - name: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+    - key_url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+    - file: /etc/apt/sources.list.d/google-chrome.list
+    - dist: stable
+    - gpgcheck: 1
+    - require_in:
+      - {{sls}} - Must-Haves for Desktop, Google Chrome
+
+{% endif %}  # Distro
 
 {{sls}} - Must-Haves for Desktop, Google Chrome:
   pkg.installed:

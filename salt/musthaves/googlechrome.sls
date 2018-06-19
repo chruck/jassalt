@@ -15,7 +15,7 @@ include:
     - require_in:
       - {{sls}} - Must-Haves for Desktop, Google Chrome
 
-{% if "Debian" == grains.os_family %}
+{% elif "Debian" == grains.os_family %}
 
 {{sls}} - Must-Haves for Desktop, Google Chrome repo (Debian):
   pkgrepo.managed:
